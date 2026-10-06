@@ -1,0 +1,2516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Africa Explorers — Discover Nigeria. One State at a Time.</title>
+  <meta name="description"
+    content="Discover Nigeria one state at a time. Explore vibrant cities, cultural festivals, hidden natural gems, curated trips, and join a thriving community of explorers.">
+  <meta name="keywords"
+    content="The Africa Explorers, Nigeria Travel, Lagos State, Osun State, Nigerian Culture, Travel Packages Nigeria, Erin Ijesha, Lekki, Tourism Nigeria">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo-white.png">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Caveat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Bootstrap Icons 1.11 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom Core Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ======================================================================
+       NAVIGATION BAR
+       ====================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-custom" id="mainNavbar">
+    <div class="custom-container d-flex align-items-center justify-content-between">
+
+      <!-- Brand Logo -->
+      <a class="navbar-brand d-flex align-items-center" href="#hero-section" id="navBrandLink">
+        <img src="assets/logo-white.png" alt="The Africa Explorers Logo" class="navbar-brand-logo">
+      </a>
+
+      <!-- Desktop Nav Links (Center Aligned) -->
+      <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex" id="navbarNav">
+        <ul class="navbar-nav align-items-center gap-1">
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="#states-section">States</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="#events-section">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="#tours-section">Tours & Visits</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="#packages-section">Trips</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="spots.html">Spots</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom text-mint" href="#membership-section">Membership</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom text-warning" href="business.html">For Businesses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="#campaign">Campaign</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="#about-us">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="#contact-us">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Action Items (Right) -->
+      <div class="nav-actions">
+        <!-- Dual Currency Switcher ($25 / ₦30k model) -->
+        <div class="currency-switcher me-2 d-none d-sm-inline-flex">
+          <button type="button" class="currency-btn active" data-curr="NGN" onclick="toggleCurrency('NGN')">₦ NGN</button>
+          <button type="button" class="currency-btn" data-curr="USD" onclick="toggleCurrency('USD')">$ USD</button>
+        </div>
+
+        <!-- Join CTA Button -->
+        <a href="join.html" class="btn btn-mint btn-mint-sm d-none d-sm-inline-flex" id="navJoinBtn">
+          Join the Explorers
+        </a>
+
+        <!-- Search Icon Button -->
+        <button type="button" class="nav-action-icon" data-bs-toggle="modal" data-bs-target="#searchModal"
+          title="Search destinations & events" aria-label="Search">
+          <i class="bi bi-search"></i>
+        </button>
+
+        <!-- User Profile Icon Button -->
+        <a href="dashboard.html" class="nav-action-icon" title="Explorer Dashboard & Identity" aria-label="Explorer Dashboard">
+          <i class="bi bi-person"></i>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="navbar-toggler custom-toggler d-lg-none ms-1" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#mobileMenuOffcanvas" aria-controls="mobileMenuOffcanvas" aria-label="Toggle navigation">
+          <i class="bi bi-list fs-3"></i>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Mobile Offcanvas Drawer -->
+  <div class="offcanvas offcanvas-end offcanvas-custom" tabindex="-1" id="mobileMenuOffcanvas"
+    aria-labelledby="mobileMenuOffcanvasLabel">
+    <div class="offcanvas-header border-bottom border-secondary border-opacity-25 pb-3">
+      <img src="assets/logo-white.png" alt="The Africa Explorers" style="height: 42px;">
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column justify-content-between pt-4">
+      <ul class="nav flex-column gap-3 fs-5">
+        <li class="nav-item">
+          <a class="nav-link text-white fw-semibold" href="#states-section" data-bs-dismiss="offcanvas">
+            <i class="bi bi-map text-mint me-2"></i> Explore States
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fw-semibold" href="#events-section" data-bs-dismiss="offcanvas">
+            <i class="bi bi-calendar-event text-mint me-2"></i> Featured Events
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fw-semibold" href="#packages-section" data-bs-dismiss="offcanvas">
+            <i class="bi bi-luggage text-mint me-2"></i> Travel Packages & Trips
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fw-semibold" href="spots.html">
+            <i class="bi bi-pin-map-fill text-mint me-2"></i> Spots Discovery Engine
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fw-semibold" href="business.html">
+            <i class="bi bi-shop text-warning me-2"></i> For Businesses
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fw-semibold" href="dashboard.html">
+            <i class="bi bi-person-badge text-mint me-2"></i> Explorer Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fw-semibold" href="admin.html">
+            <i class="bi bi-shield-lock text-mint me-2"></i> Admin Command Center
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fw-semibold" href="#about-us" data-bs-dismiss="offcanvas">
+            <i class="bi bi-info-circle text-mint me-2"></i> About Us
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fw-semibold" href="#contact-us" data-bs-dismiss="offcanvas">
+            <i class="bi bi-envelope text-mint me-2"></i> Contact Us
+          </a>
+        </li>
+      </ul>
+      <div class="pt-4 border-top border-secondary border-opacity-25">
+        <a href="join.html" class="btn btn-mint w-100 py-3 fw-bold mb-3 d-inline-block text-center">
+          Join the Explorers <i class="bi bi-arrow-right ms-2"></i>
+        </a>
+        <p class="small text-muted text-center mb-0">Same country. <span class="text-warning">Different stories.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ======================================================================
+       HERO SECTION WITH CONTINUOUS BACKGROUND VIDEO
+       ====================================================================== -->
+  <header class="hero-section" id="hero-section">
+    <!-- Continuous Background Video Wrapper -->
+    <div class="hero-video-container">
+      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline poster="assets/images/lagos_bridge.jpg">
+        <source src="assets/video/hero-video.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+    </div>
+
+    <!-- Gradient Overlay & Bottom Fade -->
+    <div class="hero-overlay"></div>
+    <div class="hero-bottom-fade"></div>
+
+    <div class="custom-container hero-content">
+      <div class="row align-items-center">
+
+        <!-- Left Hero Content -->
+        <div class="col-lg-7 col-12 reveal-on-scroll">
+
+          <!-- Subtitle badge -->
+          <div class="badge-tagline">
+            <span>EXPLORE</span>
+            <span class="bullet">&bull;</span>
+            <span>EXPERIENCE</span>
+            <span class="bullet">&bull;</span>
+            <span>CONNECT</span>
+          </div>
+
+          <!-- Main Heading -->
+          <h1 class="hero-title">
+            Discover Nigeria.<br>
+            <span class="gradient-text">One State at a Time.</span>
+          </h1>
+
+          <!-- Description Paragraph -->
+          <p class="hero-lead">
+            From vibrant cities to hidden gems, cultural festivals to breathtaking landscapes, explore events, places
+            and experiences across Nigeria. Join a community of explorers and make unforgettable memories.
+          </p>
+
+          <!-- Dual CTA Buttons -->
+          <div class="hero-cta-group">
+            <button type="button" class="btn btn-mint" data-bs-toggle="modal" data-bs-target="#joinExplorersModal"
+              id="heroJoinBtn">
+              Join the Explorers <i class="bi bi-arrow-right"></i>
+            </button>
+            <a href="#states-section" class="btn btn-outline-pill" id="heroExploreStatesBtn">
+              Explore States
+            </a>
+          </div>
+
+          <!-- Bottom Stats Bar -->
+          <div class="hero-stats-bar">
+            <!-- Metric 1: 36 States -->
+            <div class="hero-stat-item">
+              <i class="bi bi-box-seam hero-stat-icon"></i>
+              <div class="hero-stat-info">
+                <span class="hero-stat-value">36</span>
+                <span class="hero-stat-label">States</span>
+              </div>
+            </div>
+
+            <div class="hero-stat-divider"></div>
+
+            <!-- Metric 2: Countless Experiences -->
+            <div class="hero-stat-item">
+              <i class="bi bi-people hero-stat-icon"></i>
+              <div class="hero-stat-info">
+                <span class="hero-stat-value">Countless</span>
+                <span class="hero-stat-label">Experiences</span>
+              </div>
+            </div>
+
+            <div class="hero-stat-divider"></div>
+
+            <!-- Metric 3: One Nigeria -->
+            <div class="hero-stat-item">
+              <i class="bi bi-geo-alt-fill hero-stat-icon"></i>
+              <div class="hero-stat-info">
+                <span class="hero-stat-value">One</span>
+                <span class="hero-stat-label">Nigeria</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Hero Visual Element (Atmospheric Explorer overlooking Lagos Skyline) -->
+        <div class="col-lg-5 col-12 reveal-on-scroll delay-2">
+          <div class="hero-visual-wrapper">
+            <div class="hero-image-card">
+              <img src="assets/images/hero_explorer.jpg" alt="African explorer overlooking illuminated Lagos skyline"
+                class="hero-visual-img">
+
+              <!-- Atmospheric Tagline Badge Overlay -->
+              <div class="hero-tagline-badge">
+                <span class="tagline-line1">Same country.</span>
+                <span class="tagline-line2">Different stories.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ======================================================================
+       QUICK ACCESS BAR (ECOSYSTEM NAVIGATION)
+       ====================================================================== -->
+  <div class="custom-container" style="position: relative; z-index: 20;">
+    <div class="quick-access-bar reveal-on-scroll">
+      <a href="#states-section" class="quick-access-link active"><i class="bi bi-grid-fill"></i> Explore States</a>
+      <a href="#events-section" class="quick-access-link"><i class="bi bi-calendar2-event-fill"></i> Events & Passes</a>
+      <a href="#packages-section" class="quick-access-link"><i class="bi bi-luggage-fill"></i> Curated Trips</a>
+      <a href="spots.html" class="quick-access-link"><i class="bi bi-pin-map-fill"></i> Discover Spots</a>
+      <a href="business.html" class="quick-access-link"><i class="bi bi-shop"></i> For Businesses</a>
+      <a href="dashboard.html" class="quick-access-link"><i class="bi bi-person-badge-fill"></i> Explorer Dashboard</a>
+      <a href="admin.html" class="quick-access-link"><i class="bi bi-shield-lock-fill"></i> Admin Command</a>
+    </div>
+  </div>
+
+
+  <!-- ======================================================================
+       EXPLORE NIGERIAN STATES SECTION (10-COLUMN GRID)
+       ====================================================================== -->
+  <section class="states-section" id="states-section">
+    <div class="custom-container">
+
+      <!-- Section Header -->
+      <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-4 reveal-on-scroll">
+        <div>
+          <div class="section-indicator"></div>
+          <h2 class="section-heading">Explore Nigerian States</h2>
+          <p class="section-subtitle">Choose a state to discover upcoming events, places to visit, and unique
+            experiences.</p>
+        </div>
+        <div>
+          <a href="javascript:void(0)" class="view-all-link" data-bs-toggle="modal" data-bs-target="#allStatesModal"
+            id="viewAllStatesBtn">
+            View All States <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- State Chapter Filtering & Real-time Search -->
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4 reveal-on-scroll">
+        <div class="state-filter-tabs">
+          <button class="state-filter-btn active" onclick="filterStateTab('all', this)"><i class="bi bi-grid me-1"></i> All States (37)</button>
+          <button class="state-filter-btn" onclick="filterStateTab('available', this)"><i class="bi bi-check-circle-fill text-mint me-1"></i> Live Chapters (2)</button>
+          <button class="state-filter-btn" onclick="filterStateTab('coming_soon', this)"><i class="bi bi-lock-fill me-1"></i> Coming Soon (35)</button>
+        </div>
+        <div class="state-search-box">
+          <i class="bi bi-search text-mint"></i>
+          <input type="text" placeholder="Search state (e.g. Lagos, Osun, Kano)..." oninput="filterStates(this.value)">
+        </div>
+      </div>
+
+      <!-- States Responsive Grid (Matches Design Mockup 100%) -->
+      <div class="states-grid">
+
+        <!-- ROW 1 -->
+        <!-- 1. Lagos State (Unlocked - Spans 2 Columns) -->
+        <a href="lagos.html" class="state-card state-card-unlocked reveal-on-scroll"
+          style="background-image: url('assets/images/lagos_bridge.jpg');" role="button" tabindex="0" title="Explore Lagos State">
+          <div class="card-inner">
+            <h3 class="state-unlocked-title">Lagos State</h3>
+            <p class="state-unlocked-sub">Vibrant • Dynamic • Unforgettable</p>
+            <span class="btn btn-mint btn-mint-sm">
+              Join Explorers <i class="bi bi-arrow-right"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- 2. Osun State (Unlocked - Spans 2 Columns) -->
+        <a href="osun.html" class="state-card state-card-unlocked reveal-on-scroll delay-1"
+          style="background-image: url('assets/images/osun_waterfalls.jpg');" role="button" tabindex="0" title="Explore Osun State">
+          <div class="card-inner">
+            <h3 class="state-unlocked-title">Osun State</h3>
+            <p class="state-unlocked-sub">Nature • Culture • Heritage</p>
+            <span class="btn btn-mint btn-mint-sm">
+              Join Explorers <i class="bi bi-arrow-right"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- 3. Abia State (Locked) -->
+        <div class="state-card state-card-locked reveal-on-scroll delay-2" onclick="notifyMeState('Abia')" role="button"
+          tabindex="0" title="Click to join waitlist">
+          <div class="card-inner">
+            <i class="bi bi-lock-fill state-lock-icon"></i>
+            <span class="state-lock-badge">Coming Soon</span>
+            <span class="state-locked-title">Abia State</span>
+          </div>
+        </div>
+
+        <!-- 4. Adamawa State (Locked) -->
+        <div class="state-card state-card-locked reveal-on-scroll delay-2" onclick="notifyMeState('Adamawa')"
+          role="button" tabindex="0" title="Click to join waitlist">
+          <div class="card-inner">
+            <i class="bi bi-lock-fill state-lock-icon"></i>
+            <span class="state-lock-badge">Coming Soon</span>
+            <span class="state-locked-title">Adamawa State</span>
+          </div>
+        </div>
+
+        <!-- 5. Akwa Ibom State (Locked) -->
+        <div class="state-card state-card-locked reveal-on-scroll delay-3" onclick="notifyMeState('Akwa Ibom')"
+          role="button" tabindex="0" title="Click to join waitlist">
+          <div class="card-inner">
+            <i class="bi bi-lock-fill state-lock-icon"></i>
+            <span class="state-lock-badge">Coming Soon</span>
+            <span class="state-locked-title">Akwa Ibom State</span>
+          </div>
+        </div>
+
+        <!-- 6. Anambra State (Locked) -->
+        <div class="state-card state-card-locked reveal-on-scroll delay-3" onclick="notifyMeState('Anambra')"
+          role="button" tabindex="0" title="Click to join waitlist">
+          <div class="card-inner">
+            <i class="bi bi-lock-fill state-lock-icon"></i>
+            <span class="state-lock-badge">Coming Soon</span>
+            <span class="state-locked-title">Anambra State</span>
+          </div>
+        </div>
+
+        <!-- 7. Bauchi State (Locked) -->
+        <div class="state-card state-card-locked reveal-on-scroll delay-4" onclick="notifyMeState('Bauchi')"
+          role="button" tabindex="0" title="Click to join waitlist">
+          <div class="card-inner">
+            <i class="bi bi-lock-fill state-lock-icon"></i>
+            <span class="state-lock-badge">Coming Soon</span>
+            <span class="state-locked-title">Bauchi State</span>
+          </div>
+        </div>
+
+        <!-- 8. Bayelsa State (Locked) -->
+        <div class="state-card state-card-locked reveal-on-scroll delay-4" onclick="notifyMeState('Bayelsa')"
+          role="button" tabindex="0" title="Click to join waitlist">
+          <div class="card-inner">
+            <i class="bi bi-lock-fill state-lock-icon"></i>
+            <span class="state-lock-badge">Coming Soon</span>
+            <span class="state-locked-title">Bayelsa State</span>
+          </div>
+        </div>
+
+
+        <!-- ROW 2 -->
+        <!-- 9. Cross River State (Locked) -->
+        <div class="state-card state-card-locked reveal-on-scroll" onclick="notifyMeState('Cross River')" role="button"
+          tabindex="0">
+          <div class="card-inner">
+            <i class="bi bi-lock-fill state-lock-icon"></i>
+            <span class="state-lock-badge">Coming Soon</span>
+            <span class="state-locked-title">Cross River State</span>
+          </div>
+        </div>
+
+        <!-- 10. Delta State (Locked) -->
+        <div class="state-card state-card-locked reveal-on-scroll delay-1" onclick="notifyMeState('Delta')"
+          role="button" tabindex="0">
+          <div class="card-inner">
+            <i class="bi bi-lock-fill state-lock-icon"></i>
+            <span class="state-lock-badge">Coming Soon</span>
+            <span class="state-locked-title">Delta State</span>
+          </div>
+        </div>
+
+        <!-- 11. Ebonyi State (Locked) -->
+        <div class="state-card state-card-locked reveal-on-scroll delay-2" onclick="notifyMeState('Ebonyi')"
+          role="button" tabindex="0">
+          <div class="card-inner">
+            <i class="bi bi-lock-fill state-lock-icon"></i>
+            <span class="state-lock-badge">Coming Soon</span>
+            <span class="state-locked-title">Ebonyi State</span>
+          </div>
+        </div>
+
+        <!-- 12. Edo State (Locked) -->
+        <div class="state-card state-card-locked reveal-on-scroll delay-2" onclick="notifyMeState('Edo')" role="button"
+          tabindex="0">
+          <div class="card-inner">
+            <i class="bi bi-lock-fill state-lock-icon"></i>
+            <span class="state-lock-badge">Coming Soon</span>
+            <span class="state-locked-title">Edo State</span>
+          </div>
+        </div>
+
+        <!-- 13. Ekiti State (Locked) -->
+        <div class="state-card state-card-locked reveal-on-scroll delay-3" onclick="notifyMeState('Ekiti')"
+          role="button" tabindex="0">
+          <div class="card-inner">
+            <i class="bi bi-lock-fill state-lock-icon"></i>
+            <span class="state-lock-badge">Coming Soon</span>
+            <span class="state-locked-title">Ekiti State</span>
+          </div>
+        </div>
+
+        <!-- 14. Jigawa State (Locked) -->
+        <div class="state-card state-card-locked reveal-on-scroll delay-3" onclick="notifyMeState('Jigawa')"
+          role="button" tabindex="0">
+          <div class="card-inner">
+            <i class="bi bi-lock-fill state-lock-icon"></i>
+            <span class="state-lock-badge">Coming Soon</span>
+            <span class="state-locked-title">Jigawa State</span>
+          </div>
+        </div>
+
+        <!-- 15. +19 More States (Spans 4 Columns in bottom row) -->
+        <div class="state-card state-card-more reveal-on-scroll delay-4" data-bs-toggle="modal"
+          data-bs-target="#allStatesModal" role="button" tabindex="0">
+          <div class="card-inner">
+            <i class="bi bi-plus-circle more-icon"></i>
+            <span class="more-text">+19 More States</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       FEATURED EVENTS SECTION
+       ====================================================================== -->
+  <section class="events-section" id="events-section">
+    <div class="custom-container">
+
+      <!-- Section Header -->
+      <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-4 reveal-on-scroll">
+        <div>
+          <div class="section-indicator"></div>
+          <h2 class="section-heading">Featured Events</h2>
+          <p class="section-subtitle">Don't miss out on these amazing experiences happening soon.</p>
+        </div>
+        <div>
+          <a href="#events-section" class="view-all-link" onclick="openEventModal('foodFest')">
+            View All Events <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Events Cards Row -->
+      <div class="row g-4">
+
+        <!-- Event Card 1: Lagos Food & Culture Festival -->
+        <div class="col-lg-4 col-md-6 col-12 reveal-on-scroll">
+          <div class="event-card">
+            <div class="event-image-wrap">
+              <img src="assets/images/lagos_food_fest.jpg" alt="Lagos Food & Culture Festival" class="event-img">
+              <div class="event-date-badge">
+                <span class="day-name">SAT</span>
+                <span class="day-number">12</span>
+                <span class="month-name">OCT</span>
+              </div>
+            </div>
+            <div class="event-body">
+              <h3 class="event-title">Lagos Food & Culture Festival</h3>
+              <div class="event-meta">
+                <div class="event-meta-item">
+                  <i class="bi bi-geo-alt"></i>
+                  <span>Lagos State</span>
+                </div>
+                <div class="event-meta-item">
+                  <i class="bi bi-clock"></i>
+                  <span>10:00 AM – 10:00 PM</span>
+                </div>
+              </div>
+              <div class="event-footer">
+                <div class="event-tags-wrap">
+                  <span class="tag-pill">Food</span>
+                  <span class="tag-pill">Culture</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <button class="btn btn-mint btn-mint-sm py-1 px-3 fw-bold" onclick="openEventBookingModal('foodFest')">
+                    <i class="bi bi-ticket-perforated me-1"></i> Book Pass
+                  </button>
+                  <button class="event-action-btn" onclick="openEventModal('foodFest')" aria-label="View event details">
+                    <i class="bi bi-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event Card 2: Osun Heritage Festival -->
+        <div class="col-lg-4 col-md-6 col-12 reveal-on-scroll delay-1">
+          <div class="event-card">
+            <div class="event-image-wrap">
+              <img src="assets/images/osun_heritage_fest.jpg" alt="Osun Heritage Festival" class="event-img">
+              <div class="event-date-badge">
+                <span class="day-name">SUN</span>
+                <span class="day-number">20</span>
+                <span class="month-name">OCT</span>
+              </div>
+            </div>
+            <div class="event-body">
+              <h3 class="event-title">Osun Heritage Festival</h3>
+              <div class="event-meta">
+                <div class="event-meta-item">
+                  <i class="bi bi-geo-alt"></i>
+                  <span>Osun State</span>
+                </div>
+                <div class="event-meta-item">
+                  <i class="bi bi-clock"></i>
+                  <span>10:00 AM – 6:00 PM</span>
+                </div>
+              </div>
+              <div class="event-footer">
+                <div class="event-tags-wrap">
+                  <span class="tag-pill">Culture</span>
+                  <span class="tag-pill">Dance</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <button class="btn btn-mint btn-mint-sm py-1 px-3 fw-bold" onclick="openEventBookingModal('heritageFest')">
+                    <i class="bi bi-ticket-perforated me-1"></i> Book Pass
+                  </button>
+                  <button class="event-action-btn" onclick="openEventModal('heritageFest')"
+                    aria-label="View event details">
+                    <i class="bi bi-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event Card 3: Lagos Tech & Innovation Summit -->
+        <div class="col-lg-4 col-md-6 col-12 reveal-on-scroll delay-2">
+          <div class="event-card">
+            <div class="event-image-wrap">
+              <img src="assets/images/lagos_tech_summit.jpg" alt="Lagos Tech & Innovation Summit" class="event-img">
+              <div class="event-date-badge">
+                <span class="day-name">SAT</span>
+                <span class="day-number">26</span>
+                <span class="month-name">OCT</span>
+              </div>
+            </div>
+            <div class="event-body">
+              <h3 class="event-title">Lagos Tech & Innovation Summit</h3>
+              <div class="event-meta">
+                <div class="event-meta-item">
+                  <i class="bi bi-geo-alt"></i>
+                  <span>Lagos State</span>
+                </div>
+                <div class="event-meta-item">
+                  <i class="bi bi-clock"></i>
+                  <span>9:00 AM – 6:00 PM</span>
+                </div>
+              </div>
+              <div class="event-footer">
+                <div class="event-tags-wrap">
+                  <span class="tag-pill">Tech</span>
+                  <span class="tag-pill">Career</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <button class="btn btn-mint btn-mint-sm py-1 px-3 fw-bold" onclick="openEventBookingModal('techSummit')">
+                    <i class="bi bi-ticket-perforated me-1"></i> Book Pass
+                  </button>
+                  <button class="event-action-btn" onclick="openEventModal('techSummit')" aria-label="View event details">
+                    <i class="bi bi-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       TOURS & VISITS SECTION (PRD SECTION 17, 18, 19 — SEPARATE FROM EVENTS)
+       Answers: "What can I go and experience?"
+       ====================================================================== -->
+  <section class="tours-section py-5 position-relative" id="tours-section" style="background: linear-gradient(180deg, #071518 0%, #051417 100%);">
+    <div class="custom-container">
+
+      <!-- Section Header -->
+      <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-4 reveal-on-scroll">
+        <div>
+          <div class="section-indicator"></div>
+          <span class="badge bg-mint text-dark fw-bold px-3 py-1 rounded-pill mb-2 text-uppercase" style="letter-spacing: 0.8px; font-size: 0.72rem;">Immersive Day Experiences</span>
+          <h2 class="section-heading mb-1">Tours & Guided Visits</h2>
+          <p class="section-subtitle">What can you go and experience? Guided expeditions, secret heritage walks, and member discount rates.</p>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <span class="small text-muted d-none d-md-inline"><i class="bi bi-tag-fill text-warning me-1"></i>Members save up to 30%</span>
+          <a href="#membership-section" class="btn btn-outline-pill btn-sm">Member Rates <i class="bi bi-arrow-right ms-1"></i></a>
+        </div>
+      </div>
+
+      <!-- Tours Cards Grid -->
+      <div class="row g-4">
+
+        <!-- Tour 1: Lagos Island Cultural Walk -->
+        <div class="col-lg-3 col-md-6 col-12 reveal-on-scroll">
+          <div class="tour-card">
+            <div class="tour-image-wrap">
+              <img src="assets/images/lagos_street.jpg" alt="Lagos Island Historic Walk" class="tour-img">
+              <div class="tour-duration-badge">7 Hours</div>
+              <div class="tour-member-badge">Member Perk</div>
+            </div>
+            <div class="tour-body">
+              <div>
+                <h3 class="tour-title">Lagos Island Cultural & Heritage Walk</h3>
+                <div class="tour-meta">
+                  <span><i class="bi bi-geo-alt text-mint me-1"></i>Lagos State</span>
+                  <span><i class="bi bi-person-badge text-warning me-1"></i>Historian Guide</span>
+                </div>
+                <p class="small text-muted mb-3">Explore the 19th-century Brazilian quarters, Old Marina colonial architecture, National Museum, and street snack tastings.</p>
+              </div>
+              <div>
+                <div class="tour-pricing-row">
+                  <div>
+                    <span class="d-block small text-muted">Member Price:</span>
+                    <span class="member-price-highlight" data-ngn-price="18000">₦18,000</span>
+                  </div>
+                  <div class="text-end">
+                    <span class="d-block small text-muted">Regular:</span>
+                    <span class="regular-price-del" data-ngn-price="25000">₦25,000</span>
+                  </div>
+                </div>
+                <div class="d-flex gap-2">
+                  <button class="btn btn-outline-light btn-sm flex-fill" onclick="openTourModal('lagosHeritage')">
+                    Details
+                  </button>
+                  <button class="btn btn-mint btn-sm flex-fill fw-bold" onclick="openTourBookingModal('lagosHeritage')">
+                    Book Tour <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour 2: Lekki Canopy & Lagoon Cruise -->
+        <div class="col-lg-3 col-md-6 col-12 reveal-on-scroll delay-1">
+          <div class="tour-card">
+            <div class="tour-image-wrap">
+              <img src="assets/images/lekki_canopy.jpg" alt="Lekki Canopy Walk & Lagoon Cruise" class="tour-img">
+              <div class="tour-duration-badge">6 Hours</div>
+              <div class="tour-member-badge">Member Perk</div>
+            </div>
+            <div class="tour-body">
+              <div>
+                <h3 class="tour-title">Lekki Canopy Walkway & Coastal Lagoon Cruise</h3>
+                <div class="tour-meta">
+                  <span><i class="bi bi-geo-alt text-mint me-1"></i>Lagos State</span>
+                  <span><i class="bi bi-water text-cyan me-1"></i>Boat Charter</span>
+                </div>
+                <p class="small text-muted mb-3">Ascend Africa's longest suspension canopy walkway, spot wildlife in coastal rainforest, and cruise Lekki-Ikoyi link waters.</p>
+              </div>
+              <div>
+                <div class="tour-pricing-row">
+                  <div>
+                    <span class="d-block small text-muted">Member Price:</span>
+                    <span class="member-price-highlight" data-ngn-price="26000">₦26,000</span>
+                  </div>
+                  <div class="text-end">
+                    <span class="d-block small text-muted">Regular:</span>
+                    <span class="regular-price-del" data-ngn-price="35000">₦35,000</span>
+                  </div>
+                </div>
+                <div class="d-flex gap-2">
+                  <button class="btn btn-outline-light btn-sm flex-fill" onclick="openTourModal('lekkiCanopyBoat')">
+                    Details
+                  </button>
+                  <button class="btn btn-mint btn-sm flex-fill fw-bold" onclick="openTourBookingModal('lekkiCanopyBoat')">
+                    Book Tour <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour 3: Erin Ijesha Waterfalls Expedition -->
+        <div class="col-lg-3 col-md-6 col-12 reveal-on-scroll delay-2">
+          <div class="tour-card">
+            <div class="tour-image-wrap">
+              <img src="assets/images/osun_waterfalls.jpg" alt="Erin Ijesha Waterfalls Expedition" class="tour-img">
+              <div class="tour-duration-badge">8 Hours</div>
+              <div class="tour-member-badge">Member Perk</div>
+            </div>
+            <div class="tour-body">
+              <div>
+                <h3 class="tour-title">Erin Ijesha 7-Tiers Waterfall Guided Expedition</h3>
+                <div class="tour-meta">
+                  <span><i class="bi bi-geo-alt text-mint me-1"></i>Osun State</span>
+                  <span><i class="bi bi-compass text-warning me-1"></i>Mountain Hike</span>
+                </div>
+                <p class="small text-muted mb-3">Hike all 7 cascading waterfall tiers, visit the hidden ancient village of Abake at the crest, and swim in natural mountain spring pools.</p>
+              </div>
+              <div>
+                <div class="tour-pricing-row">
+                  <div>
+                    <span class="d-block small text-muted">Member Price:</span>
+                    <span class="member-price-highlight" data-ngn-price="20000">₦20,000</span>
+                  </div>
+                  <div class="text-end">
+                    <span class="d-block small text-muted">Regular:</span>
+                    <span class="regular-price-del" data-ngn-price="28000">₦28,000</span>
+                  </div>
+                </div>
+                <div class="d-flex gap-2">
+                  <button class="btn btn-outline-light btn-sm flex-fill" onclick="openTourModal('erinWaterfallTrek')">
+                    Details
+                  </button>
+                  <button class="btn btn-mint btn-sm flex-fill fw-bold" onclick="openTourBookingModal('erinWaterfallTrek')">
+                    Book Tour <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour 4: Osun-Osogbo Grove UNESCO Cultural Walk -->
+        <div class="col-lg-3 col-md-6 col-12 reveal-on-scroll delay-3">
+          <div class="tour-card">
+            <div class="tour-image-wrap">
+              <img src="assets/images/osun_grove.jpg" alt="Osun Grove UNESCO Cultural Walk" class="tour-img">
+              <div class="tour-duration-badge">5 Hours</div>
+              <div class="tour-member-badge">Member Perk</div>
+            </div>
+            <div class="tour-body">
+              <div>
+                <h3 class="tour-title">Osun-Osogbo Sacred Grove UNESCO Cultural Walk</h3>
+                <div class="tour-meta">
+                  <span><i class="bi bi-geo-alt text-mint me-1"></i>Osun State</span>
+                  <span><i class="bi bi-shield-check text-mint me-1"></i>UNESCO Site</span>
+                </div>
+                <p class="small text-muted mb-3">Walk through ancient Yoruba forest shrines, view Suzanne Wenger monumental sculptures, and experience authentic Adire textile dyeing.</p>
+              </div>
+              <div>
+                <div class="tour-pricing-row">
+                  <div>
+                    <span class="d-block small text-muted">Member Price:</span>
+                    <span class="member-price-highlight" data-ngn-price="16000">₦16,000</span>
+                  </div>
+                  <div class="text-end">
+                    <span class="d-block small text-muted">Regular:</span>
+                    <span class="regular-price-del" data-ngn-price="22000">₦22000</span>
+                  </div>
+                </div>
+                <div class="d-flex gap-2">
+                  <button class="btn btn-outline-light btn-sm flex-fill" onclick="openTourModal('osunGroveTour')">
+                    Details
+                  </button>
+                  <button class="btn btn-mint btn-sm flex-fill fw-bold" onclick="openTourBookingModal('osunGroveTour')">
+                    Book Tour <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       TRAVEL PACKAGES & TRIPS SECTION
+       ====================================================================== -->
+  <section class="packages-section" id="packages-section">
+    <div class="custom-container">
+
+      <!-- Section Header -->
+      <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-4 reveal-on-scroll">
+        <div>
+          <div class="section-indicator"></div>
+          <h2 class="section-heading">Travel Packages & Trips</h2>
+          <p class="section-subtitle">Curated trips and group experiences for unforgettable adventures.</p>
+        </div>
+        <div>
+          <a href="#packages-section" class="view-all-link" onclick="openPackageModal('ekoToOsun')">
+            View All Trips <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Packages Cards Row -->
+      <div class="row g-4">
+
+        <!-- Package 1: Osun Adventure Getaway -->
+        <div class="col-lg-4 col-md-6 col-12 reveal-on-scroll">
+          <div class="package-card">
+            <div class="package-image-wrap">
+              <img src="assets/images/osun_waterfalls.jpg" alt="Osun Adventure Getaway" class="package-img">
+              <div class="package-duration-badge">
+                <span class="duration-days">3 DAYS</span>
+                <span class="duration-nights">2 NIGHTS</span>
+              </div>
+            </div>
+            <div class="package-body">
+              <h3 class="package-title">Osun Adventure Getaway</h3>
+              <div class="package-location">
+                <i class="bi bi-geo-alt"></i>
+                <span>Osun State</span>
+              </div>
+              <div class="package-tags-wrap">
+                <span class="tag-pill">Nature</span>
+                <span class="tag-pill">Culture</span>
+                <span class="tag-pill">Hiking</span>
+              </div>
+              <div class="package-footer">
+                <div class="package-price-wrap">
+                  <span class="package-price-lbl">From</span>
+                  <span class="package-price-val">₦120,000</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <button class="btn btn-outline-light btn-mint-sm py-1 px-2 small" onclick="openPackageModal('osun')">
+                    Details
+                  </button>
+                  <button class="btn btn-mint btn-mint-sm py-1 px-3 fw-bold" onclick="openTripBookingModal('osun')">
+                    Book Trip <i class="bi bi-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 2: Lagos City Experience -->
+        <div class="col-lg-4 col-md-6 col-12 reveal-on-scroll delay-1">
+          <div class="package-card">
+            <div class="package-image-wrap">
+              <img src="assets/images/lagos_bridge.jpg" alt="Lagos City Experience" class="package-img">
+              <div class="package-duration-badge">
+                <span class="duration-days">4 DAYS</span>
+                <span class="duration-nights">3 NIGHTS</span>
+              </div>
+            </div>
+            <div class="package-body">
+              <h3 class="package-title">Lagos City Experience</h3>
+              <div class="package-location">
+                <i class="bi bi-geo-alt"></i>
+                <span>Lagos State</span>
+              </div>
+              <div class="package-tags-wrap">
+                <span class="tag-pill">Sightseeing</span>
+                <span class="tag-pill">Nightlife</span>
+              </div>
+              <div class="package-footer">
+                <div class="package-price-wrap">
+                  <span class="package-price-lbl">From</span>
+                  <span class="package-price-val">₦180,000</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <button class="btn btn-outline-light btn-mint-sm py-1 px-2 small" onclick="openPackageModal('lagos')">
+                    Details
+                  </button>
+                  <button class="btn btn-mint btn-mint-sm py-1 px-3 fw-bold" onclick="openTripBookingModal('lagos')">
+                    Book Trip <i class="bi bi-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 3: Eko to Osun Explorer Package -->
+        <div class="col-lg-4 col-md-6 col-12 reveal-on-scroll delay-2">
+          <div class="package-card">
+            <div class="package-image-wrap">
+              <img src="assets/images/eko_to_osun.jpg" alt="Eko to Osun Explorer Package" class="package-img">
+              <div class="package-duration-badge">
+                <span class="duration-days">5 DAYS</span>
+                <span class="duration-nights">4 NIGHTS</span>
+              </div>
+            </div>
+            <div class="package-body">
+              <h3 class="package-title">Eko to Osun Explorer Package</h3>
+              <div class="package-location">
+                <i class="bi bi-geo-alt"></i>
+                <span>Lagos &rarr; Osun</span>
+              </div>
+              <div class="package-tags-wrap">
+                <span class="tag-pill">Culture</span>
+                <span class="tag-pill">Adventure</span>
+              </div>
+              <div class="package-footer">
+                <div class="package-price-wrap">
+                  <span class="package-price-lbl">From</span>
+                  <span class="package-price-val">₦250,000</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <button class="btn btn-outline-light btn-mint-sm py-1 px-2 small" onclick="openPackageModal('ekoToOsun')">
+                    Details
+                  </button>
+                  <button class="btn btn-mint btn-mint-sm py-1 px-3 fw-bold" onclick="openTripBookingModal('ekoToOsun')">
+                    Book Trip <i class="bi bi-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       MEMBERSHIP COMMUNITY SHOWCASE (PRD SECTION 7 — $25 / ₦30,000 PER YEAR)
+       ====================================================================== -->
+  <section class="py-5 position-relative" id="membership-section" style="background: #040c0e;">
+    <div class="custom-container reveal-on-scroll">
+      
+      <div class="membership-card-premium">
+        <div class="row align-items-center g-5">
+          
+          <div class="col-lg-7 col-12">
+            <span class="badge bg-warning text-dark fw-bold px-3 py-1 rounded-pill mb-3 text-uppercase" style="letter-spacing: 1px;">Official Explorer Membership</span>
+            <h2 class="h1 fw-bold text-white mb-2">Join Nigeria's Premier Explorer Club</h2>
+            <p class="hero-lead mb-4 text-light opacity-90">
+              One membership pass. Unlocked access across Lagos, Osun, and all 36 Nigerian states. Explore curated expeditions, member pricing, and an extraordinary traveler community.
+            </p>
+
+            <div class="row g-2 mb-4">
+              <div class="col-md-6 col-12">
+                <div class="membership-perk-item">
+                  <i class="bi bi-patch-check-fill membership-perk-icon"></i>
+                  <span><strong>Member-Only Tours:</strong> Access private group departures & secret trails.</span>
+                </div>
+                <div class="membership-perk-item">
+                  <i class="bi bi-tag-fill membership-perk-icon"></i>
+                  <span><strong>Up to 30% Off:</strong> Discounted passes on all tours, trips & festivals.</span>
+                </div>
+                <div class="membership-perk-item">
+                  <i class="bi bi-people-fill membership-perk-icon"></i>
+                  <span><strong>State Communities:</strong> Lagos & Osun chapters with monthly meetups.</span>
+                </div>
+              </div>
+              <div class="col-md-6 col-12">
+                <div class="membership-perk-item">
+                  <i class="bi bi-calendar-event-fill membership-perk-icon"></i>
+                  <span><strong>Priority Events Diary:</strong> VIP reservation window for festivals.</span>
+                </div>
+                <div class="membership-perk-item">
+                  <i class="bi bi-award-fill membership-perk-icon"></i>
+                  <span><strong>Digital Passport ID:</strong> Official Explorer badge & verification card.</span>
+                </div>
+                <div class="membership-perk-item">
+                  <i class="bi bi-bag-check-fill membership-perk-icon"></i>
+                  <span><strong>Merch Perks:</strong> Welcome pack & discounts at Explorer shops.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-wrap align-items-center gap-3">
+              <a href="join.html" class="btn btn-mint btn-lg fw-bold px-4 py-3">
+                Join The Explorers Community <i class="bi bi-arrow-right ms-1"></i>
+              </a>
+              <span class="small text-muted"><i class="bi bi-shield-lock text-mint me-1"></i> Instant digital pass activation</span>
+            </div>
+          </div>
+
+          <div class="col-lg-5 col-12">
+            <!-- Pricing Card in Two Currencies -->
+            <div class="p-4 p-md-5 rounded-4 text-center position-relative" style="background: rgba(12, 32, 36, 0.9); border: 2px solid var(--mint-primary); box-shadow: 0 15px 40px rgba(0,0,0,0.6);">
+              <span class="badge bg-mint text-dark fw-bold px-3 py-1 rounded-pill mb-2">ANNUAL COMMUNITY PASS</span>
+              <h3 class="text-white fw-bold mb-1">Explorer Membership</h3>
+              <p class="small text-muted mb-3">Same membership price in two global currencies</p>
+
+              <div class="p-3 rounded-3 mb-4" style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08);">
+                <div class="d-flex justify-content-center align-items-baseline gap-2 mb-1">
+                  <span class="display-5 fw-bold text-white" data-ngn-price="30000">₦30,000</span>
+                  <span class="text-mint fs-4 fw-bold">/ year</span>
+                </div>
+                <div class="text-warning fw-bold fs-6">
+                  or <span class="font-monospace text-warning">$25 USD</span> per year
+                </div>
+                <div class="small text-muted mt-1">Billed annually &bull; Cancel anytime</div>
+              </div>
+
+              <div class="d-grid gap-2">
+                <a href="join.html" class="btn btn-mint py-3 fw-bold">
+                  Activate Explorer Pass ($25 / ₦30k)
+                </a>
+                <a href="dashboard.html" class="btn btn-outline-light py-2 small">
+                  Already a Member? View Passport
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       TRAVEL HIGHLIGHTS (PHOTO GALLERY)
+       ====================================================================== -->
+  <section class="highlights-section" id="highlights-section">
+    <div class="custom-container">
+
+      <!-- Section Header -->
+      <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-4 reveal-on-scroll">
+        <div>
+          <h2 class="section-heading">Travel Highlights</h2>
+          <p class="section-subtitle">Captured moments. Real experiences. From our explorers.</p>
+        </div>
+        <div>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="view-all-link">
+            Follow us on Instagram <i class="bi bi-instagram ms-1"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 5 Photo Gallery Cards Row -->
+      <div class="highlights-grid">
+
+        <!-- Highlight 1: Osun Cultural Festival -->
+        <div class="highlight-card reveal-on-scroll" onclick="openGalleryLightbox(0)" role="button" tabindex="0">
+          <img src="assets/images/osun_heritage_fest.jpg" alt="Osun Cultural Festival" class="highlight-img">
+          <div class="highlight-overlay">
+            <h4 class="highlight-title">Osun Cultural Festival</h4>
+            <div class="highlight-loc">
+              <i class="bi bi-geo-alt-fill"></i> Osun State
+            </div>
+          </div>
+        </div>
+
+        <!-- Highlight 2: Lagos Skyline -->
+        <div class="highlight-card reveal-on-scroll delay-1" onclick="openGalleryLightbox(1)" role="button"
+          tabindex="0">
+          <img src="assets/images/lagos_bridge.jpg" alt="Lagos Skyline" class="highlight-img">
+          <div class="highlight-overlay">
+            <h4 class="highlight-title">Lagos Skyline</h4>
+            <div class="highlight-loc">
+              <i class="bi bi-geo-alt-fill"></i> Lagos State
+            </div>
+          </div>
+        </div>
+
+        <!-- Highlight 3: Erin Ijesha Waterfalls -->
+        <div class="highlight-card reveal-on-scroll delay-2" onclick="openGalleryLightbox(2)" role="button"
+          tabindex="0">
+          <img src="assets/images/osun_waterfalls.jpg" alt="Erin Ijesha Waterfalls" class="highlight-img">
+          <div class="highlight-overlay">
+            <h4 class="highlight-title">Erin Ijesha Waterfalls</h4>
+            <div class="highlight-loc">
+              <i class="bi bi-geo-alt-fill"></i> Osun State
+            </div>
+          </div>
+        </div>
+
+        <!-- Highlight 4: Lagos Nightlife -->
+        <div class="highlight-card reveal-on-scroll delay-3" onclick="openGalleryLightbox(3)" role="button"
+          tabindex="0">
+          <img src="assets/images/lagos_nightlife.jpg" alt="Lagos Nightlife" class="highlight-img">
+          <div class="highlight-overlay">
+            <h4 class="highlight-title">Lagos Nightlife</h4>
+            <div class="highlight-loc">
+              <i class="bi bi-geo-alt-fill"></i> Lagos State
+            </div>
+          </div>
+        </div>
+
+        <!-- Highlight 5: Olumo Rock -->
+        <div class="highlight-card reveal-on-scroll delay-4" onclick="openGalleryLightbox(4)" role="button"
+          tabindex="0">
+          <img src="assets/images/olumo_rock.jpg" alt="Olumo Rock" class="highlight-img">
+          <div class="highlight-overlay">
+            <h4 class="highlight-title">Olumo Rock</h4>
+            <div class="highlight-loc">
+              <i class="bi bi-geo-alt-fill"></i> Abeokuta, Ogun State
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       SPOTS SHOWCASE SECTION (ECOSYSTEM DISCOVERY ENGINE)
+       ====================================================================== -->
+  <section class="py-5 position-relative" id="spots-showcase-section" style="background: linear-gradient(180deg, #071518 0%, #0c2024 100%);">
+    <div class="custom-container">
+      
+      <!-- Section Header -->
+      <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-4 reveal-on-scroll">
+        <div>
+          <div class="section-indicator"></div>
+          <span class="badge bg-mint text-dark fw-bold px-3 py-1 rounded-pill mb-2 text-uppercase" style="letter-spacing: 0.8px; font-size: 0.75rem;">Ecosystem Destination Engine</span>
+          <h2 class="section-heading mb-1">Must-Visit Spots & Local Gems</h2>
+          <p class="section-subtitle">Verified places to stay, eat, drink, relax, and experience across Nigeria.</p>
+        </div>
+        <div>
+          <a href="spots.html" class="btn btn-outline-pill">
+            Explore All 50+ Spots <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Spots Grid (4 Highlights: Lekki Canopy, Nike Art, Erin Ijesha, Amala Heritage) -->
+      <div class="row g-4 mb-4">
+
+        <!-- Spot 1: Lekki Conservation Centre -->
+        <div class="col-lg-3 col-md-6 col-12 reveal-on-scroll">
+          <div class="spot-discovery-card">
+            <div class="spot-card-img-wrap">
+              <img src="assets/images/lekki_canopy.jpg" alt="Lekki Conservation Centre" class="spot-card-img">
+              <span class="spot-cat-badge"><i class="bi bi-tree me-1"></i> Attraction</span>
+              <span class="spot-verified-badge"><i class="bi bi-patch-check-fill"></i> Verified</span>
+            </div>
+            <div class="spot-card-body">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small text-warning fw-bold"><i class="bi bi-star-fill me-1"></i> 4.8</span>
+                <span class="small text-muted">Lagos State</span>
+              </div>
+              <h3 class="spot-card-name">Lekki Conservation Centre</h3>
+              <p class="spot-card-loc"><i class="bi bi-geo-alt text-mint"></i> Lekki Peninsula II, Lagos</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="amenity-chip">Canopy Walk</span>
+                <span class="amenity-chip">Wildlife</span>
+              </div>
+              <div class="spot-action-row">
+                <button class="btn btn-outline-light btn-sm flex-fill" onclick="openSpotContact('Lekki Conservation Centre', 'whatsapp', '+2348000000000')" title="WhatsApp Concierge">
+                  <i class="bi bi-whatsapp text-mint"></i>
+                </button>
+                <button class="btn btn-outline-light btn-sm flex-fill" onclick="openSpotContact('Lekki Conservation Centre', 'phone', '+2348000000000')" title="Call Spot">
+                  <i class="bi bi-telephone text-mint"></i>
+                </button>
+                <button class="btn btn-mint btn-sm flex-fill fw-bold" onclick="openSpotDetailModal('lekkiCanopy')">
+                  View Spot
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spot 2: Nike Art Gallery -->
+        <div class="col-lg-3 col-md-6 col-12 reveal-on-scroll delay-1">
+          <div class="spot-discovery-card">
+            <div class="spot-card-img-wrap">
+              <img src="assets/images/nike_art.jpg" alt="Nike Art Gallery" class="spot-card-img">
+              <span class="spot-cat-badge"><i class="bi bi-palette me-1"></i> Art & Culture</span>
+              <span class="spot-verified-badge"><i class="bi bi-patch-check-fill"></i> Verified</span>
+            </div>
+            <div class="spot-card-body">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small text-warning fw-bold"><i class="bi bi-star-fill me-1"></i> 4.9</span>
+                <span class="small text-muted">Lagos State</span>
+              </div>
+              <h3 class="spot-card-name">Nike Art Gallery</h3>
+              <p class="spot-card-loc"><i class="bi bi-geo-alt text-mint"></i> Lekki Phase 1, Lagos</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="amenity-chip">25,000+ Artworks</span>
+                <span class="amenity-chip">Adire Textile</span>
+              </div>
+              <div class="spot-action-row">
+                <button class="btn btn-outline-light btn-sm flex-fill" onclick="openSpotContact('Nike Art Gallery', 'whatsapp', '+2348000000000')" title="WhatsApp Concierge">
+                  <i class="bi bi-whatsapp text-mint"></i>
+                </button>
+                <button class="btn btn-outline-light btn-sm flex-fill" onclick="openSpotContact('Nike Art Gallery', 'phone', '+2348000000000')" title="Call Spot">
+                  <i class="bi bi-telephone text-mint"></i>
+                </button>
+                <button class="btn btn-mint btn-sm flex-fill fw-bold" onclick="openSpotDetailModal('nikeArt')">
+                  View Spot
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spot 3: Erin Ijesha Waterfalls -->
+        <div class="col-lg-3 col-md-6 col-12 reveal-on-scroll delay-2">
+          <div class="spot-discovery-card">
+            <div class="spot-card-img-wrap">
+              <img src="assets/images/osun_waterfalls.jpg" alt="Erin Ijesha Waterfalls" class="spot-card-img">
+              <span class="spot-cat-badge"><i class="bi bi-water me-1"></i> Attraction</span>
+              <span class="spot-verified-badge"><i class="bi bi-patch-check-fill"></i> Verified</span>
+            </div>
+            <div class="spot-card-body">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small text-warning fw-bold"><i class="bi bi-star-fill me-1"></i> 4.7</span>
+                <span class="small text-muted">Osun State</span>
+              </div>
+              <h3 class="spot-card-name">Erin Ijesha Waterfalls</h3>
+              <p class="spot-card-loc"><i class="bi bi-geo-alt text-mint"></i> Oriade / Ilesa, Osun</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="amenity-chip">7 Cascades</span>
+                <span class="amenity-chip">Hiking Trails</span>
+              </div>
+              <div class="spot-action-row">
+                <button class="btn btn-outline-light btn-sm flex-fill" onclick="openSpotContact('Erin Ijesha Waterfalls', 'whatsapp', '+2348023334455')" title="WhatsApp Concierge">
+                  <i class="bi bi-whatsapp text-mint"></i>
+                </button>
+                <button class="btn btn-outline-light btn-sm flex-fill" onclick="openSpotContact('Erin Ijesha Waterfalls', 'directions', 'Erin-Ijesha Osun State')" title="Directions">
+                  <i class="bi bi-geo-alt text-mint"></i>
+                </button>
+                <button class="btn btn-mint btn-sm flex-fill fw-bold" onclick="openSpotDetailModal('erinWaterfallsSpot')">
+                  View Spot
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spot 4: Amala Heritage Kitchen -->
+        <div class="col-lg-3 col-md-6 col-12 reveal-on-scroll delay-3">
+          <div class="spot-discovery-card">
+            <div class="spot-card-img-wrap">
+              <img src="assets/images/lagos_food_fest.jpg" alt="Amala Heritage Kitchen" class="spot-card-img">
+              <span class="spot-cat-badge"><i class="bi bi-egg-fried me-1"></i> Restaurant</span>
+              <span class="spot-verified-badge"><i class="bi bi-patch-check-fill"></i> Verified</span>
+            </div>
+            <div class="spot-card-body">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small text-warning fw-bold"><i class="bi bi-star-fill me-1"></i> 4.9</span>
+                <span class="small text-muted">Osun State</span>
+              </div>
+              <h3 class="spot-card-name">Amala Heritage Kitchen</h3>
+              <p class="spot-card-loc"><i class="bi bi-geo-alt text-mint"></i> Station Road, Osogbo</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="amenity-chip">Hot Amala</span>
+                <span class="amenity-chip">Fresh Palm Wine</span>
+              </div>
+              <div class="spot-action-row">
+                <button class="btn btn-outline-light btn-sm flex-fill" onclick="openSpotContact('Amala Heritage Kitchen', 'whatsapp', '+2348039990011')" title="WhatsApp Concierge">
+                  <i class="bi bi-whatsapp text-mint"></i>
+                </button>
+                <button class="btn btn-outline-light btn-sm flex-fill" onclick="openSpotContact('Amala Heritage Kitchen', 'phone', '+2348039990011')" title="Call Spot">
+                  <i class="bi bi-telephone text-mint"></i>
+                </button>
+                <button class="btn btn-mint btn-sm flex-fill fw-bold" onclick="openSpotDetailModal('amalaSkyOsogbo')">
+                  View Spot
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Teaser: Location-Based Discovery: "Around [Attraction]" Box -->
+      <div class="around-attraction-box reveal-on-scroll p-4">
+        <div class="row align-items-center g-3">
+          <div class="col-lg-8 col-12">
+            <span class="badge bg-warning text-dark fw-bold px-2 py-1 rounded-pill mb-1 small">Smart Area Essentials</span>
+            <h4 class="text-white fw-bold mb-1"><i class="bi bi-pin-map-fill text-mint me-2"></i>Traveling to a Destination? Discover Everything Around It</h4>
+            <p class="text-muted small mb-0">Discover verified hotels, shortlets, local food, guides, pharmacies, ATMs, and fuel stations within 15 minutes of any major tourist attraction in Nigeria.</p>
+          </div>
+          <div class="col-lg-4 col-12 text-lg-end">
+            <a href="spots.html" class="btn btn-mint fw-bold">
+              Try Location Discovery Engine <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       BUSINESS OWNER ECOSYSTEM CALLOUT BANNER
+       ====================================================================== -->
+  <section class="py-4 position-relative" style="background: #051417;">
+    <div class="custom-container reveal-on-scroll">
+      <div class="p-4 p-md-5 rounded-4 position-relative overflow-hidden" style="background: linear-gradient(135deg, rgba(12, 32, 36, 0.95) 0%, rgba(4, 20, 16, 0.98) 100%); border: 1.5px solid rgba(0, 210, 132, 0.35); box-shadow: 0 15px 40px rgba(0,0,0,0.5);">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8 col-12">
+            <span class="badge bg-warning text-dark fw-bold px-3 py-1 rounded-pill mb-2 text-uppercase" style="letter-spacing: 0.8px; font-size: 0.72rem;">For Hospitality & Tourism Businesses</span>
+            <h3 class="text-white fw-bold mb-2 fs-2">Are You a Hotel, Shortlet, Restaurant, or Tour Operator?</h3>
+            <p class="text-light opacity-75 mb-3" style="max-width: 680px; line-height: 1.6;">
+              Join over 250+ verified hospitality brands listing on <strong>The Africa Explorers NG</strong>. Put your business directly in front of thousands of active Nigerian travelers, holiday visitors, and foreign tourists with zero booking commissions.
+            </p>
+            <div class="d-flex flex-wrap gap-2 mb-2">
+              <span class="badge bg-dark text-mint border border-secondary border-opacity-50 py-2 px-3"><i class="bi bi-whatsapp me-1"></i> Direct WhatsApp Leads</span>
+              <span class="badge bg-dark text-mint border border-secondary border-opacity-50 py-2 px-3"><i class="bi bi-patch-check-fill me-1"></i> Verified Badge</span>
+              <span class="badge bg-dark text-mint border border-secondary border-opacity-50 py-2 px-3"><i class="bi bi-map-fill me-1"></i> State Hub Feature</span>
+              <span class="badge bg-dark text-warning border border-secondary border-opacity-50 py-2 px-3"><i class="bi bi-tag-fill me-1"></i> From ₦15,000/mo</span>
+            </div>
+          </div>
+          <div class="col-lg-4 col-12 text-lg-end">
+            <a href="business.html" class="btn btn-mint btn-lg fw-bold px-4 py-3 mb-2 d-inline-block">
+              List Your Business Now <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+            <div class="small text-muted"><i class="bi bi-clock-history me-1"></i> Takes 3 minutes • Instant chapter approval</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       THE EXPLORERS CAMPAIGN SECTION (PRD SECTION 38)
+       ====================================================================== -->
+  <section class="campaign-section py-5 position-relative" id="campaign" style="background: linear-gradient(180deg, #071518 0%, #040c0e 100%);">
+    <div class="custom-container reveal-on-scroll">
+      
+      <div class="p-4 p-md-5 rounded-4 position-relative overflow-hidden" style="background: linear-gradient(135deg, rgba(9, 33, 39, 0.95) 0%, rgba(6, 21, 24, 0.98) 100%); border: 1.5px solid rgba(0, 210, 132, 0.35); box-shadow: 0 20px 50px rgba(0,0,0,0.6);">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7 col-12">
+            <span class="badge bg-mint text-dark fw-bold px-3 py-1 rounded-pill mb-2 text-uppercase" style="letter-spacing: 1px;">The Movement</span>
+            <h2 class="display-6 fw-bold text-white mb-3">The Explorers Campaign: Discover Nigeria</h2>
+            <p class="hero-lead mb-3 text-light">
+              Nigeria is not just one story. It is 36 vibrant states, 250+ distinct ethnic cultures, ancient royal kingdoms, coastal lagoons, and mountain waterfalls waiting to be unlocked.
+            </p>
+            <p class="small text-muted mb-4" style="line-height: 1.8;">
+              The Explorers Campaign is a nationwide cultural and travel initiative designed to connect people who want to explore with the events, tours, spots, and local businesses that define our heritage. Every state will have its own dedicated Explorer chapter: from <strong>Lagos Explorers</strong> and <strong>Osun Explorers</strong> to <strong>Kano, Ogun, and Cross River Explorers</strong>.
+            </p>
+
+            <div class="d-flex flex-wrap gap-3">
+              <a href="join.html" class="btn btn-mint btn-lg fw-bold px-4 py-3">
+                Join the Campaign <i class="bi bi-arrow-right ms-1"></i>
+              </a>
+              <a href="#states-section" class="btn btn-outline-pill px-4 py-3">
+                Explore All 36 States
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-5 col-12">
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="p-3 rounded-3 text-center" style="background: rgba(0,0,0,0.4); border: 1px solid rgba(0,210,132,0.2);">
+                  <i class="bi bi-compass text-mint fs-2 d-block mb-1"></i>
+                  <h4 class="h6 fw-bold text-white mb-1">Explore</h4>
+                  <p class="small text-muted mb-0">Hidden natural gems & city secrets.</p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="p-3 rounded-3 text-center" style="background: rgba(0,0,0,0.4); border: 1px solid rgba(245,166,35,0.2);">
+                  <i class="bi bi-stars text-warning fs-2 d-block mb-1"></i>
+                  <h4 class="h6 fw-bold text-white mb-1">Experience</h4>
+                  <p class="small text-muted mb-0">Cultural festivals & authentic food.</p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="p-3 rounded-3 text-center" style="background: rgba(0,0,0,0.4); border: 1px solid rgba(56,189,248,0.2);">
+                  <i class="bi bi-people text-info fs-2 d-block mb-1"></i>
+                  <h4 class="h6 fw-bold text-white mb-1">Connect</h4>
+                  <p class="small text-muted mb-0">Meet local travelers & guides.</p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="p-3 rounded-3 text-center" style="background: rgba(0,0,0,0.4); border: 1px solid rgba(0,210,132,0.2);">
+                  <i class="bi bi-shop text-mint fs-2 d-block mb-1"></i>
+                  <h4 class="h6 fw-bold text-white mb-1">Support</h4>
+                  <p class="small text-muted mb-0">Empowering local hospitality.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       ABOUT US SECTION (PRD SECTION 39)
+       ====================================================================== -->
+  <section class="about-section py-5 position-relative" id="about-us" style="background: #071518;">
+    <div class="custom-container reveal-on-scroll">
+      
+      <div class="text-center max-w-700 mx-auto mb-5">
+        <div class="section-indicator mx-auto"></div>
+        <span class="badge bg-mint text-dark fw-bold px-3 py-1 rounded-pill mb-2 text-uppercase" style="letter-spacing: 1px; font-size: 0.72rem;">Our Story & Purpose</span>
+        <h2 class="section-heading mb-2">About The Africa Explorers</h2>
+        <p class="section-subtitle">The digital gateway connecting people who want to explore with places, events, and experiences worth exploring.</p>
+      </div>
+
+      <div class="row g-4 mb-5">
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="p-4 rounded-4 h-100" style="background: rgba(12, 32, 36, 0.7); border: 1px solid var(--border-subtle);">
+            <div class="community-icon-circle mb-3" style="width: 48px; height: 48px; font-size: 1.3rem;">
+              <i class="bi bi-book"></i>
+            </div>
+            <h3 class="h5 fw-bold text-white mb-2">Our Story</h3>
+            <p class="small text-muted mb-0" style="line-height: 1.7;">
+              Travel information across Nigeria was fragmented across social media, WhatsApp groups, and word-of-mouth. We founded The Africa Explorers NG to build a single trusted ecosystem: connecting destination &rarr; event &rarr; tour &rarr; accommodation &rarr; dining &rarr; community.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="p-4 rounded-4 h-100" style="background: rgba(12, 32, 36, 0.7); border: 1px solid var(--border-subtle);">
+            <div class="community-icon-circle mb-3" style="width: 48px; height: 48px; font-size: 1.3rem;">
+              <i class="bi bi-eye"></i>
+            </div>
+            <h3 class="h5 fw-bold text-white mb-2">Our Vision</h3>
+            <p class="small text-muted mb-0" style="line-height: 1.7;">
+              To become the digital gateway through which the world discovers Nigeria and Africa. From Lagos and Osun to all 36 states, we answer: Where should I go? What is happening? Where can I stay? Who else is exploring?
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="p-4 rounded-4 h-100" style="background: rgba(12, 32, 36, 0.7); border: 1px solid var(--border-subtle);">
+            <div class="community-icon-circle mb-3" style="width: 48px; height: 48px; font-size: 1.3rem;">
+              <i class="bi bi-heart"></i>
+            </div>
+            <h3 class="h5 fw-bold text-white mb-2">How We Help Explorers</h3>
+            <p class="small text-muted mb-0" style="line-height: 1.7;">
+              Every explorer carries one digital passport. In your Home State, you are an Explorer; when you travel to another state, you are a Visitor. We provide curated tours, verified safety, direct WhatsApp bookings, and member rates.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       CONTACT US SECTION (PRD SECTION 40 — WITH EXACT PRD CATEGORIES)
+       ====================================================================== -->
+  <section class="contact-section py-5 position-relative" id="contact-us" style="background: #040c0e;">
+    <div class="custom-container reveal-on-scroll">
+      
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-5 col-12">
+          <div class="section-indicator"></div>
+          <span class="badge bg-warning text-dark fw-bold px-3 py-1 rounded-pill mb-2 text-uppercase" style="letter-spacing: 0.8px; font-size: 0.72rem;">Reach Out</span>
+          <h2 class="h1 fw-bold text-white mb-3">Contact The Africa Explorers</h2>
+          <p class="text-light opacity-80 mb-4" style="line-height: 1.7;">
+            Have questions about membership, upcoming trips, listing your tourism spot, or partnering for an event? Our team is based in Lagos and Osun and available 24/7.
+          </p>
+
+          <div class="d-flex flex-column gap-3 mb-4">
+            <div class="d-flex align-items-center gap-3">
+              <div class="community-icon-circle" style="width: 42px; height: 42px; font-size: 1.1rem;">
+                <i class="bi bi-geo-alt"></i>
+              </div>
+              <div>
+                <span class="d-block small text-muted">Offices</span>
+                <span class="text-white small fw-bold">Victoria Island, Lagos & Osogbo, Osun State</span>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+              <div class="community-icon-circle" style="width: 42px; height: 42px; font-size: 1.1rem;">
+                <i class="bi bi-envelope"></i>
+              </div>
+              <div>
+                <span class="d-block small text-muted">Email Concierge</span>
+                <span class="text-white small fw-bold">hello@theafricaexplorers.ng</span>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+              <div class="community-icon-circle" style="width: 42px; height: 42px; font-size: 1.1rem;">
+                <i class="bi bi-whatsapp"></i>
+              </div>
+              <div>
+                <span class="d-block small text-muted">WhatsApp Desk</span>
+                <span class="text-white small fw-bold">+234 800 EXPLORE NG</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7 col-12">
+          <div class="p-4 p-md-5 rounded-4" style="background: rgba(12, 32, 36, 0.85); border: 1.5px solid var(--border-subtle); box-shadow: 0 15px 40px rgba(0,0,0,0.5);">
+            <h3 class="h5 fw-bold text-white mb-2">Send an Inquiry</h3>
+            <p class="small text-muted mb-4">Select the matching inquiry category below to direct your message to the appropriate state team.</p>
+
+            <form id="contactUsForm">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6 col-12">
+                  <label class="form-label small text-light fw-semibold">Your Full Name *</label>
+                  <input type="text" class="form-control form-control-custom" id="contactName" placeholder="e.g. Babatunde Adeleke" required>
+                </div>
+                <div class="col-md-6 col-12">
+                  <label class="form-label small text-light fw-semibold">Email Address *</label>
+                  <input type="email" class="form-control form-control-custom" id="contactEmail" placeholder="you@domain.com" required>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-3">
+                <div class="col-md-6 col-12">
+                  <label class="form-label small text-light fw-semibold">Phone / WhatsApp Number</label>
+                  <input type="tel" class="form-control form-control-custom" id="contactPhone" placeholder="+234 800 000 0000">
+                </div>
+                <div class="col-md-6 col-12">
+                  <!-- Exact PRD Section 40 Categories -->
+                  <label class="form-label small text-light fw-semibold">Inquiry Category *</label>
+                  <select class="form-select form-select-custom" id="contactCategory" required>
+                    <option value="General enquiry" selected>General enquiry</option>
+                    <option value="Explorer support">Explorer support</option>
+                    <option value="Business partnership">Business partnership</option>
+                    <option value="Business listing">Business listing</option>
+                    <option value="Event partnership">Event partnership</option>
+                    <option value="Tour partnership">Tour partnership</option>
+                    <option value="Advertising">Advertising</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label small text-light fw-semibold">Your Message *</label>
+                <textarea class="form-control form-control-custom" id="contactMessage" rows="4" placeholder="How can The Africa Explorers team assist you?" required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-mint w-100 py-3 fw-bold">
+                Send Inquiry <i class="bi bi-send ms-1"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       FOOTER
+       ====================================================================== -->
+  <footer class="footer-custom" id="contact-us">
+    <div class="custom-container">
+
+      <!-- Top Columns Row -->
+      <div class="row g-4">
+
+        <!-- Column 1: Brand & Socials -->
+        <div class="col-lg-3 col-md-6 col-12" id="about-us">
+          <a href="#hero-section">
+            <img src="assets/logo-white.png" alt="The Africa Explorers Logo" class="footer-brand-logo">
+          </a>
+          <div class="footer-tagline-text">
+            EXPLORE • EXPERIENCE • CONNECT
+          </div>
+          <div class="footer-social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+              aria-label="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+              aria-label="Twitter X">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+              aria-label="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+              aria-label="YouTube">
+              <i class="bi bi-youtube"></i>
+            </a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+              aria-label="TikTok">
+              <i class="bi bi-tiktok"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="col-lg-2 col-md-6 col-6">
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item"><a href="#hero-section">Home</a></li>
+            <li class="footer-nav-item"><a href="spots.html">Spots Discovery</a></li>
+            <li class="footer-nav-item"><a href="business.html">For Businesses</a></li>
+            <li class="footer-nav-item"><a href="dashboard.html">Explorer Dashboard</a></li>
+            <li class="footer-nav-item"><a href="admin.html">Admin Command</a></li>
+            <li class="footer-nav-item"><a href="join.html">Join Community</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Explore Nigeria -->
+        <div class="col-lg-2 col-md-6 col-6">
+          <h4 class="footer-col-title">Explore Nigeria</h4>
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item"><a href="lagos.html">Lagos State Chapter</a></li>
+            <li class="footer-nav-item"><a href="osun.html">Osun State Chapter</a></li>
+            <li class="footer-nav-item"><a href="#packages-section">Curated Trips</a></li>
+            <li class="footer-nav-item"><a href="#events-section">Featured Events</a></li>
+            <li class="footer-nav-item"><a href="javascript:void(0)" data-bs-toggle="modal"
+                data-bs-target="#allStatesModal">All 36 States</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Support -->
+        <div class="col-lg-2 col-md-6 col-6">
+          <h4 class="footer-col-title">Support</h4>
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item"><a href="javascript:void(0)"
+                onclick="showToast('Our 24/7 help concierge is available via support@theafricaexplorers.ng', 'Help Center')">Help
+                Center</a></li>
+            <li class="footer-nav-item"><a href="javascript:void(0)"
+                onclick="showToast('Terms and conditions govern safety, bookings, and group conduct.', 'Terms & Conditions')">Terms
+                & Conditions</a></li>
+            <li class="footer-nav-item"><a href="javascript:void(0)"
+                onclick="showToast('Your privacy and traveler data are secured with enterprise-grade encryption.', 'Privacy Policy')">Privacy
+                Policy</a></li>
+            <li class="footer-nav-item"><a href="#contact-us">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 5: Stay in the Loop (Newsletter) -->
+        <div class="col-lg-3 col-md-6 col-12">
+          <h4 class="footer-col-title">Stay in the Loop</h4>
+          <p class="footer-newsletter-text">
+            Get the latest events, trips and travel updates.
+          </p>
+          <form class="newsletter-form" id="footerNewsletterForm">
+            <input type="email" class="newsletter-input" placeholder="Enter your email address" required
+              aria-label="Email Address">
+            <button type="submit" class="btn btn-mint newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <p class="footer-copy-text">
+          &copy; 2025 The Africa Explorers NG. All rights reserved.
+        </p>
+        <p class="footer-signature">
+          Same country. <span class="script-highlight">Different stories.</span>
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ======================================================================
+       INTERACTIVE MODALS
+       ====================================================================== -->
+
+  <!-- 1. Join The Explorers Modal -->
+  <div class="modal fade" id="joinExplorersModal" tabindex="-1" aria-labelledby="joinExplorersModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center gap-2">
+            <div class="community-icon-circle" style="width: 42px; height: 42px; font-size: 1.2rem;">
+              <i class="bi bi-compass"></i>
+            </div>
+            <div>
+              <h5 class="modal-title fw-bold text-white mb-0" id="joinExplorersModalLabel">Join The Africa Explorers
+              </h5>
+              <span class="small text-mint">Become a verified explorer</span>
+            </div>
+          </div>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <p class="small text-muted mb-4">
+            Gain immediate access to curated travel packs, priority bookings for unlocked states, member-only discounts,
+            and a vibrant community of fellow wanderers.
+          </p>
+          <form id="joinExplorersForm">
+            <div class="mb-3">
+              <label for="joinName" class="form-label small text-light fw-semibold">Full Name</label>
+              <input type="text" class="form-control form-control-custom" id="joinName" placeholder="e.g. Tunde Balogun"
+                required>
+            </div>
+            <div class="mb-3">
+              <label for="joinEmail" class="form-label small text-light fw-semibold">Email Address</label>
+              <input type="email" class="form-control form-control-custom" id="joinEmail"
+                placeholder="e.g. tunde@example.com" required>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-md-6 col-12">
+                <label for="joinStateInterest" class="form-label small text-light fw-semibold">First State to
+                  Explore</label>
+                <select class="form-select form-select-custom" id="joinStateInterest">
+                  <option value="Lagos">Lagos State (Active)</option>
+                  <option value="Osun">Osun State (Active)</option>
+                  <option value="Cross River">Cross River State</option>
+                  <option value="Plateau">Plateau State</option>
+                  <option value="Ogun">Ogun State</option>
+                  <option value="Other">All 36 States</option>
+                </select>
+              </div>
+              <div class="col-md-6 col-12">
+                <label for="joinTravelStyle" class="form-label small text-light fw-semibold">Travel Style</label>
+                <select class="form-select form-select-custom" id="joinTravelStyle">
+                  <option value="Adventure">Adventure & Hiking</option>
+                  <option value="Culture">Cultural Festivals & Heritage</option>
+                  <option value="Luxury">Urban Luxury & Nightlife</option>
+                  <option value="Foodie">Gastronomy & Culinary Tours</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-check mb-4">
+              <input class="form-check-input" type="checkbox" id="joinNewsletterConsent" checked>
+              <label class="form-check-label small text-muted" for="joinNewsletterConsent">
+                Send me secret weekend getaway notifications & festival discounts
+              </label>
+            </div>
+            <button type="submit" class="btn btn-mint w-100 py-3 fw-bold">
+              Complete Registration <i class="bi bi-arrow-right ms-1"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 2. View All 36 Nigerian States Modal -->
+  <div class="modal fade" id="allStatesModal" tabindex="-1" aria-labelledby="allStatesModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <div>
+            <h5 class="modal-title fw-bold text-white mb-1" id="allStatesModalLabel">
+              <i class="bi bi-map-fill text-mint me-2"></i> All 36 Nigerian States + FCT
+            </h5>
+            <p class="small text-muted mb-0">Explore unlocked states or subscribe to be notified when expeditions launch
+              in your dream state.</p>
+          </div>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <!-- Search & Filter Controls -->
+          <div class="row g-3 mb-4">
+            <div class="col-md-6 col-12">
+              <div class="input-group">
+                <span class="input-group-text bg-dark border-secondary text-muted"><i class="bi bi-search"></i></span>
+                <input type="text" class="form-control form-control-custom" id="statesSearchInput"
+                  placeholder="Search state name or key tourist sites...">
+              </div>
+            </div>
+            <div class="col-md-6 col-12 d-flex flex-wrap gap-1 align-items-center">
+              <button class="btn btn-mint btn-sm state-filter-btn active" data-region="all">All</button>
+              <button class="btn btn-outline-light btn-sm state-filter-btn" data-region="South West">South West</button>
+              <button class="btn btn-outline-light btn-sm state-filter-btn" data-region="South South">South
+                South</button>
+              <button class="btn btn-outline-light btn-sm state-filter-btn" data-region="South East">South East</button>
+              <button class="btn btn-outline-light btn-sm state-filter-btn" data-region="North Central">North
+                Central</button>
+              <button class="btn btn-outline-light btn-sm state-filter-btn" data-region="North West">North West</button>
+              <button class="btn btn-outline-light btn-sm state-filter-btn" data-region="North East">North East</button>
+            </div>
+          </div>
+
+          <!-- Dynamic States Cards Container -->
+          <div class="row" id="allStatesGrid">
+            <!-- Populated via script.js -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 3. Trip Package Details Modal -->
+  <div class="modal fade" id="packageDetailsModal" tabindex="-1" aria-labelledby="packageModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <div>
+            <h5 class="modal-title fw-bold text-white mb-0" id="packageModalTitle">Package Details</h5>
+            <span class="small text-muted" id="packageModalLocation"></span>
+          </div>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <div class="row g-4">
+            <div class="col-lg-6 col-12">
+              <div class="rounded-3 overflow-hidden position-relative mb-3" style="height: 240px;">
+                <img src="" id="packageModalImage" alt="Trip preview" class="w-100 h-100 object-fit-cover">
+                <span class="badge bg-mint text-dark position-absolute top-0 start-0 m-3 fw-bold"
+                  id="packageModalDuration"></span>
+              </div>
+              <div class="p-3 rounded-3"
+                style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+                <span class="small text-muted d-block mb-1">Package Inclusions</span>
+                <ul class="list-unstyled mb-0" id="packageModalInclusions"></ul>
+              </div>
+            </div>
+            <div class="col-lg-6 col-12 d-flex flex-column justify-content-between">
+              <div>
+                <h6 class="text-mint fw-bold mb-2">Trip Overview</h6>
+                <p class="small text-light mb-3" id="packageModalDesc"></p>
+
+                <h6 class="text-mint fw-bold mb-2">Curated Itinerary</h6>
+                <div class="mb-3" id="packageModalItinerary"></div>
+              </div>
+
+              <div class="pt-3 border-top border-secondary border-opacity-25 mt-3">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <span class="text-muted small">Total Cost:</span>
+                  <span class="fs-4 fw-bold text-mint" id="packageModalPrice"></span>
+                </div>
+                <form id="tripBookingForm">
+                  <button type="submit" class="btn btn-mint w-100 py-2 fw-bold">
+                    Reserve This Experience <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 4. Event Details & Ticket Reservation Modal -->
+  <div class="modal fade" id="eventDetailsModal" tabindex="-1" aria-labelledby="eventModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <h5 class="modal-title fw-bold text-white mb-0" id="eventModalTitle">Event Details</h5>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <div class="rounded-3 overflow-hidden mb-3" style="height: 180px;">
+            <img src="" id="eventModalImg" alt="Event preview" class="w-100 h-100 object-fit-cover">
+          </div>
+          <div class="small text-mint fw-semibold mb-1" id="eventModalDate"></div>
+          <div class="small text-muted mb-3" id="eventModalLoc"></div>
+          <p class="small text-light mb-4" id="eventModalDesc"></p>
+
+          <form id="eventTicketForm">
+            <div class="mb-3">
+              <label for="eventTicketType" class="form-label small text-light fw-semibold">Select Pass Tier</label>
+              <select class="form-select form-select-custom" id="eventTicketType">
+                <option value="standard">Standard Explorer Pass (Free Community Pass)</option>
+                <option value="vip">VIP Backstage & Tasting Experience (₦25,000)</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-mint w-100 py-2 fw-bold">
+              Claim Your Ticket Now <i class="bi bi-ticket-perforated ms-1"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 5. Travel Highlights Lightbox Modal -->
+  <div class="modal fade" id="galleryLightboxModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <div>
+            <h5 class="modal-title fw-bold text-white mb-0" id="lightboxTitle">Highlight View</h5>
+            <span class="small text-mint" id="lightboxLoc"></span>
+          </div>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="modal-body modal-body-custom p-0">
+          <div style="max-height: 520px; overflow: hidden;">
+            <img src="" id="lightboxImg" alt="Gallery highlight" class="w-100 object-fit-contain"
+              style="max-height: 500px;">
+          </div>
+          <div class="p-3 bg-dark">
+            <p class="small text-light mb-0" id="lightboxCaption"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 6. Global Search Modal -->
+  <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <h5 class="modal-title fw-bold text-white mb-0" id="searchModalLabel">
+            <i class="bi bi-search text-mint me-2"></i> Search Nigeria Explorations
+          </h5>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <input type="text" class="form-control form-control-custom mb-3" id="globalSearchInput"
+            placeholder="Type a destination, festival, or package...">
+          <div id="globalSearchResults" style="max-height: 280px; overflow-y: auto;">
+            <p class="text-muted small">Type a destination, state, event, or package to search...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 7. User Profile & Ecosystem Gateway Modal -->
+  <div class="modal fade" id="userProfileModal" tabindex="-1" aria-labelledby="userProfileModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <h5 class="modal-title fw-bold text-white mb-0" id="userProfileModalLabel">
+            <i class="bi bi-person-circle text-mint me-2"></i> Explorer Ecosystem Hub
+          </h5>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="modal-body modal-body-custom text-center py-4">
+          <div class="community-icon-circle mx-auto mb-3" style="width: 75px; height: 75px; font-size: 2.2rem;">
+            <i class="bi bi-person-fill"></i>
+          </div>
+          <h5 class="text-white fw-bold mb-1">Explorer Passport & ID</h5>
+          <p class="small text-muted mb-4">Track your state stamps, active ticket passes, and saved spots.</p>
+          
+          <div class="d-grid gap-2 mb-3">
+            <a href="dashboard.html" class="btn btn-mint fw-bold py-2">
+              <i class="bi bi-person-badge me-2"></i> Go to Explorer Dashboard
+            </a>
+            <a href="join.html" class="btn btn-outline-light py-2">
+              <i class="bi bi-person-plus me-2"></i> Create Profile / Join Explorers
+            </a>
+            <a href="business.html" class="btn btn-outline-warning py-2">
+              <i class="bi bi-shop me-2"></i> Business Owner Portal
+            </a>
+            <a href="admin.html" class="btn btn-sm btn-outline-secondary py-2 mt-2">
+              <i class="bi bi-shield-lock me-1"></i> Admin Command Center
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 8. Interactive Event Booking & Pass Reservation Modal -->
+  <div class="modal fade" id="eventBookingModal" tabindex="-1" aria-labelledby="eventBookingTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <div>
+            <span class="badge bg-mint text-dark fw-bold px-2 py-0 rounded-pill small mb-1">Pass Reservation</span>
+            <h5 class="modal-title fw-bold text-white mb-0" id="bookEventTitle">Event Pass Reservation</h5>
+          </div>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <div class="p-3 rounded-3 mb-3" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+            <div class="small text-mint fw-semibold mb-1" id="bookEventDate"><i class="bi bi-calendar3 me-1"></i> Date & Time</div>
+            <div class="small text-muted" id="bookEventLoc"><i class="bi bi-geo-alt-fill me-1"></i> Location</div>
+          </div>
+
+          <form onsubmit="submitEventBooking(event)">
+            <!-- Attendee Details -->
+            <div class="mb-3">
+              <label class="form-label small text-light fw-semibold">Primary Attendee Name</label>
+              <input type="text" class="form-control form-control-custom" id="bookAttendeeName" placeholder="e.g. Babatunde Adeleke" required>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-6">
+                <label class="form-label small text-light fw-semibold">Email Address</label>
+                <input type="email" class="form-control form-control-custom" id="bookAttendeeEmail" placeholder="you@domain.com" required>
+              </div>
+              <div class="col-6">
+                <label class="form-label small text-light fw-semibold">WhatsApp Number</label>
+                <input type="tel" class="form-control form-control-custom" id="bookAttendeePhone" placeholder="+234 800..." required>
+              </div>
+            </div>
+
+            <!-- Pass Quantity Selector -->
+            <div class="mb-3 p-3 rounded-3" style="background: rgba(12, 32, 36, 0.8); border: 1px solid rgba(0, 210, 132, 0.2);">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="small text-light fw-semibold">Number of Passes</span>
+                <div class="d-flex align-items-center gap-2">
+                  <button type="button" class="btn btn-sm btn-outline-light px-2 py-0 fw-bold" onclick="adjustTicketQty(-1)">-</button>
+                  <span class="fw-bold text-mint px-2 fs-6" id="ticketQty">1</span>
+                  <button type="button" class="btn btn-sm btn-outline-light px-2 py-0 fw-bold" onclick="adjustTicketQty(1)">+</button>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center border-top border-secondary border-opacity-25 pt-2">
+                <span class="small text-muted">Total Payable:</span>
+                <span class="fs-5 fw-bold text-mint" id="bookingTotalPrice">₦15,000</span>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-mint w-100 py-2 fw-bold">
+              Confirm & Generate QR Entry Ticket <i class="bi bi-qr-code ms-1"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 9. Instant Digital QR Ticket Pass Confirmation Modal -->
+  <div class="modal fade" id="bookingConfirmedModal" tabindex="-1" aria-labelledby="bookingConfirmedTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom border-bottom-0 pb-0 d-flex justify-content-end">
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="modal-body modal-body-custom pt-0 text-center">
+          <div class="mb-3">
+            <div class="community-icon-circle mx-auto" style="width: 60px; height: 60px; font-size: 1.8rem; background: rgba(0, 210, 132, 0.2); border-color: var(--mint-primary);">
+              <i class="bi bi-check2 text-mint"></i>
+            </div>
+          </div>
+          <h4 class="text-white fw-bold mb-1">Ticket Pass Issued!</h4>
+          <p class="small text-muted mb-4">Your digital experience pass is confirmed and saved to your Explorer wallet.</p>
+
+          <!-- Digital Pass Ticket Card Preview -->
+          <div class="experience-ticket-card text-start mb-4">
+            <div class="ticket-header">
+              <div>
+                <span class="badge bg-mint text-dark fw-bold px-2 py-0 rounded-pill small">Verified Ticket</span>
+                <h6 class="text-white fw-bold mb-0 mt-1" id="confirmEventName">Event Pass</h6>
+              </div>
+              <span class="text-mint font-monospace small fw-bold" id="confirmBookingRef">AE-000000</span>
+            </div>
+            <div class="ticket-body d-flex justify-content-between align-items-center">
+              <div>
+                <div class="small text-muted">ATTENDEE</div>
+                <div class="fw-bold text-white mb-2" id="confirmAttendeeName">Explorer</div>
+                <div class="small text-muted">ENTRY STATUS</div>
+                <span class="badge bg-success-subtle text-mint border border-mint">QR Valid for Entry</span>
+              </div>
+              <div class="qr-ticket-wrap">
+                <svg width="74" height="74" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Authentic QR Pattern SVG -->
+                  <rect width="100" height="100" fill="#FFFFFF"/>
+                  <rect x="10" y="10" width="26" height="26" fill="#04100b"/>
+                  <rect x="15" y="15" width="16" height="16" fill="#FFFFFF"/>
+                  <rect x="18" y="18" width="10" height="10" fill="#04100b"/>
+                  <rect x="64" y="10" width="26" height="26" fill="#04100b"/>
+                  <rect x="69" y="15" width="16" height="16" fill="#FFFFFF"/>
+                  <rect x="72" y="18" width="10" height="10" fill="#04100b"/>
+                  <rect x="10" y="64" width="26" height="26" fill="#04100b"/>
+                  <rect x="15" y="69" width="16" height="16" fill="#FFFFFF"/>
+                  <rect x="18" y="72" width="10" height="10" fill="#04100b"/>
+                  <rect x="42" y="10" width="14" height="8" fill="#04100b"/>
+                  <rect x="42" y="24" width="8" height="12" fill="#04100b"/>
+                  <rect x="56" y="20" width="4" height="16" fill="#04100b"/>
+                  <rect x="42" y="42" width="16" height="16" fill="#04100b"/>
+                  <rect x="10" y="42" width="8" height="14" fill="#04100b"/>
+                  <rect x="24" y="42" width="12" height="6" fill="#04100b"/>
+                  <rect x="24" y="52" width="8" height="8" fill="#04100b"/>
+                  <rect x="64" y="42" width="10" height="8" fill="#04100b"/>
+                  <rect x="80" y="42" width="10" height="16" fill="#04100b"/>
+                  <rect x="64" y="56" width="12" height="10" fill="#04100b"/>
+                  <rect x="42" y="64" width="14" height="6" fill="#04100b"/>
+                  <rect x="42" y="76" width="8" height="14" fill="#04100b"/>
+                  <rect x="56" y="74" width="12" height="16" fill="#04100b"/>
+                  <rect x="74" y="74" width="16" height="8" fill="#04100b"/>
+                  <rect x="82" y="86" width="8" height="4" fill="#04100b"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-grid gap-2">
+            <a href="dashboard.html" class="btn btn-mint fw-bold py-2">
+              <i class="bi bi-wallet2 me-2"></i> View in My Explorer Passes (Dashboard)
+            </a>
+            <button type="button" class="btn btn-outline-light btn-sm" data-bs-dismiss="modal">
+              Keep Browsing
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 10. Curated Multi-Day Trip Booking Modal -->
+  <div class="modal fade" id="tripBookingModal" tabindex="-1" aria-labelledby="tripBookingTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <div>
+            <span class="badge bg-mint text-dark fw-bold px-2 py-0 rounded-pill small mb-1">Curated Trip Booking</span>
+            <h5 class="modal-title fw-bold text-white mb-0" id="bookTripTitle">Trip Reservation</h5>
+          </div>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <div class="p-3 rounded-3 mb-3" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <span class="small text-mint fw-semibold" id="bookTripDuration">Duration</span>
+              <span class="small text-muted" id="bookTripLoc">Location</span>
+            </div>
+            <div class="fs-5 fw-bold text-mint" id="bookTripPrice">Price</div>
+          </div>
+
+          <form onsubmit="submitTripBooking(event)">
+            <div class="mb-3">
+              <label class="form-label small text-light fw-semibold">Lead Traveler Full Name</label>
+              <input type="text" class="form-control form-control-custom" id="tripLeadName" placeholder="e.g. Tunde Balogun" required>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-6">
+                <label class="form-label small text-light fw-semibold">Email Address</label>
+                <input type="email" class="form-control form-control-custom" id="tripLeadEmail" placeholder="you@domain.com" required>
+              </div>
+              <div class="col-6">
+                <label class="form-label small text-light fw-semibold">WhatsApp Number</label>
+                <input type="tel" class="form-control form-control-custom" id="tripLeadPhone" placeholder="+234..." required>
+              </div>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-6">
+                <label class="form-label small text-light fw-semibold">Number of Travelers</label>
+                <select class="form-select form-select-custom" id="tripTravelerCount">
+                  <option value="1">1 Person (Solo Explorer)</option>
+                  <option value="2" selected>2 Persons (Couple / Friends)</option>
+                  <option value="4">4 Persons (Group)</option>
+                  <option value="6">6+ Persons (Custom Tour)</option>
+                </select>
+              </div>
+              <div class="col-6">
+                <label class="form-label small text-light fw-semibold">Target Departure</label>
+                <select class="form-select form-select-custom" id="tripDepartureDate">
+                  <option value="oct2026">October 2026 (Upcoming)</option>
+                  <option value="nov2026">November 2026</option>
+                  <option value="dec2026">December 2026 (Festive)</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small text-light fw-semibold">Dietary or Room Requests (Optional)</label>
+              <input type="text" class="form-control form-control-custom" placeholder="e.g. Vegetarian, King bed, Airport pickup">
+            </div>
+
+            <button type="submit" class="btn btn-mint w-100 py-2 fw-bold">
+              Confirm Trip Reservation <i class="bi bi-arrow-right ms-1"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 11. Spot Discovery Details & Direct Actions Modal -->
+  <div class="modal fade" id="spotDiscoveryModal" tabindex="-1" aria-labelledby="discoverySpotTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <div>
+            <h5 class="modal-title fw-bold text-white mb-0" id="discoverySpotTitle">Spot Details</h5>
+            <span class="small text-muted" id="discoverySpotLoc"></span>
+          </div>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <div class="row g-4">
+            <div class="col-lg-6 col-12">
+              <div class="rounded-3 overflow-hidden position-relative mb-3" style="height: 230px;">
+                <img src="" id="discoverySpotImg" class="w-100 h-100 object-fit-cover" alt="Spot">
+                <span class="badge bg-dark text-warning position-absolute top-0 end-0 m-3 fw-bold border border-warning" id="discoverySpotRating"></span>
+              </div>
+              <div class="p-3 rounded-3" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+                <div class="small text-muted fw-bold mb-2">AMENITIES & SERVICES</div>
+                <div class="d-flex flex-wrap gap-1" id="discoverySpotAmenities"></div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-12 d-flex flex-column justify-content-between">
+              <div>
+                <h6 class="text-mint fw-bold mb-2">About This Spot</h6>
+                <p class="small text-light mb-4" id="discoverySpotDesc" style="line-height: 1.7;"></p>
+              </div>
+              <div>
+                <div class="small text-muted fw-bold mb-2">DIRECT CONTACT ACTIONS</div>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-mint fw-bold py-2" id="discoverySpotWaBtn"><i class="bi bi-whatsapp me-2"></i> Chat with Concierge on WhatsApp</button>
+                  <button class="btn btn-outline-light py-2" id="discoverySpotCallBtn"><i class="bi bi-telephone me-2"></i> Direct Phone Call</button>
+                  <button class="btn btn-outline-light py-2" id="discoverySpotDirBtn"><i class="bi bi-geo-alt me-2"></i> Get GPS Directions</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 12. Tour & Visit Details Modal (PRD Section 18) -->
+  <div class="modal fade" id="tourDetailsModal" tabindex="-1" aria-labelledby="tourModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <div>
+            <span class="badge bg-mint text-dark fw-bold px-2 py-0 rounded-pill small mb-1">Guided Tour Experience</span>
+            <h5 class="modal-title fw-bold text-white mb-0" id="tourModalTitle">Tour Details</h5>
+          </div>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <div class="row g-4">
+            <div class="col-lg-6 col-12">
+              <div class="rounded-3 overflow-hidden position-relative mb-3" style="height: 220px;">
+                <img src="" id="tourModalImg" class="w-100 h-100 object-fit-cover" alt="Tour preview">
+                <span class="badge bg-dark text-mint border border-mint position-absolute top-0 start-0 m-3" id="tourModalDuration"></span>
+              </div>
+              <div class="p-3 rounded-3 mb-3" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+                <div class="small text-muted mb-1">DESTINATION & MEETING POINT</div>
+                <div class="small text-white fw-bold mb-1" id="tourModalDest"></div>
+                <div class="small text-light" id="tourModalMeeting"></div>
+              </div>
+              <div class="p-3 rounded-3" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+                <div class="small text-muted mb-1">YOUR GUIDE</div>
+                <div class="small text-mint fw-bold"><i class="bi bi-person-badge me-1"></i> <span id="tourModalGuide"></span></div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-12 d-flex flex-column justify-content-between">
+              <div>
+                <h6 class="text-mint fw-bold mb-2">Tour Activities</h6>
+                <div id="tourModalActivities" class="mb-3"></div>
+
+                <h6 class="text-mint fw-bold mb-1">What's Included</h6>
+                <ul class="list-unstyled mb-3" id="tourModalIncluded"></ul>
+
+                <h6 class="text-secondary fw-bold mb-1 small">What's Excluded</h6>
+                <ul class="list-unstyled mb-3" id="tourModalExcluded"></ul>
+              </div>
+
+              <div class="pt-3 border-top border-secondary border-opacity-25">
+                <div class="tour-pricing-row mb-3">
+                  <div>
+                    <span class="d-block small text-muted">Member Price:</span>
+                    <span class="member-price-highlight fs-4" id="tourModalMemberPrice">₦18,000</span>
+                  </div>
+                  <div class="text-end">
+                    <span class="d-block small text-muted">Regular Price:</span>
+                    <span class="regular-price-del fs-6" id="tourModalRegularPrice">₦25,000</span>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-mint w-100 py-2 fw-bold" id="tourModalBookBtn">
+                  Book Tour Experience <i class="bi bi-arrow-right ms-1"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 13. Tour Booking & Member Verification Modal (PRD Section 19) -->
+  <div class="modal fade" id="tourBookingModal" tabindex="-1" aria-labelledby="bookTourTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <div>
+            <span class="badge bg-mint text-dark fw-bold px-2 py-0 rounded-pill small mb-1">Tour Booking</span>
+            <h5 class="modal-title fw-bold text-white mb-0" id="bookTourTitle">Tour Reservation</h5>
+          </div>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <!-- Member status notification -->
+          <div class="mb-3" id="bookTourMemberBadge"></div>
+
+          <div class="p-3 rounded-3 mb-3" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+            <div class="small text-mint fw-semibold mb-1" id="bookTourDuration"><i class="bi bi-clock me-1"></i> Duration</div>
+            <div class="small text-muted" id="bookTourMeeting"><i class="bi bi-geo-alt me-1"></i> Meeting Point</div>
+          </div>
+
+          <form onsubmit="submitTourBooking(event)">
+            <div class="mb-3">
+              <label class="form-label small text-light fw-semibold">Lead Participant Name *</label>
+              <input type="text" class="form-control form-control-custom" id="tourLeadName" placeholder="e.g. Babatunde Adeleke" required>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-6">
+                <label class="form-label small text-light fw-semibold">Email *</label>
+                <input type="email" class="form-control form-control-custom" id="tourLeadEmail" placeholder="you@domain.com" required>
+              </div>
+              <div class="col-6">
+                <label class="form-label small text-light fw-semibold">Target Tour Date *</label>
+                <select class="form-select form-select-custom" id="tourDateSelect" required>
+                  <option value="Saturday, Oct 19">Saturday, Oct 19, 2025</option>
+                  <option value="Saturday, Oct 26">Saturday, Oct 26, 2025</option>
+                  <option value="Saturday, Nov 02">Saturday, Nov 02, 2025</option>
+                  <option value="Saturday, Nov 09">Saturday, Nov 09, 2025</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Participant Quantity Counter -->
+            <div class="mb-3 p-3 rounded-3" style="background: rgba(12, 32, 36, 0.8); border: 1px solid rgba(0, 210, 132, 0.2);">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div>
+                  <span class="small text-light fw-semibold d-block">Number of Participants</span>
+                  <span class="small text-muted">Price per person: <strong class="text-white" id="tourPricePerPerson">₦18,000</strong></span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <button type="button" class="btn btn-sm btn-outline-light px-2 py-0 fw-bold" onclick="adjustTourQty(-1)">-</button>
+                  <span class="fw-bold text-mint px-2 fs-6" id="tourQty">1</span>
+                  <button type="button" class="btn btn-sm btn-outline-light px-2 py-0 fw-bold" onclick="adjustTourQty(1)">+</button>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center border-top border-secondary border-opacity-25 pt-2">
+                <span class="small text-muted">Total Calculated:</span>
+                <span class="fs-5 fw-bold text-mint" id="tourTotalPrice">₦18,000</span>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-mint w-100 py-2 fw-bold">
+              Confirm & Generate Tour Entry Voucher <i class="bi bi-qr-code ms-1"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 14. "Share Your Exploration" Stories Modal (PRD Section 36) -->
+  <div class="modal fade" id="shareStoryModal" tabindex="-1" aria-labelledby="shareStoryTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <div>
+            <span class="badge bg-mint text-dark fw-bold px-2 py-0 rounded-pill small mb-1">Explorer Community</span>
+            <h5 class="modal-title fw-bold text-white mb-0" id="shareStoryTitle">Share Your Exploration Story</h5>
+          </div>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <p class="small text-muted mb-3">Submit your travel stories, festival memories, or secret hidden spot reviews. Stories are reviewed by our team and featured in the state gallery.</p>
+          <form onsubmit="submitExplorerStory(event)">
+            <div class="mb-3">
+              <label class="form-label small text-light fw-semibold">Story Title *</label>
+              <input type="text" class="form-control form-control-custom" id="storyTitle" placeholder="e.g. Conquering Tier 7 at Erin Ijesha" required>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-6">
+                <label class="form-label small text-light fw-semibold">State Explored *</label>
+                <select class="form-select form-select-custom" id="storyState">
+                  <option value="Lagos">Lagos State</option>
+                  <option value="Osun" selected>Osun State</option>
+                  <option value="Ogun">Ogun State</option>
+                  <option value="Cross River">Cross River State</option>
+                  <option value="Other">Other Nigerian State</option>
+                </select>
+              </div>
+              <div class="col-6">
+                <label class="form-label small text-light fw-semibold">Your Name / Handle *</label>
+                <input type="text" class="form-control form-control-custom" id="storyAuthor" placeholder="e.g. Bisi the Nomad" required>
+              </div>
+            </div>
+            <div class="mb-4">
+              <label class="form-label small text-light fw-semibold">Your Travel Experience & Tips *</label>
+              <textarea class="form-control form-control-custom" id="storyText" rows="4" placeholder="Tell us what you discovered, who you met, best food spots, or packing advice..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-mint w-100 py-2 fw-bold">
+              Submit Story for Review <i class="bi bi-send ms-1"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 8. Floating Action: Scroll to Top Button -->
+  <button class="back-to-top" id="backToTopBtn" title="Scroll to top" aria-label="Scroll to top">
+    <i class="bi bi-chevron-up"></i>
+  </button>
+
+
+  <!-- 9. Toast Notification Component -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1090;">
+    <div id="liveToast" class="toast align-items-center border-0 text-white"
+      style="background: #092127; border: 1px solid rgba(0,210,132,0.4) !important; border-radius: var(--radius-md);"
+      role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header"
+        style="background: rgba(0,210,132,0.1); border-bottom: 1px solid rgba(255,255,255,0.08); color: #fff;">
+        <i id="toastIcon" class="bi bi-check-circle-fill text-mint me-2"></i>
+        <strong class="me-auto" id="toastTitle">The Africa Explorers</strong>
+        <small class="text-muted">Just now</small>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body small" id="toastBody">
+        Action executed successfully.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <!-- Custom Interactive Scripts -->
+  <script src="script.js"></script>
+
+</body>
+
+</html>

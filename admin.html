@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal — The Africa Explorers</title>
+  <meta name="description" content="Africa Explorers administrative command center: Nigerian states federation, business spot approvals, tours & visits, explorer passports, and dual-currency financial audits.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo-white.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons 1.11 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Custom Core Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body style="background: #040c0e;">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-custom" id="mainNavbar">
+    <div class="custom-container d-flex align-items-center justify-content-between">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/logo-white.png" alt="Logo" class="navbar-brand-logo">
+      </a>
+      
+      <div class="d-flex align-items-center gap-3">
+        <!-- Dual Currency Switcher -->
+        <div class="currency-switcher d-flex align-items-center" id="adminCurrencySwitcher">
+          <button class="currency-btn active" data-curr="NGN" onclick="toggleCurrency('NGN')">₦ NGN</button>
+          <button class="currency-btn" data-curr="USD" onclick="toggleCurrency('USD')">$ USD</button>
+        </div>
+
+        <span class="badge bg-danger text-white px-3 py-2"><i class="bi bi-shield-lock-fill me-1"></i>ADMINISTRATOR</span>
+        <a href="index.html" class="btn btn-sm btn-outline-light">Exit to Main Site</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ADMIN WORKSPACE -->
+  <main class="py-5" style="padding-top: 105px !important;">
+    <div class="custom-container">
+      
+      <!-- Admin Header -->
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+        <div>
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <h1 class="h3 fw-bold text-white mb-0">Africa Explorers Command Center</h1>
+            <span class="badge bg-mint text-dark fw-bold px-2 py-1">v2.4 Live Node</span>
+          </div>
+          <p class="text-muted small mb-0">Oversee Nigerian state chapters, tours & itineraries, explorer passports, business partner listings, and revenue streams.</p>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-sm btn-outline-light" onclick="if (typeof initAdminPortal === 'function') initAdminPortal(); showToast('Synchronized data from local and ecosystem databases.', 'Refreshed');">
+            <i class="bi bi-arrow-repeat me-1"></i> Refresh Data
+          </button>
+          <button class="btn btn-sm btn-mint" onclick="showToast('Federation sync completed. Lagos and Osun state hubs fully operational.', 'System Synchronized')">
+            <i class="bi bi-check-circle-fill me-1"></i> Sync Federation Nodes
+          </button>
+        </div>
+      </div>
+
+      <!-- Overview Stats (Dual Currency Aware) -->
+      <div class="row g-3 mb-4">
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="dashboard-stat-card">
+            <div class="dashboard-stat-number text-mint">2 / 37</div>
+            <div class="dashboard-stat-label">Active Chapters</div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="dashboard-stat-card">
+            <div class="dashboard-stat-number text-warning">842</div>
+            <div class="dashboard-stat-label">Verified Spots</div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="dashboard-stat-card">
+            <div class="dashboard-stat-number text-white">14,290</div>
+            <div class="dashboard-stat-label">Explorers</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-6">
+          <div class="dashboard-stat-card">
+            <div class="dashboard-stat-number text-mint">3,850</div>
+            <div class="dashboard-stat-label">Annual Pass Holders ($25/₦30k)</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="dashboard-stat-card">
+            <div class="dashboard-stat-number text-warning" data-ngn-price="18400000">₦18,400,000</div>
+            <div class="dashboard-stat-label">Platform Gross Volume</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="d-flex flex-wrap gap-2 mb-4 p-2 rounded-4" style="background: rgba(12, 32, 36, 0.5); border: 1px solid var(--border-subtle);">
+        <button class="admin-tab-btn active" onclick="switchAdminTab('tabTours', this)">
+          <i class="bi bi-compass-fill me-1"></i> Tours & Visits
+        </button>
+        <button class="admin-tab-btn" onclick="switchAdminTab('tabExplorers', this)">
+          <i class="bi bi-person-badge-fill me-1"></i> Explorers & Memberships
+        </button>
+        <button class="admin-tab-btn" onclick="switchAdminTab('tabBiz', this)">
+          <i class="bi bi-shop me-1"></i> Business Spot Approvals
+        </button>
+        <button class="admin-tab-btn" onclick="switchAdminTab('tabStates', this)">
+          <i class="bi bi-map-fill me-1"></i> Nigerian States Federation
+        </button>
+        <button class="admin-tab-btn" onclick="switchAdminTab('tabFinancials', this)">
+          <i class="bi bi-wallet2 me-1"></i> Financials & Reconciliation
+        </button>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- TAB 1: TOURS & VISITS (PRD Sections 17, 18, 19)              -->
+      <!-- ============================================================ -->
+      <div id="tabTours" class="admin-tab-pane">
+        
+        <!-- Live Bookings Queue -->
+        <div class="p-4 rounded-4 mb-4" style="background: rgba(12, 32, 36, 0.7); border: 1px solid var(--border-subtle);">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+            <div>
+              <h2 class="h5 fw-bold text-white mb-1"><i class="bi bi-ticket-perforated-fill text-mint me-2"></i>Recent Tour & Visit Bookings</h2>
+              <p class="text-muted small mb-0">Real-time incoming reservations with Member vs Non-Member rate tracking.</p>
+            </div>
+            <span class="badge bg-mint text-dark fw-bold">Live Synced from App</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Booking ID</th>
+                  <th>Lead Explorer</th>
+                  <th>Tour Package</th>
+                  <th>Date</th>
+                  <th>Group</th>
+                  <th>Pricing Tier</th>
+                  <th>Total Paid</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="adminTourBookingsBody">
+                <!-- Dynamically populated by initAdminPortal() -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tours Catalog -->
+        <div class="p-4 rounded-4 mb-4" style="background: rgba(12, 32, 36, 0.7); border: 1px solid var(--border-subtle);">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+              <h2 class="h5 fw-bold text-white mb-1"><i class="bi bi-journal-bookmark-fill text-warning me-2"></i>Active Tour Catalog & Rates</h2>
+              <p class="text-muted small mb-0">Verified itineraries across Lagos and Osun launch chapters.</p>
+            </div>
+            <button class="btn btn-sm btn-outline-mint" onclick="showToast('Tour creation modal will open in the next release.', 'Tour Creator')">
+              <i class="bi bi-plus-lg me-1"></i> Add New Tour
+            </button>
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Tour Title</th>
+                  <th>State</th>
+                  <th>Duration</th>
+                  <th>Member Rate (Pass)</th>
+                  <th>Regular Rate</th>
+                  <th>Capacity</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong class="text-white d-block">Lagos Island Historic & Cultural Walk</strong>
+                    <span class="text-muted small">Freedom Park, Brazilian Quarters, Marina</span>
+                  </td>
+                  <td><span class="badge bg-dark border border-secondary text-info">Lagos</span></td>
+                  <td class="text-light small">7 Hours</td>
+                  <td><strong class="text-mint" data-ngn-price="18000">₦18,000</strong></td>
+                  <td><span class="text-muted" data-ngn-price="25000">₦25,000</span></td>
+                  <td><span class="badge bg-secondary">15 Pax / slot</span></td>
+                  <td><span class="status-badge-approved">Active & Open</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong class="text-white d-block">Lekki Canopy Walkway & Coastal Lagoon Cruise</strong>
+                    <span class="text-muted small">Rainforest canopy, suspension bridge, Tarkwa Bay speed boat</span>
+                  </td>
+                  <td><span class="badge bg-dark border border-secondary text-info">Lagos</span></td>
+                  <td class="text-light small">Full Day</td>
+                  <td><strong class="text-mint" data-ngn-price="28000">₦28,000</strong></td>
+                  <td><span class="text-muted" data-ngn-price="38000">₦38,000</span></td>
+                  <td><span class="badge bg-secondary">12 Pax / slot</span></td>
+                  <td><span class="status-badge-approved">Active & Open</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong class="text-white d-block">Erin Ijesha 7-Tiers Waterfall Trek & Ridge Climb</strong>
+                    <span class="text-muted small">All 7 tiers of Olumirin Waterfalls & Abake plateau village</span>
+                  </td>
+                  <td><span class="badge bg-dark border border-secondary text-warning">Osun</span></td>
+                  <td class="text-light small">6 Hours</td>
+                  <td><strong class="text-mint" data-ngn-price="22000">₦22,000</strong></td>
+                  <td><span class="text-muted" data-ngn-price="30000">₦30,000</span></td>
+                  <td><span class="badge bg-secondary">20 Pax / slot</span></td>
+                  <td><span class="status-badge-approved">Active & Open</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong class="text-white d-block">Osun-Osogbo Sacred Grove & Suzanne Wenger Shrine</strong>
+                    <span class="text-muted small">UNESCO World Heritage cultural immersion & sacred shrines</span>
+                  </td>
+                  <td><span class="badge bg-dark border border-secondary text-warning">Osun</span></td>
+                  <td class="text-light small">5 Hours</td>
+                  <td><strong class="text-mint" data-ngn-price="15000">₦15,000</strong></td>
+                  <td><span class="text-muted" data-ngn-price="22000">₦22,000</span></td>
+                  <td><span class="badge bg-secondary">15 Pax / slot</span></td>
+                  <td><span class="status-badge-approved">Active & Open</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong class="text-white d-block">Ilesa Ancient Kingdom & Kiriji War Memorial Tour</strong>
+                    <span class="text-muted small">Owa Obokun palace, ancient brass casting, historic treaty site</span>
+                  </td>
+                  <td><span class="badge bg-dark border border-secondary text-warning">Osun</span></td>
+                  <td class="text-light small">Full Day</td>
+                  <td><strong class="text-mint" data-ngn-price="20000">₦20,000</strong></td>
+                  <td><span class="text-muted" data-ngn-price="28000">₦28,000</span></td>
+                  <td><span class="badge bg-secondary">10 Pax / slot</span></td>
+                  <td><span class="status-badge-approved">Active & Open</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- TAB 2: EXPLORERS & CITIZEN PASSPORTS (PRD Sections 2, 7, 28) -->
+      <!-- ============================================================ -->
+      <div id="tabExplorers" class="admin-tab-pane d-none">
+        <div class="p-4 rounded-4 mb-4" style="background: rgba(12, 32, 36, 0.7); border: 1px solid var(--border-subtle);">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+            <div>
+              <h2 class="h5 fw-bold text-white mb-1"><i class="bi bi-person-lines-fill text-mint me-2"></i>Universal Explorer Identity & Passport Registry</h2>
+              <p class="text-muted small mb-0">Audit citizen identity designations (Explorer in Home State vs Visitor), Annual Passes, and privileges.</p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <span class="badge bg-dark border border-secondary text-light">3,850 Annual Passes</span>
+              <span class="badge bg-dark border border-secondary text-muted">10,440 Standard</span>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Passport No.</th>
+                  <th>Explorer Name</th>
+                  <th>Home State</th>
+                  <th>Citizen Identity Status</th>
+                  <th>Pass Tier ($25/₦30k)</th>
+                  <th>Joined</th>
+                  <th>Admin Action</th>
+                </tr>
+              </thead>
+              <tbody id="adminExplorersBody">
+                <!-- Dynamically populated by initAdminPortal() -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- TAB 3: BUSINESS SPOT APPROVALS (PRD Sections 3, 21, 23)      -->
+      <!-- ============================================================ -->
+      <div id="tabBiz" class="admin-tab-pane d-none">
+        <div class="p-4 rounded-4 mb-4" style="background: rgba(12, 32, 36, 0.7); border: 1px solid var(--border-subtle);">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+            <div>
+              <h2 class="h5 fw-bold text-white mb-1"><i class="bi bi-shop-window text-warning me-2"></i>Business Listings Moderation & Spot Approvals</h2>
+              <p class="text-muted small mb-0">Review submissions across the 8 PRD categories: Attractions, Accommodation, Food, Nightlife, Entertainment, Lifestyle, Shopping, Work.</p>
+            </div>
+            <div class="d-flex gap-2">
+              <span class="badge bg-warning text-dark fw-bold">Moderation Queue Active</span>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Business Name & Contact</th>
+                  <th>Category (8 PRD)</th>
+                  <th>Location</th>
+                  <th>Listing Plan</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminBizBody">
+                <!-- Row 1 -->
+                <tr id="bizRow1">
+                  <td>
+                    <strong class="text-white">Zenith Grand Hotel & Suites</strong>
+                    <div class="small text-muted">+234 806 888 9900 &bull; reservations@zenithhotel.ng</div>
+                  </td>
+                  <td><span class="badge bg-dark border border-secondary text-warning">Accommodation</span></td>
+                  <td>Osun (Ilesa)</td>
+                  <td><span class="text-mint small fw-bold">Premium Spotlight</span></td>
+                  <td><span class="status-badge-pending">Pending Review</span></td>
+                  <td class="admin-action-btns">
+                    <div class="d-flex gap-1">
+                      <button class="btn btn-sm btn-mint" onclick="adminApproveListing('BIZ-8201', 'bizRow1')"><i class="bi bi-check2"></i> Approve</button>
+                      <button class="btn btn-sm btn-outline-danger" onclick="adminRejectListing('BIZ-8201', 'bizRow1')"><i class="bi bi-x"></i> Reject</button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 2 -->
+                <tr id="bizRow2">
+                  <td>
+                    <strong class="text-white">The Haven Luxury Penthouse</strong>
+                    <div class="small text-muted">+234 814 555 6677 &bull; info@thehavenikoyi.com</div>
+                  </td>
+                  <td><span class="badge bg-dark border border-secondary text-mint">Accommodation</span></td>
+                  <td>Lagos (Old Ikoyi)</td>
+                  <td><span class="text-warning small fw-bold">Featured Partner</span></td>
+                  <td><span class="status-badge-pending">Pending Review</span></td>
+                  <td class="admin-action-btns">
+                    <div class="d-flex gap-1">
+                      <button class="btn btn-sm btn-mint" onclick="adminApproveListing('BIZ-4921', 'bizRow2')"><i class="bi bi-check2"></i> Approve</button>
+                      <button class="btn btn-sm btn-outline-danger" onclick="adminRejectListing('BIZ-4921', 'bizRow2')"><i class="bi bi-x"></i> Reject</button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 3 -->
+                <tr id="bizRow3">
+                  <td>
+                    <strong class="text-white">Amala Heritage Kitchen</strong>
+                    <div class="small text-muted">+234 803 999 0011 &bull; contact@amalaheritage.com</div>
+                  </td>
+                  <td><span class="badge bg-dark border border-secondary text-danger">Food & Dining</span></td>
+                  <td>Osun (Osogbo)</td>
+                  <td><span class="text-light small">Basic Directory</span></td>
+                  <td><span class="status-badge-approved">Approved & Live</span></td>
+                  <td class="admin-action-btns">
+                    <span class="text-mint small fw-bold"><i class="bi bi-check-circle-fill me-1"></i> Published</span>
+                  </td>
+                </tr>
+
+                <!-- Row 4 -->
+                <tr id="bizRow4">
+                  <td>
+                    <strong class="text-white">Terra Kulture Co-Working & Arts</strong>
+                    <div class="small text-muted">+234 802 111 2233 &bull; spaces@terrakulture.com</div>
+                  </td>
+                  <td><span class="badge bg-dark border border-secondary text-info">Work & Co-Working</span></td>
+                  <td>Lagos (Victoria Island)</td>
+                  <td><span class="text-warning small fw-bold">Featured Partner</span></td>
+                  <td><span class="status-badge-approved">Approved & Live</span></td>
+                  <td class="admin-action-btns">
+                    <span class="text-mint small fw-bold"><i class="bi bi-check-circle-fill me-1"></i> Published</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- TAB 4: NIGERIAN STATES FEDERATION (PRD Sections 2, 4)        -->
+      <!-- ============================================================ -->
+      <div id="tabStates" class="admin-tab-pane d-none">
+        <div class="p-4 rounded-4 mb-4" style="background: rgba(12, 32, 36, 0.7); border: 1px solid var(--border-subtle);">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+            <div>
+              <h2 class="h5 fw-bold text-white mb-1"><i class="bi bi-diagram-3-fill text-mint me-2"></i>Federation Deployment (36 States + FCT)</h2>
+              <p class="text-muted small mb-0">Initial rollout is locked to Lagos and Osun. Toggle states to unlock chapters as local teams onboard.</p>
+            </div>
+            <span class="badge bg-mint text-dark fw-bold">2 Live &bull; 35 In Waitlist Pipeline</span>
+          </div>
+
+          <div class="row g-3">
+            <!-- Active Launch State 1 -->
+            <div class="col-md-4 col-12">
+              <div class="p-3 rounded-3 d-flex align-items-center justify-content-between" style="background: rgba(0, 210, 132, 0.1); border: 1px solid var(--mint-primary);">
+                <div>
+                  <strong class="text-white d-block">Lagos State</strong>
+                  <span class="small text-mint">Active Launch Hub &bull; 14,800 Explorers</span>
+                </div>
+                <button class="btn btn-sm btn-mint fw-bold" onclick="adminToggleState('Lagos', this)">Active (Live)</button>
+              </div>
+            </div>
+
+            <!-- Active Launch State 2 -->
+            <div class="col-md-4 col-12">
+              <div class="p-3 rounded-3 d-flex align-items-center justify-content-between" style="background: rgba(0, 210, 132, 0.1); border: 1px solid var(--mint-primary);">
+                <div>
+                  <strong class="text-white d-block">Osun State</strong>
+                  <span class="small text-mint">Active Launch Hub &bull; 6,200 Explorers</span>
+                </div>
+                <button class="btn btn-sm btn-mint fw-bold" onclick="adminToggleState('Osun', this)">Active (Live)</button>
+              </div>
+            </div>
+
+            <!-- Pipeline State 3 -->
+            <div class="col-md-4 col-12">
+              <div class="p-3 rounded-3 d-flex align-items-center justify-content-between" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
+                <div>
+                  <strong class="text-light d-block">Federal Capital Territory (Abuja)</strong>
+                  <span class="small text-muted">Waitlist: 7,850 Explorers</span>
+                </div>
+                <button class="btn btn-sm btn-outline-secondary" onclick="adminToggleState('Abuja FCT', this)">Coming Soon</button>
+              </div>
+            </div>
+
+            <!-- Pipeline State 4 -->
+            <div class="col-md-4 col-12">
+              <div class="p-3 rounded-3 d-flex align-items-center justify-content-between" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
+                <div>
+                  <strong class="text-light d-block">Ogun State</strong>
+                  <span class="small text-muted">Waitlist: 3,410 Explorers</span>
+                </div>
+                <button class="btn btn-sm btn-outline-secondary" onclick="adminToggleState('Ogun', this)">Coming Soon</button>
+              </div>
+            </div>
+
+            <!-- Pipeline State 5 -->
+            <div class="col-md-4 col-12">
+              <div class="p-3 rounded-3 d-flex align-items-center justify-content-between" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
+                <div>
+                  <strong class="text-light d-block">Rivers State</strong>
+                  <span class="small text-muted">Waitlist: 2,890 Explorers</span>
+                </div>
+                <button class="btn btn-sm btn-outline-secondary" onclick="adminToggleState('Rivers', this)">Coming Soon</button>
+              </div>
+            </div>
+
+            <!-- Pipeline State 6 -->
+            <div class="col-md-4 col-12">
+              <div class="p-3 rounded-3 d-flex align-items-center justify-content-between" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
+                <div>
+                  <strong class="text-light d-block">Cross River State</strong>
+                  <span class="small text-muted">Waitlist: 2,450 Explorers</span>
+                </div>
+                <button class="btn btn-sm btn-outline-secondary" onclick="adminToggleState('Cross River', this)">Coming Soon</button>
+              </div>
+            </div>
+
+            <!-- Pipeline State 7 -->
+            <div class="col-md-4 col-12">
+              <div class="p-3 rounded-3 d-flex align-items-center justify-content-between" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
+                <div>
+                  <strong class="text-light d-block">Enugu State</strong>
+                  <span class="small text-muted">Waitlist: 2,150 Explorers</span>
+                </div>
+                <button class="btn btn-sm btn-outline-secondary" onclick="adminToggleState('Enugu', this)">Coming Soon</button>
+              </div>
+            </div>
+
+            <!-- Pipeline State 8 -->
+            <div class="col-md-4 col-12">
+              <div class="p-3 rounded-3 d-flex align-items-center justify-content-between" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
+                <div>
+                  <strong class="text-light d-block">Kano State</strong>
+                  <span class="small text-muted">Waitlist: 1,940 Explorers</span>
+                </div>
+                <button class="btn btn-sm btn-outline-secondary" onclick="adminToggleState('Kano', this)">Coming Soon</button>
+              </div>
+            </div>
+
+            <!-- Pipeline State 9 -->
+            <div class="col-md-4 col-12">
+              <div class="p-3 rounded-3 d-flex align-items-center justify-content-between" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
+                <div>
+                  <strong class="text-light d-block">Plateau State</strong>
+                  <span class="small text-muted">Waitlist: 1,820 Explorers</span>
+                </div>
+                <button class="btn btn-sm btn-outline-secondary" onclick="adminToggleState('Plateau', this)">Coming Soon</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- TAB 5: FINANCIALS & RECONCILIATION (PRD Sections 7, 23, 41)  -->
+      <!-- ============================================================ -->
+      <div id="tabFinancials" class="admin-tab-pane d-none">
+        <div class="p-4 rounded-4 mb-4" style="background: rgba(12, 32, 36, 0.7); border: 1px solid var(--border-subtle);">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+            <div>
+              <h2 class="h5 fw-bold text-white mb-1"><i class="bi bi-cash-stack text-mint me-2"></i>Ecosystem Revenue & Dual-Currency Reconciliation</h2>
+              <p class="text-muted small mb-0">Financial streams categorized by Membership Passes ($25/₦30k), Tour bookings, and Business subscriptions.</p>
+            </div>
+            <div class="text-end">
+              <span class="text-muted small">Dual Rate Benchmark:</span>
+              <span class="badge bg-dark border border-secondary text-warning ms-1">$1.00 USD = ₦1,200 NGN</span>
+            </div>
+          </div>
+
+          <div class="row g-3 mb-4">
+            <div class="col-md-4 col-12">
+              <div class="p-3 rounded-3" style="background: rgba(0, 210, 132, 0.05); border: 1px solid rgba(0, 210, 132, 0.2);">
+                <div class="text-muted small mb-1">Annual Passes Revenue (3,850 Members)</div>
+                <h3 class="h4 fw-bold text-mint mb-1" data-ngn-price="115500000">₦115,500,000</h3>
+                <span class="text-muted small">₦30,000 / $25 per explorer annually</span>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-12">
+              <div class="p-3 rounded-3" style="background: rgba(245, 166, 35, 0.05); border: 1px solid rgba(245, 166, 35, 0.2);">
+                <div class="text-muted small mb-1">Tours & Visits Volume (142 Bookings)</div>
+                <h3 class="h4 fw-bold text-warning mb-1" data-ngn-price="12450000">₦12,450,000</h3>
+                <span class="text-muted small">15% platform commission: <strong class="text-light" data-ngn-price="1867500">₦1,867,500</strong></span>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-12">
+              <div class="p-3 rounded-3" style="background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.2);">
+                <div class="text-muted small mb-1">Business Partner Subscriptions (842 Spots)</div>
+                <h3 class="h4 fw-bold text-info mb-1" data-ngn-price="16840000">₦16,840,000</h3>
+                <span class="text-muted small">Basic, Premium & Featured monthly billing</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Transaction Audit Table -->
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Transaction Ref</th>
+                  <th>Source Channel</th>
+                  <th>Explorer / Business</th>
+                  <th>Date & Time</th>
+                  <th>Amount</th>
+                  <th>Settlement Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code class="text-mint">TX-90218-MBR</code></td>
+                  <td><span class="badge bg-mint text-dark">Annual Pass Pass ($25)</span></td>
+                  <td class="text-white">Tunde Adeleke</td>
+                  <td class="text-muted small">Today, 09:42 AM</td>
+                  <td><strong class="text-mint" data-ngn-price="30000">₦30,000</strong></td>
+                  <td><span class="status-badge-approved">Settled (Paystack)</span></td>
+                </tr>
+                <tr>
+                  <td><code class="text-mint">TX-89104-TUR</code></td>
+                  <td><span class="badge bg-warning text-dark">Erin Ijesha Tour Booking</span></td>
+                  <td class="text-white">Amara Nwosu (4 Pax)</td>
+                  <td class="text-muted small">Yesterday, 04:15 PM</td>
+                  <td><strong class="text-warning" data-ngn-price="88000">₦88,000</strong></td>
+                  <td><span class="status-badge-approved">Settled (Escrow)</span></td>
+                </tr>
+                <tr>
+                  <td><code class="text-mint">TX-88421-BIZ</code></td>
+                  <td><span class="badge bg-info text-dark">Featured Partner Tier</span></td>
+                  <td class="text-white">The Haven Luxury Penthouse</td>
+                  <td class="text-muted small">Yesterday, 11:20 AM</td>
+                  <td><strong class="text-info" data-ngn-price="75000">₦75,000</strong></td>
+                  <td><span class="status-badge-approved">Settled (Stripe/Card)</span></td>
+                </tr>
+                <tr>
+                  <td><code class="text-mint">TX-87910-MBR</code></td>
+                  <td><span class="badge bg-mint text-dark">Annual Pass Pass ($25)</span></td>
+                  <td class="text-white">Ngozi Eze</td>
+                  <td class="text-muted small">2 days ago, 02:30 PM</td>
+                  <td><strong class="text-mint" data-ngn-price="30000">₦30,000</strong></td>
+                  <td><span class="status-badge-approved">Settled (Paystack)</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Toast -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1090;">
+    <div id="liveToast" class="toast align-items-center border-0 text-white" style="background: #092127; border: 1px solid rgba(0,210,132,0.4) !important;">
+      <div class="toast-header" style="background: rgba(0,210,132,0.1); color: #fff;">
+        <i id="toastIcon" class="bi bi-shield-lock-fill text-mint me-2"></i>
+        <strong class="me-auto" id="toastTitle">Admin System</strong>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+      </div>
+      <div class="toast-body small" id="toastBody"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

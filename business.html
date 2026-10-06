@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List Your Business / Spot — The Africa Explorers</title>
+  <meta name="description" content="List your hotel, shortlet, restaurant, bar, or tourist attraction on The Africa Explorers. Get discovered by thousands of active travelers visiting your state.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo-white.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons 1.11 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Custom Core Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .business-cat-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1.5px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      color: #ffffff;
+    }
+    .business-cat-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--mint-primary);
+    }
+    .business-cat-btn.active {
+      background: rgba(0, 210, 132, 0.15);
+      border-color: var(--mint-primary);
+      box-shadow: 0 0 15px var(--mint-glow);
+    }
+  </style>
+</head>
+<body style="background: #040c0e;">
+
+  <!-- ======================================================================
+       NAVBAR
+       ====================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-custom" id="mainNavbar">
+    <div class="custom-container d-flex align-items-center justify-content-between">
+      
+      <a class="navbar-brand d-flex align-items-center" href="index.html" title="The Africa Explorers">
+        <img src="assets/logo-white.png" alt="The Africa Explorers Logo" class="navbar-brand-logo">
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex">
+        <ul class="navbar-nav align-items-center gap-1">
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="spots.html">Spots Discovery</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom active text-warning" href="business.html">For Businesses</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="admin.html">Admin Portal</a></li>
+        </ul>
+      </div>
+
+      <!-- Action Items -->
+      <div class="nav-actions d-flex align-items-center gap-2">
+        <!-- Dual Currency Switcher -->
+        <div class="currency-switcher me-1" role="group" aria-label="Currency Switcher">
+          <button type="button" class="currency-btn active" id="currNGN" onclick="toggleCurrency('NGN')">₦ NGN</button>
+          <button type="button" class="currency-btn" id="currUSD" onclick="toggleCurrency('USD')">$ USD</button>
+        </div>
+        <a href="#listingWizard" class="btn btn-gold btn-mint-sm d-none d-sm-inline-flex">List Your Business</a>
+        <a href="dashboard.html" class="nav-action-icon" title="Explorer Dashboard"><i class="bi bi-person"></i></a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ======================================================================
+       HERO: BUSINESS VALUE PROPOSITION
+       ====================================================================== -->
+  <header class="py-5 position-relative" style="background: linear-gradient(180deg, #071518 0%, #0c2024 100%); padding-top: 110px !important;">
+    <div class="custom-container">
+      <div class="row align-items-center g-5">
+        
+        <div class="col-lg-7 col-12 reveal-on-scroll">
+          <span class="badge bg-warning text-dark fw-bold px-3 py-1 rounded-pill mb-2 text-uppercase" style="letter-spacing: 1px;">Partner With The Africa Explorers</span>
+          <h1 class="hero-title mb-3">
+            Get Discovered by <span class="text-warning">Thousands</span> of Nigerian Explorers & Visitors
+          </h1>
+          <p class="hero-lead mb-4">
+            Hotels, shortlets, restaurants, bars, attractions, and local experiences — when travelers explore your state, make sure your spot is what they discover first. Zero booking commissions. Direct WhatsApp leads.
+          </p>
+
+          <div class="d-flex flex-wrap gap-3 mb-4">
+            <a href="#listingWizard" class="btn btn-gold">
+              Start Listing (4 Minutes) <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+            <a href="#pricingPlans" class="btn btn-outline-pill">
+              View Pricing Plans
+            </a>
+          </div>
+
+          <div class="d-flex flex-wrap gap-4 text-light small">
+            <div><i class="bi bi-check-circle-fill text-mint me-1"></i> Direct WhatsApp Leads</div>
+            <div><i class="bi bi-check-circle-fill text-mint me-1"></i> Zero Commissions</div>
+            <div><i class="bi bi-check-circle-fill text-mint me-1"></i> 36 States Visibility</div>
+          </div>
+        </div>
+
+        <div class="col-lg-5 col-12 reveal-on-scroll delay-2">
+          <!-- Business Analytics Mock Preview Card -->
+          <div class="p-4 rounded-4" style="background: rgba(12, 32, 36, 0.9); border: 1.5px solid rgba(245, 166, 35, 0.4); box-shadow: 0 20px 50px rgba(0,0,0,0.6);">
+            <div class="d-flex align-items-center justify-content-between mb-3 border-bottom border-secondary border-opacity-25 pb-3">
+              <div>
+                <span class="small text-muted text-uppercase d-block" style="font-size: 0.7rem;">Verified Spot Preview</span>
+                <h4 class="h6 fw-bold text-white mb-0">The Federal Palace Hotel</h4>
+              </div>
+              <span class="badge bg-mint text-dark fw-bold">ACTIVE</span>
+            </div>
+
+            <div class="row g-2 mb-3">
+              <div class="col-4">
+                <div class="p-2 rounded bg-black bg-opacity-30 text-center">
+                  <span class="d-block small text-muted" style="font-size: 0.65rem;">MONTHLY VIEWS</span>
+                  <span class="fw-bold text-white fs-5">4,820</span>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="p-2 rounded bg-black bg-opacity-30 text-center">
+                  <span class="d-block small text-muted" style="font-size: 0.65rem;">WHATSAPP LEADS</span>
+                  <span class="fw-bold text-mint fs-5">342</span>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="p-2 rounded bg-black bg-opacity-30 text-center">
+                  <span class="d-block small text-muted" style="font-size: 0.65rem;">DIRECT CALLS</span>
+                  <span class="fw-bold text-warning fs-5">188</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="small text-muted mb-0"><i class="bi bi-graph-up-arrow text-mint me-1"></i> <strong>78% of leads</strong> came from visitors traveling from other Nigerian states!</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       ONBOARDING LISTING WIZARD
+       ====================================================================== -->
+  <section class="py-5" id="listingWizard">
+    <div class="custom-container">
+      
+      <div class="p-4 p-md-5 rounded-4 mx-auto" style="max-width: 860px; background: rgba(12, 32, 36, 0.7); border: 1px solid var(--border-subtle);">
+        
+        <div class="text-center mb-4">
+          <h2 class="h3 fw-bold text-white mb-1">List Your Spot in 4 Simple Steps</h2>
+          <p class="text-muted small">Join Nigeria's fastest growing destination directory.</p>
+        </div>
+
+        <!-- Wizard Progress Bar -->
+        <div class="wizard-steps-track">
+          <div class="wizard-step-node active" id="stepNode1">
+            <div class="wizard-step-bubble">1</div>
+            <span class="wizard-step-title">Category</span>
+          </div>
+          <div class="wizard-step-node" id="stepNode2">
+            <div class="wizard-step-bubble">2</div>
+            <span class="wizard-step-title">Business Info</span>
+          </div>
+          <div class="wizard-step-node" id="stepNode3">
+            <div class="wizard-step-bubble">3</div>
+            <span class="wizard-step-title">Details & Media</span>
+          </div>
+          <div class="wizard-step-node" id="stepNode4">
+            <div class="wizard-step-bubble">4</div>
+            <span class="wizard-step-title">Plan & Publish</span>
+          </div>
+        </div>
+
+        <!-- STEP 1: CATEGORY SELECTION (PRD SECTION 30) -->
+        <div id="wizardStep1">
+          <h3 class="h5 fw-bold text-white mb-3">Select Your Business Category</h3>
+          <div class="row g-3 mb-4">
+            <div class="col-md-3 col-6">
+              <div class="business-cat-btn active" onclick="selectBusinessCategory('Attraction', this)">
+                <i class="bi bi-compass fs-2 text-success d-block mb-2"></i>
+                <strong>Attractions & Culture</strong>
+                <span class="d-block small text-muted">Heritage, Galleries, Nature</span>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="business-cat-btn" onclick="selectBusinessCategory('Accommodation', this)">
+                <i class="bi bi-building fs-2 text-warning d-block mb-2"></i>
+                <strong>Accommodation & Stays</strong>
+                <span class="d-block small text-muted">Hotels, Resorts, Shortlets</span>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="business-cat-btn" onclick="selectBusinessCategory('Food', this)">
+                <i class="bi bi-egg-fried fs-2 text-danger d-block mb-2"></i>
+                <strong>Food & Dining</strong>
+                <span class="d-block small text-muted">Local Bukkas, Cafes, Fine Dining</span>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="business-cat-btn" onclick="selectBusinessCategory('Nightlife', this)">
+                <i class="bi bi-cup-straw fs-2 text-info d-block mb-2"></i>
+                <strong>Nightlife & Social</strong>
+                <span class="d-block small text-muted">Rooftops, Clubs, Beach Bars</span>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="business-cat-btn" onclick="selectBusinessCategory('Entertainment', this)">
+                <i class="bi bi-film fs-2 text-primary d-block mb-2"></i>
+                <strong>Entertainment & Rec</strong>
+                <span class="d-block small text-muted">Beach Clubs, Waterparks, Arts</span>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="business-cat-btn" onclick="selectBusinessCategory('Lifestyle', this)">
+                <i class="bi bi-flower1 fs-2 text-warning d-block mb-2"></i>
+                <strong>Lifestyle & Wellness</strong>
+                <span class="d-block small text-muted">Gyms, Spas, Salons, Retreats</span>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="business-cat-btn" onclick="selectBusinessCategory('Shopping', this)">
+                <i class="bi bi-bag fs-2 text-mint d-block mb-2"></i>
+                <strong>Shopping & Retail</strong>
+                <span class="d-block small text-muted">Artisan Crafts, Markets, Malls</span>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="business-cat-btn" onclick="selectBusinessCategory('Work', this)">
+                <i class="bi bi-laptop fs-2 text-light d-block mb-2"></i>
+                <strong>Work & Productivity</strong>
+                <span class="d-block small text-muted">Coworking Spaces, Work Cafes</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-end">
+            <button class="btn btn-mint fw-bold px-4 py-2" onclick="goToWizardStep(2)">
+              Next: Business Information <i class="bi bi-arrow-right ms-1"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 2: BUSINESS INFORMATION -->
+        <div id="wizardStep2" style="display: none;">
+          <h3 class="h5 fw-bold text-white mb-3">Business Information & Location</h3>
+          
+          <div class="row g-3 mb-4">
+            <div class="col-md-6 col-12">
+              <label class="form-label small text-light fw-semibold">Business / Spot Name *</label>
+              <input type="text" class="form-control form-control-custom" id="bizName" placeholder="e.g. Zen Gardens Boutique Hotel" required>
+            </div>
+            <div class="col-md-6 col-12">
+              <label class="form-label small text-light fw-semibold">State *</label>
+              <select class="form-select form-select-custom" id="bizState" required>
+                <option value="Lagos" selected>Lagos State</option>
+                <option value="Osun">Osun State</option>
+                <option value="Ogun">Ogun State</option>
+                <option value="Abuja">FCT Abuja</option>
+                <option value="Rivers">Rivers State</option>
+                <option value="Enugu">Enugu State</option>
+              </select>
+            </div>
+            <div class="col-md-6 col-12">
+              <label class="form-label small text-light fw-semibold">City / District *</label>
+              <input type="text" class="form-control form-control-custom" id="bizCity" placeholder="e.g. Victoria Island / Ilesa" required>
+            </div>
+            <div class="col-md-6 col-12">
+              <label class="form-label small text-light fw-semibold">Official WhatsApp Number *</label>
+              <input type="tel" class="form-control form-control-custom" id="bizPhone" placeholder="+234 800 000 0000" required>
+            </div>
+            <div class="col-12">
+              <label class="form-label small text-light fw-semibold">Physical Street Address</label>
+              <input type="text" class="form-control form-control-custom" id="bizAddress" placeholder="e.g. 14 Admirality Way, Lekki Phase 1">
+            </div>
+            <div class="col-12">
+              <label class="form-label small text-light fw-semibold">Short Pitch / Description *</label>
+              <textarea class="form-control form-control-custom" id="bizDesc" rows="3" placeholder="Tell travelers why your spot is special, what to expect, and atmosphere..."></textarea>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-outline-light" onclick="goToWizardStep(1)">Back</button>
+            <button class="btn btn-mint fw-bold px-4" onclick="goToWizardStep(3)">Next: Details & Media <i class="bi bi-arrow-right ms-1"></i></button>
+          </div>
+        </div>
+
+        <!-- STEP 3: CATEGORY DETAILS & MEDIA -->
+        <div id="wizardStep3" style="display: none;">
+          <h3 class="h5 fw-bold text-white mb-2">Category Amenities & Contact Channels</h3>
+          <p class="text-muted small mb-4">Specific fields configured automatically for your category.</p>
+
+          <div id="categoryDynamicFields" class="mb-4">
+            <div class="row g-3">
+              <div class="col-md-6 col-12">
+                <label class="form-label small text-light fw-semibold">Room Types Available</label>
+                <input type="text" class="form-control form-control-custom" placeholder="e.g. Deluxe, Executive Suite, Penthouse">
+              </div>
+              <div class="col-md-6 col-12">
+                <label class="form-label small text-light fw-semibold">Price Range (per night)</label>
+                <input type="text" class="form-control form-control-custom" placeholder="e.g. ₦35,000 - ₦90,000">
+              </div>
+              <div class="col-12">
+                <label class="form-label small text-light fw-semibold">Key Amenities</label>
+                <input type="text" class="form-control form-control-custom" placeholder="e.g. Swimming Pool, 24/7 Power, Free Breakfast, High-Speed WiFi">
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3 mb-4">
+            <div class="col-md-6 col-12">
+              <label class="form-label small text-light fw-semibold">Website Link (Optional)</label>
+              <input type="url" class="form-control form-control-custom" placeholder="https://example.com">
+            </div>
+            <div class="col-md-6 col-12">
+              <label class="form-label small text-light fw-semibold">Instagram Handle</label>
+              <input type="text" class="form-control form-control-custom" placeholder="@yourspot">
+            </div>
+            <div class="col-12">
+              <label class="form-label small text-light fw-semibold">Upload Photo Gallery (Simulation)</label>
+              <div class="p-4 border border-dashed rounded-3 text-center border-secondary">
+                <i class="bi bi-cloud-arrow-up fs-2 text-mint mb-2 d-block"></i>
+                <span class="small text-light">Click to upload cover photo & high-res spot pictures</span>
+                <span class="d-block small text-muted">PNG, JPG up to 10MB</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-outline-light" onclick="goToWizardStep(2)">Back</button>
+            <button class="btn btn-mint fw-bold px-4" onclick="goToWizardStep(4)">Next: Select Listing Plan <i class="bi bi-arrow-right ms-1"></i></button>
+          </div>
+        </div>
+
+        <!-- STEP 4: CHOOSE PLAN & PUBLISH (PRD SECTION 31) -->
+        <div id="wizardStep4" style="display: none;">
+          <h3 class="h5 fw-bold text-white mb-2">Choose Your Listing Plan</h3>
+          <p class="text-muted small mb-4">Select a plan to start receiving direct traveler inquiries. (Billed annually, dual currency supported).</p>
+
+          <div class="row g-3 mb-4" id="pricingPlans">
+            <!-- Plan 1: Basic Directory -->
+            <div class="col-md-4 col-12">
+              <div class="listing-plan-card" onclick="selectListingPlan('Basic Listing', '₦15,000/yr', this)">
+                <h4 class="h6 fw-bold text-white mb-1">Basic Directory</h4>
+                <div class="plan-price mb-2"><span data-ngn-price="15000">₦15,000</span><span> / yr ($12)</span></div>
+                <ul class="list-unstyled small text-light mb-0">
+                  <li class="mb-2"><i class="bi bi-check2 text-mint me-1"></i> Directory search listing</li>
+                  <li class="mb-2"><i class="bi bi-check2 text-mint me-1"></i> Address & phone display</li>
+                  <li class="mb-2"><i class="bi bi-check2 text-mint me-1"></i> GPS Map routing</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Plan 2: Premium Spotlight -->
+            <div class="col-md-4 col-12">
+              <div class="listing-plan-card featured-plan" onclick="selectListingPlan('Premium Listing', '₦35,000/yr', this)">
+                <span class="badge bg-mint text-dark fw-bold position-absolute top-0 end-0 m-3">MOST POPULAR</span>
+                <h4 class="h6 fw-bold text-white mb-1">Premium Spotlight</h4>
+                <div class="plan-price mb-2 text-mint"><span data-ngn-price="35000">₦35,000</span><span> / yr ($28)</span></div>
+                <ul class="list-unstyled small text-light mb-0">
+                  <li class="mb-2"><i class="bi bi-check2 text-mint me-1"></i> <strong>Direct WhatsApp Button</strong></li>
+                  <li class="mb-2"><i class="bi bi-check2 text-mint me-1"></i> Verified Partner badge</li>
+                  <li class="mb-2"><i class="bi bi-check2 text-mint me-1"></i> Top search placement</li>
+                  <li class="mb-2"><i class="bi bi-check2 text-mint me-1"></i> Real-time analytics dashboard</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Plan 3: Featured Partner -->
+            <div class="col-md-4 col-12">
+              <div class="listing-plan-card" onclick="selectListingPlan('Featured Partner', '₦75,000/yr', this)">
+                <h4 class="h6 fw-bold text-white mb-1">Featured State Partner</h4>
+                <div class="plan-price mb-2 text-warning"><span data-ngn-price="75000">₦75,000</span><span> / yr ($60)</span></div>
+                <ul class="list-unstyled small text-light mb-0">
+                  <li class="mb-2"><i class="bi bi-check2 text-warning me-1"></i> State page hero placement</li>
+                  <li class="mb-2"><i class="bi bi-check2 text-warning me-1"></i> Social media spotlights</li>
+                  <li class="mb-2"><i class="bi bi-check2 text-warning me-1"></i> Priority tour package inclusion</li>
+                  <li class="mb-2"><i class="bi bi-check2 text-warning me-1"></i> Direct booking button</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-outline-light" onclick="goToWizardStep(3)">Back</button>
+            <button class="btn btn-gold fw-bold px-4 py-3" onclick="submitBusinessListing(event)">
+              <i class="bi bi-shield-check me-1"></i> Submit & Activate Spot Listing
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       INTERACTIVE PARTNER DASHBOARD (PRD SECTION 33)
+       Live performance metrics for registered business partners
+       ====================================================================== -->
+  <section class="py-5 position-relative" id="partnerDashboard" style="background: linear-gradient(180deg, #071518 0%, #051417 100%);">
+    <div class="custom-container reveal-on-scroll">
+      
+      <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-4">
+        <div>
+          <div class="section-indicator"></div>
+          <span class="badge bg-warning text-dark fw-bold px-3 py-1 rounded-pill mb-2 text-uppercase" style="letter-spacing: 0.8px; font-size: 0.72rem;">Partner Control Center</span>
+          <h2 class="section-heading mb-1">Partner Live Performance Dashboard</h2>
+          <p class="section-subtitle">Real-time engagement, traveler origins, and direct inquiry leads for your listed spot.</p>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-warning btn-sm fw-bold px-3 py-2" data-bs-toggle="modal" data-bs-target="#promoteSpotModal">
+            <i class="bi bi-rocket-takeoff-fill me-1"></i> Boost / Promote Spot
+          </button>
+        </div>
+      </div>
+
+      <!-- Partner Profile & Key Metrics Banner -->
+      <div class="p-4 rounded-4 mb-4" style="background: rgba(12, 32, 36, 0.85); border: 1.5px solid rgba(245, 166, 35, 0.35); box-shadow: 0 15px 40px rgba(0,0,0,0.5);">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4 pb-3 border-bottom border-secondary border-opacity-25">
+          <div class="d-flex align-items-center gap-3">
+            <img src="assets/images/lagos_nightlife.jpg" alt="Federal Palace" class="rounded-3 border border-warning" style="width: 64px; height: 64px; object-fit: cover;">
+            <div>
+              <div class="d-flex align-items-center gap-2 mb-1">
+                <h3 class="h5 fw-bold text-white mb-0">The Federal Palace Hotel & Casino</h3>
+                <span class="badge bg-warning text-dark fw-bold" style="font-size: 0.7rem;">FEATURED PARTNER</span>
+              </div>
+              <div class="small text-muted"><i class="bi bi-geo-alt-fill text-mint me-1"></i> Victoria Island, Lagos &bull; Listing Active through Dec 2026</div>
+            </div>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge bg-mint text-dark fw-bold px-3 py-2"><i class="bi bi-patch-check-fill me-1"></i> 100% VERIFIED</span>
+          </div>
+        </div>
+
+        <!-- 4 Core Metrics Grid (PRD Section 33) -->
+        <div class="row g-3">
+          <div class="col-lg-3 col-md-6 col-12">
+            <div class="biz-metric-card p-3 rounded-3" style="background: rgba(0, 210, 132, 0.08); border: 1px solid rgba(0, 210, 132, 0.25);">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small text-muted text-uppercase" style="font-size: 0.72rem;">Monthly Directory Views</span>
+                <i class="bi bi-eye-fill text-mint fs-5"></i>
+              </div>
+              <div class="fs-3 fw-bold text-white mb-1">4,820</div>
+              <span class="small text-mint"><i class="bi bi-arrow-up-right"></i> +24% vs last month</span>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-12">
+            <div class="biz-metric-card p-3 rounded-3" style="background: rgba(245, 166, 35, 0.08); border: 1px solid rgba(245, 166, 35, 0.25);">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small text-muted text-uppercase" style="font-size: 0.72rem;">Traveler Saves / Bucket Lists</span>
+                <i class="bi bi-bookmark-heart-fill text-warning fs-5"></i>
+              </div>
+              <div class="fs-3 fw-bold text-white mb-1">612</div>
+              <span class="small text-warning"><i class="bi bi-arrow-up-right"></i> +18% bookmarked</span>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-12">
+            <div class="biz-metric-card p-3 rounded-3" style="background: rgba(0, 210, 132, 0.08); border: 1px solid rgba(0, 210, 132, 0.25);">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small text-muted text-uppercase" style="font-size: 0.72rem;">Direct WhatsApp Inquiries</span>
+                <i class="bi bi-whatsapp text-mint fs-5"></i>
+              </div>
+              <div class="fs-3 fw-bold text-mint mb-1">342</div>
+              <span class="small text-mint"><i class="bi bi-arrow-up-right"></i> Direct traveler chats (0% fee)</span>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-12">
+            <div class="biz-metric-card p-3 rounded-3" style="background: rgba(14, 165, 233, 0.08); border: 1px solid rgba(14, 165, 233, 0.25);">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small text-muted text-uppercase" style="font-size: 0.72rem;">GPS Direction Requests</span>
+                <i class="bi bi-geo-alt-fill text-info fs-5"></i>
+              </div>
+              <div class="fs-3 fw-bold text-white mb-1">188</div>
+              <span class="small text-info"><i class="bi bi-arrow-up-right"></i> Travelers navigated to venue</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visitor Geographic Breakdown -->
+        <div class="mt-4 pt-3 border-top border-secondary border-opacity-25 row g-3">
+          <div class="col-md-8 col-12">
+            <h4 class="h6 fw-bold text-white mb-2"><i class="bi bi-pie-chart-fill text-warning me-2"></i>Traveler Origin Breakdown (Cross-State Discovery)</h4>
+            <div class="d-flex flex-column gap-2">
+              <div>
+                <div class="d-flex justify-content-between small text-light mb-1">
+                  <span>Visitors traveling from other states (Osun, Oyo, Abuja, Rivers)</span>
+                  <strong class="text-mint">73% of leads</strong>
+                </div>
+                <div class="progress" style="height: 6px; background: rgba(255,255,255,0.1);">
+                  <div class="progress-bar bg-mint" style="width: 73%;"></div>
+                </div>
+              </div>
+              <div>
+                <div class="d-flex justify-content-between small text-light mb-1">
+                  <span>Local Lagos State Explorers</span>
+                  <strong class="text-warning">27% of leads</strong>
+                </div>
+                <div class="progress" style="height: 6px; background: rgba(255,255,255,0.1);">
+                  <div class="progress-bar bg-warning" style="width: 27%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-12 d-flex flex-column justify-content-center">
+            <div class="p-3 rounded-3 text-center" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+              <span class="small text-muted d-block mb-1">ESTIMATED COMMISSIONS SAVED</span>
+              <span class="fs-4 fw-bold text-mint">₦860,000+</span>
+              <span class="small text-muted d-block" style="font-size: 0.72rem;">vs traditional 15-20% OTA booking engines</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       SUCCESS MODAL
+       ====================================================================== -->
+  <div class="modal fade" id="businessSuccessModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom text-center p-4">
+        <div class="community-icon-circle mx-auto mb-3" style="width: 80px; height: 80px; font-size: 2.5rem; background: rgba(0, 210, 132, 0.2);">
+          <i class="bi bi-check2-circle text-mint"></i>
+        </div>
+        <h3 class="fw-bold text-white mb-1">Spot Successfully Listed!</h3>
+        <p class="text-muted small mb-4">
+          Your business has been registered and submitted to The Africa Explorers destination network. Explorers in your state will discover your spot immediately.
+        </p>
+
+        <div class="d-grid gap-2">
+          <a href="spots.html" class="btn btn-mint fw-bold py-2">
+            View Spots Directory <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+          <a href="admin.html" class="btn btn-outline-light py-2">
+            Open Admin Approvals Portal
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Promote Your Spot Modal (PRD Section 33) -->
+  <div class="modal fade" id="promoteSpotModal" tabindex="-1" aria-labelledby="promoteSpotTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <div>
+            <span class="badge bg-warning text-dark fw-bold px-2 py-0 rounded-pill small mb-1">Partner Marketing</span>
+            <h5 class="modal-title fw-bold text-white mb-0" id="promoteSpotTitle">Boost Your Spot Listing</h5>
+          </div>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <p class="small text-muted mb-3">Feature your spot prominently on the State Explorer Hub hero banner and at the top of Spots Discovery results for upcoming weekend explorers.</p>
+          <form onsubmit="event.preventDefault(); bootstrap.Modal.getInstance(document.getElementById('promoteSpotModal')).hide(); showToast('Spot boost campaign submitted for review! Our team will contact you on WhatsApp.', 'Campaign Activated');">
+            <div class="mb-3">
+              <label class="form-label small text-light fw-semibold">Target State Chapter *</label>
+              <select class="form-select form-select-custom">
+                <option value="Lagos" selected>Lagos State Hub</option>
+                <option value="Osun">Osun State Hub</option>
+                <option value="All">All Nigerian States</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small text-light fw-semibold">Campaign Duration *</label>
+              <select class="form-select form-select-custom">
+                <option value="weekend">Upcoming Weekend (3 Days) — ₦20,000</option>
+                <option value="month">Full Month Feature — ₦50,000</option>
+                <option value="season">Festival Season Package — ₦120,000</option>
+              </select>
+            </div>
+            <div class="mb-4">
+              <label class="form-label small text-light fw-semibold">Promotional Offer for Explorers (Optional)</label>
+              <input type="text" class="form-control form-control-custom" placeholder="e.g. 10% off for verified Explorer Passport holders">
+            </div>
+            <button type="submit" class="btn btn-warning w-100 py-2 fw-bold text-dark">
+              Activate Spot Boost <i class="bi bi-rocket-takeoff ms-1"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer-custom">
+    <div class="custom-container text-center py-4 border-top border-secondary border-opacity-25">
+      <p class="small text-muted mb-0">© 2025 The Africa Explorers NG. Connecting businesses with travelers across 36 Nigerian states.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

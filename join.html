@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join The Africa Explorers — Create Your Explorer Profile</title>
+  <meta name="description" content="Register your official Africa Explorers passport. Choose your state chapter, customize your traveler credentials, and join Nigeria's vibrant community of adventurers.">
+  <meta name="keywords" content="The Africa Explorers, Register, Explorer Profile, Nigeria Travel Passport, Lagos Explorers, Osun Explorers">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo-white.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Bootstrap Icons 1.11 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom Core Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Specific styling for the Digital Explorer Passport Preview Card */
+    .passport-card {
+      background: linear-gradient(135deg, #092127 0%, #061518 60%, #0c2b33 100%);
+      border: 1.5px solid rgba(0, 210, 132, 0.4);
+      border-radius: var(--radius-xl);
+      padding: 1.75rem;
+      position: sticky;
+      top: 100px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(0, 210, 132, 0.2);
+      overflow: hidden;
+    }
+    .passport-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(0, 210, 132, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .passport-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .passport-chip {
+      width: 38px;
+      height: 28px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #f5a623 0%, #d97706 100%);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .passport-chip::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(0, 0, 0, 0.3);
+    }
+    .passport-number {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--mint-primary);
+      letter-spacing: 1.5px;
+    }
+    .passport-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 16px;
+      object-fit: cover;
+      border: 2px solid var(--mint-primary);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    }
+    .passport-state-badge {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: var(--radius-pill);
+      background: rgba(0, 210, 132, 0.15);
+      border: 1px solid var(--mint-primary);
+      color: var(--mint-primary);
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .state-detected-alert {
+      background: rgba(0, 210, 132, 0.12);
+      border: 1px solid var(--mint-primary);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1.25rem;
+      color: #e0f2fe;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+    }
+    .avatar-option-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid transparent;
+      padding: 0;
+      background: transparent;
+      transition: var(--transition-fast);
+      cursor: pointer;
+    }
+    .avatar-option-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .avatar-option-btn.active {
+      border-color: var(--mint-primary);
+      transform: scale(1.1);
+      box-shadow: 0 0 15px var(--mint-glow);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======================================================================
+       HEADER / NAVBAR
+       ====================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-custom" id="mainNavbar">
+    <div class="custom-container d-flex align-items-center justify-content-between">
+      
+      <!-- Brand Logo -->
+      <a class="navbar-brand d-flex align-items-center" href="index.html" title="The Africa Explorers">
+        <img src="assets/logo-white.png" alt="The Africa Explorers Logo" class="navbar-brand-logo">
+      </a>
+
+      <!-- Center Links -->
+      <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex">
+        <ul class="navbar-nav align-items-center gap-1">
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="index.html">All States</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="lagos.html">Lagos Chapter</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="osun.html">Osun Chapter</a></li>
+        </ul>
+      </div>
+
+      <!-- Right Action -->
+      <div class="nav-actions d-flex align-items-center gap-2">
+        <!-- Dual Currency Switcher -->
+        <div class="currency-switcher me-1" role="group" aria-label="Currency Switcher">
+          <button type="button" class="currency-btn active" id="currNGN" onclick="toggleCurrency('NGN')">₦ NGN</button>
+          <button type="button" class="currency-btn" id="currUSD" onclick="toggleCurrency('USD')">$ USD</button>
+        </div>
+        <a href="index.html" class="btn btn-outline-pill btn-mint-sm">
+          <i class="bi bi-arrow-left me-1"></i> Back to Hub
+        </a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ======================================================================
+       REGISTRATION CONTAINER
+       ====================================================================== -->
+  <main class="py-5" style="margin-top: 70px; min-height: 85vh;">
+    <div class="custom-container">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb-custom mb-4" aria-label="breadcrumb">
+        <a href="index.html"><i class="bi bi-house-door me-1"></i> Home</a>
+        <span class="separator">></span>
+        <span class="text-white fw-semibold">Join The Explorers & Profile Creation</span>
+      </nav>
+
+      <!-- Dynamic State Detection Alert Banner -->
+      <div class="state-detected-alert" id="stateAlertBanner">
+        <i class="bi bi-geo-alt-fill text-mint fs-4"></i>
+        <div>
+          <strong class="text-white" id="stateAlertTitle">Welcome, Future Explorer!</strong>
+          <div class="small" id="stateAlertSubtitle">Your state credentials have been prepared. Customize and complete your profile below.</div>
+        </div>
+      </div>
+
+      <div class="row g-5">
+        
+        <!-- Left: Form Input Column -->
+        <div class="col-lg-7 col-12">
+          <div class="p-4 p-md-5 rounded-4" style="background: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.08);">
+            
+            <div class="section-indicator"></div>
+            <h1 class="h2 fw-bold text-white mb-2">Create Your Explorer Profile</h1>
+            <p class="text-muted small mb-4">
+              Your profile unlocks verified state chapters, discounted expedition passes, and direct connection with fellow explorers.
+            </p>
+
+            <form id="explorerRegistrationForm">
+              
+              <!-- 1. Avatar Picker -->
+              <div class="mb-4">
+                <label class="form-label small text-light fw-bold mb-2">Select Your Explorer Avatar</label>
+                <div class="d-flex align-items-center gap-3">
+                  <button type="button" class="avatar-option-btn active" onclick="selectAvatar('assets/images/avatar_tunde.jpg', this)">
+                    <img src="assets/images/avatar_tunde.jpg" alt="Avatar 1">
+                  </button>
+                  <button type="button" class="avatar-option-btn" onclick="selectAvatar('assets/images/avatar_chioma.jpg', this)">
+                    <img src="assets/images/avatar_chioma.jpg" alt="Avatar 2">
+                  </button>
+                  <button type="button" class="avatar-option-btn" onclick="selectAvatar('assets/images/avatar_emeka.jpg', this)">
+                    <img src="assets/images/avatar_emeka.jpg" alt="Avatar 3">
+                  </button>
+                  <button type="button" class="avatar-option-btn" onclick="selectAvatar('assets/images/avatar_david.jpg', this)">
+                    <img src="assets/images/avatar_david.jpg" alt="Avatar 4">
+                  </button>
+                  <button type="button" class="avatar-option-btn" onclick="selectAvatar('assets/images/avatar_lanre.jpg', this)">
+                    <img src="assets/images/avatar_lanre.jpg" alt="Avatar 5">
+                  </button>
+                  <button type="button" class="avatar-option-btn" onclick="selectAvatar('assets/images/avatar_precious.jpg', this)">
+                    <img src="assets/images/avatar_precious.jpg" alt="Avatar 6">
+                  </button>
+                </div>
+              </div>
+
+              <!-- 2. Full Name & Email -->
+              <div class="row g-3 mb-3">
+                <div class="col-md-6 col-12">
+                  <label for="regFullName" class="form-label small text-light fw-semibold">Full Name *</label>
+                  <input type="text" class="form-control form-control-custom" id="regFullName" placeholder="e.g. Babatunde Adeleke" required>
+                </div>
+                <div class="col-md-6 col-12">
+                  <label for="regEmail" class="form-label small text-light fw-semibold">Email Address *</label>
+                  <input type="email" class="form-control form-control-custom" id="regEmail" placeholder="e.g. adeleke@example.ng" required>
+                </div>
+              </div>
+
+              <!-- 3. Phone & State Chapter Selection (ALL 36 STATES + FCT) -->
+              <div class="row g-3 mb-3">
+                <div class="col-md-6 col-12">
+                  <label for="regPhone" class="form-label small text-light fw-semibold">Phone / WhatsApp Number</label>
+                  <input type="tel" class="form-control form-control-custom" id="regPhone" placeholder="+234 800 000 0000">
+                </div>
+                <div class="col-md-6 col-12">
+                  <label for="regState" class="form-label small text-light fw-semibold">
+                    Home State (Primary Citizen Identity) *
+                  </label>
+                  <div class="form-text small text-muted mb-2" style="font-size: 0.76rem;">
+                    Establishes your home status (e.g. <em>Explorer in Lagos</em>). In other states you appear as <em>Visitor</em>.
+                  </div>
+                  <!-- All 36 States + FCT organized by Geopolitical Zone -->
+                  <select class="form-select form-select-custom" id="regState" required>
+                    <option value="" disabled>-- Select a State in Nigeria --</option>
+                    
+                    <optgroup label="South West">
+                      <option value="Lagos" selected>Lagos State (Active Chapter)</option>
+                      <option value="Osun">Osun State (Active Chapter)</option>
+                      <option value="Ekiti">Ekiti State</option>
+                      <option value="Ogun">Ogun State</option>
+                      <option value="Ondo">Ondo State</option>
+                      <option value="Oyo">Oyo State</option>
+                    </optgroup>
+
+                    <optgroup label="South South">
+                      <option value="Akwa Ibom">Akwa Ibom State</option>
+                      <option value="Bayelsa">Bayelsa State</option>
+                      <option value="Cross River">Cross River State</option>
+                      <option value="Delta">Delta State</option>
+                      <option value="Edo">Edo State</option>
+                      <option value="Rivers">Rivers State</option>
+                    </optgroup>
+
+                    <optgroup label="South East">
+                      <option value="Abia">Abia State</option>
+                      <option value="Anambra">Anambra State</option>
+                      <option value="Ebonyi">Ebonyi State</option>
+                      <option value="Enugu">Enugu State</option>
+                      <option value="Imo">Imo State</option>
+                    </optgroup>
+
+                    <optgroup label="North Central">
+                      <option value="FCT Abuja">Federal Capital Territory (FCT Abuja)</option>
+                      <option value="Benue">Benue State</option>
+                      <option value="Kogi">Kogi State</option>
+                      <option value="Kwara">Kwara State</option>
+                      <option value="Nasarawa">Nasarawa State</option>
+                      <option value="Niger">Niger State</option>
+                      <option value="Plateau">Plateau State</option>
+                    </optgroup>
+
+                    <optgroup label="North West">
+                      <option value="Jigawa">Jigawa State</option>
+                      <option value="Kaduna">Kaduna State</option>
+                      <option value="Kano">Kano State</option>
+                      <option value="Katsina">Katsina State</option>
+                      <option value="Kebbi">Kebbi State</option>
+                      <option value="Sokoto">Sokoto State</option>
+                      <option value="Zamfara">Zamfara State</option>
+                    </optgroup>
+
+                    <optgroup label="North East">
+                      <option value="Adamawa">Adamawa State</option>
+                      <option value="Bauchi">Bauchi State</option>
+                      <option value="Borno">Borno State</option>
+                      <option value="Gombe">Gombe State</option>
+                      <option value="Taraba">Taraba State</option>
+                      <option value="Yobe">Yobe State</option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+
+              <!-- 4. Travel Passions -->
+              <div class="mb-3">
+                <label class="form-label small text-light fw-semibold">Travel Passions & Vibe</label>
+                <div class="d-flex flex-wrap gap-2" id="vibePills">
+                  <span class="tag-pill active" onclick="toggleVibe(this)" role="button">Culture & Heritage</span>
+                  <span class="tag-pill active" onclick="toggleVibe(this)" role="button">Adventure & Hiking</span>
+                  <span class="tag-pill" onclick="toggleVibe(this)" role="button">Culinary & Street Food</span>
+                  <span class="tag-pill" onclick="toggleVibe(this)" role="button">Nightlife & Lounges</span>
+                  <span class="tag-pill" onclick="toggleVibe(this)" role="button">Beaches & Watersports</span>
+                  <span class="tag-pill" onclick="toggleVibe(this)" role="button">Photography & Content</span>
+                </div>
+              </div>
+
+              <!-- 5. Explorer Bio / Motto -->
+              <div class="mb-4">
+                <label for="regBio" class="form-label small text-light fw-semibold">Short Explorer Motto</label>
+                <input type="text" class="form-control form-control-custom" id="regBio" placeholder="e.g. Always seeking the road less traveled." value="Adventure is not just a hobby but a lifestyle.">
+              </div>
+
+              <!-- 6. Annual Membership Tier Selection (PRD Section 4: $25 / ₦30,000 per year) -->
+              <div class="mb-4">
+                <label class="form-label small text-light fw-bold mb-2">Select Your Membership Pass</label>
+                <div class="row g-3">
+                  <!-- Tier 1: Annual Explorer Pass -->
+                  <div class="col-md-6 col-12">
+                    <div class="p-3 rounded-3 position-relative" id="tierAnnualCard" onclick="selectTier('annual')" role="button" style="background: rgba(0, 210, 132, 0.08); border: 2px solid var(--mint-primary); cursor: pointer; transition: all 0.2s;">
+                      <div class="position-absolute top-0 end-0 m-2">
+                        <span class="badge bg-warning text-dark fw-bold" style="font-size: 0.65rem;">RECOMMENDED</span>
+                      </div>
+                      <div class="d-flex align-items-center gap-2 mb-2">
+                        <input type="radio" name="membershipTier" id="tierAnnualRadio" value="annual" checked class="form-check-input mt-0" style="cursor: pointer;">
+                        <label for="tierAnnualRadio" class="fw-bold text-white small mb-0" style="cursor: pointer;">Annual Explorer Pass</label>
+                      </div>
+                      <div class="mb-2">
+                        <span class="fs-4 fw-bold text-mint" data-ngn-price="30000">₦30,000</span>
+                        <span class="small text-muted">/ year (<span data-ngn-price="30000">$25</span>)</span>
+                      </div>
+                      <ul class="list-unstyled small text-muted mb-0" style="font-size: 0.78rem; line-height: 1.6;">
+                        <li><i class="bi bi-check2 text-mint me-1"></i> Member discounts on all tours</li>
+                        <li><i class="bi bi-check2 text-mint me-1"></i> Exclusive state chapters pass</li>
+                        <li><i class="bi bi-check2 text-mint me-1"></i> Verified Gold Digital Passport</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Tier 2: Standard Explorer (Free) -->
+                  <div class="col-md-6 col-12">
+                    <div class="p-3 rounded-3 position-relative" id="tierFreeCard" onclick="selectTier('free')" role="button" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; transition: all 0.2s;">
+                      <div class="d-flex align-items-center gap-2 mb-2">
+                        <input type="radio" name="membershipTier" id="tierFreeRadio" value="free" class="form-check-input mt-0" style="cursor: pointer;">
+                        <label for="tierFreeRadio" class="fw-bold text-white small mb-0" style="cursor: pointer;">Standard Explorer</label>
+                      </div>
+                      <div class="mb-2">
+                        <span class="fs-4 fw-bold text-white">Free</span>
+                        <span class="small text-muted">/ forever</span>
+                      </div>
+                      <ul class="list-unstyled small text-muted mb-0" style="font-size: 0.78rem; line-height: 1.6;">
+                        <li><i class="bi bi-check2 text-mint me-1"></i> Basic public spot discovery</li>
+                        <li><i class="bi bi-check2 text-mint me-1"></i> Events diary browsing</li>
+                        <li class="text-secondary"><i class="bi bi-x text-danger me-1"></i> No tour member rates</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Consent Checkbox -->
+              <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" id="regConsent" checked required>
+                <label class="form-check-label small text-muted" for="regConsent">
+                  I agree to community safety guidelines and want to receive state expedition dispatches.
+                </label>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-mint w-100 py-3 fw-bold fs-6">
+                Issue My Official Explorer Passport <i class="bi bi-arrow-right ms-2"></i>
+              </button>
+
+            </form>
+
+          </div>
+        </div>
+
+        <!-- Right: Live Interactive Passport Preview Card -->
+        <div class="col-lg-5 col-12">
+          <div class="passport-card">
+            
+            <!-- Passport Card Header -->
+            <div class="passport-header">
+              <div class="d-flex align-items-center gap-2">
+                <img src="assets/logo-white.png" alt="Emblem" style="height: 32px;">
+                <div>
+                  <div class="small fw-bold text-white text-uppercase" style="letter-spacing: 1px;">The Africa Explorers</div>
+                  <div style="font-size: 0.65rem; color: var(--mint-primary); text-transform: uppercase;">Official Citizen ID</div>
+                </div>
+              </div>
+              <div class="passport-chip"></div>
+            </div>
+
+            <!-- Card Body: Avatar & Live Info -->
+            <div class="d-flex align-items-center gap-3 mb-4">
+              <img src="assets/images/avatar_tunde.jpg" id="previewAvatar" alt="Explorer Preview" class="passport-avatar">
+              <div>
+                <div class="text-white h5 fw-bold mb-1" id="previewName">Babatunde Adeleke</div>
+                <div class="passport-state-badge mb-1" id="previewState">EXPLORER IN LAGOS</div>
+                <div class="passport-number" id="previewPassportNo">EXP-NG-84920</div>
+              </div>
+            </div>
+
+            <!-- Traveler Credentials Grid -->
+            <div class="p-3 rounded-3 mb-3" style="background: rgba(0, 0, 0, 0.35); border: 1px solid rgba(255, 255, 255, 0.06);">
+              <div class="row g-2 text-start">
+                <div class="col-6">
+                  <span class="d-block text-muted" style="font-size: 0.68rem;">CREDENTIAL STATUS</span>
+                  <span class="text-mint fw-bold small"><i class="bi bi-patch-check-fill me-1"></i> VERIFIED</span>
+                </div>
+                <div class="col-6">
+                  <span class="d-block text-muted" style="font-size: 0.68rem;">MEMBERSHIP TIER</span>
+                  <span class="text-warning fw-bold small" id="previewTier">Annual Member ($25/₦30k)</span>
+                </div>
+                <div class="col-12 mt-2 pt-2 border-top border-secondary border-opacity-25">
+                  <span class="d-block text-muted" style="font-size: 0.68rem;">EXPLORER MOTTO</span>
+                  <span class="text-light fst-italic small" id="previewBio">"Adventure is not just a hobby but a lifestyle."</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- QR Code & Security Stamp -->
+            <div class="d-flex align-items-center justify-content-between pt-2">
+              <div class="small text-muted font-monospace" style="font-size: 0.7rem;">
+                SEC-ID: NGA-2026-AE<br>
+                AUTH: FEDERATION OF NIGERIA
+              </div>
+              <div class="bg-white p-1 rounded" style="width: 48px; height: 48px;">
+                <!-- SVG QR Code Icon -->
+                <svg viewBox="0 0 24 24" width="40" height="40" fill="#051417">
+                  <path d="M2 2h8v8H2V2zm2 2v4h4V4H4zm10-2h8v8h-8V2zm2 2v4h4V4h-4zM2 14h8v8H2v-8zm2 2v4h4v-4H4zm14 0h4v4h-4v-4zm-4 4h4v2h-4v-2zm4-4h2v2h-2v-2zm-6-2h2v4h-2v-4zm4-2h4v2h-4v-2zm-2 2h2v2h-2v-2z"/>
+                </svg>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       SUCCESS PASSPORT ISSUED MODAL
+       ====================================================================== -->
+  <div class="modal fade" id="passportIssuedModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom text-center p-4">
+        <div class="community-icon-circle mx-auto mb-3" style="width: 80px; height: 80px; font-size: 2.5rem; background: rgba(0, 210, 132, 0.2);">
+          <i class="bi bi-award-fill text-mint"></i>
+        </div>
+        <h3 class="fw-bold text-white mb-1">Passport Activated!</h3>
+        <p class="text-muted small mb-4">
+          Congratulations, <span class="text-white fw-bold" id="modalHolderName"></span>! Your official Africa Explorers Passport (<span class="text-mint font-monospace" id="modalHolderNo"></span>) has been generated.
+        </p>
+
+        <div class="d-grid gap-2">
+          <a href="dashboard.html" class="btn btn-mint fw-bold py-2">
+            Open Explorer Dashboard <i class="bi bi-speedometer2 ms-1"></i>
+          </a>
+          <a href="#" class="btn btn-outline-light py-2" id="modalGoToStateBtn">
+            Explore My State Chapter <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1090;">
+    <div id="liveToast" class="toast align-items-center border-0 text-white" style="background: #092127; border: 1px solid rgba(0,210,132,0.4) !important;" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header" style="background: rgba(0,210,132,0.1); color: #fff;">
+        <i id="toastIcon" class="bi bi-check-circle-fill text-mint me-2"></i>
+        <strong class="me-auto" id="toastTitle">The Africa Explorers</strong>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body small" id="toastBody"></div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core JavaScript -->
+  <script src="script.js"></script>
+
+  <!-- Script for Auto-Fill & Live Preview -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const requestedState = urlParams.get('state');
+
+      const regStateSelect = document.getElementById('regState');
+      const previewState = document.getElementById('previewState');
+      const stateAlertTitle = document.getElementById('stateAlertTitle');
+      const stateAlertSubtitle = document.getElementById('stateAlertSubtitle');
+      const previewName = document.getElementById('previewName');
+      const regFullName = document.getElementById('regFullName');
+      const previewBio = document.getElementById('previewBio');
+      const regBio = document.getElementById('regBio');
+      const previewAvatar = document.getElementById('previewAvatar');
+      const previewTier = document.getElementById('previewTier');
+
+      let currentSelectedTier = 'annual';
+
+      // Membership tier toggle
+      window.selectTier = function(tier) {
+        currentSelectedTier = tier;
+        const annualCard = document.getElementById('tierAnnualCard');
+        const freeCard = document.getElementById('tierFreeCard');
+        const annualRadio = document.getElementById('tierAnnualRadio');
+        const freeRadio = document.getElementById('tierFreeRadio');
+
+        if (tier === 'annual') {
+          annualCard.style.background = 'rgba(0, 210, 132, 0.08)';
+          annualCard.style.borderColor = 'var(--mint-primary)';
+          freeCard.style.background = 'rgba(255, 255, 255, 0.02)';
+          freeCard.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+          annualRadio.checked = true;
+          previewTier.textContent = 'Annual Member ($25/₦30k)';
+          previewTier.className = 'text-warning fw-bold small';
+        } else {
+          freeCard.style.background = 'rgba(0, 210, 132, 0.08)';
+          freeCard.style.borderColor = 'var(--mint-primary)';
+          annualCard.style.background = 'rgba(255, 255, 255, 0.02)';
+          annualCard.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+          freeRadio.checked = true;
+          previewTier.textContent = 'Standard Explorer';
+          previewTier.className = 'text-light fw-semibold small';
+        }
+      };
+
+      // Auto-prefill state if passed from state page
+      if (requestedState) {
+        const normalized = requestedState.trim();
+        for (let i = 0; i < regStateSelect.options.length; i++) {
+          if (regStateSelect.options[i].value.toLowerCase() === normalized.toLowerCase()) {
+            regStateSelect.selectedIndex = i;
+            previewState.textContent = 'EXPLORER IN ' + regStateSelect.options[i].value.toUpperCase();
+            break;
+          }
+        }
+        stateAlertTitle.textContent = `📍 ${normalized} Explorers Chapter Pre-Selected`;
+        stateAlertSubtitle.textContent = `Welcome! Your credentials for ${normalized} State are ready. Complete your profile details below.`;
+      }
+
+      // Live updates on state change (PRD Home State dynamic concept)
+      regStateSelect.addEventListener('change', () => {
+        const val = regStateSelect.value || 'LAGOS';
+        previewState.textContent = 'EXPLORER IN ' + val.toUpperCase();
+      });
+
+      // Live update on Name input
+      regFullName.addEventListener('input', (e) => {
+        previewName.textContent = e.target.value.trim() || 'Babatunde Adeleke';
+      });
+
+      // Live update on Bio
+      regBio.addEventListener('input', (e) => {
+        previewBio.textContent = `"${e.target.value.trim() || 'Adventure is not just a hobby but a lifestyle.'}"`;
+      });
+
+      // Avatar selection handler
+      window.selectAvatar = function(imgSrc, btn) {
+        document.querySelectorAll('.avatar-option-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        previewAvatar.src = imgSrc;
+      };
+
+      // Vibe toggle pills
+      window.toggleVibe = function(el) {
+        el.classList.toggle('active');
+      };
+
+      // Form submission handler
+      const form = document.getElementById('explorerRegistrationForm');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const holderName = regFullName.value.trim() || 'Babatunde Adeleke';
+        const chosenState = regStateSelect.value || 'Lagos';
+        const passportNo = document.getElementById('previewPassportNo').textContent;
+        const activeAvatar = previewAvatar.getAttribute('src');
+
+        // Persist profile to localStorage for dashboard.html & app
+        const profileData = {
+          name: holderName,
+          email: document.getElementById('regEmail').value.trim(),
+          phone: document.getElementById('regPhone').value.trim(),
+          homeState: chosenState,
+          tier: currentSelectedTier,
+          avatar: activeAvatar,
+          bio: regBio.value.trim() || 'Adventure is not just a hobby but a lifestyle.',
+          passportNo: passportNo,
+          joinedDate: new Date().toLocaleDateString('en-GB')
+        };
+
+        localStorage.setItem('ae_user_profile', JSON.stringify(profileData));
+        localStorage.setItem('ae_user_is_member', currentSelectedTier === 'annual' ? 'true' : 'false');
+
+        document.getElementById('modalHolderName').textContent = holderName;
+        document.getElementById('modalHolderNo').textContent = passportNo;
+
+        const goToStateBtn = document.getElementById('modalGoToStateBtn');
+        if (chosenState.toLowerCase() === 'lagos') {
+          goToStateBtn.href = 'lagos.html';
+          goToStateBtn.textContent = 'Enter Lagos Explorers Hub →';
+        } else if (chosenState.toLowerCase() === 'osun') {
+          goToStateBtn.href = 'osun.html';
+          goToStateBtn.textContent = 'Enter Osun Explorers Hub →';
+        } else {
+          goToStateBtn.href = 'index.html';
+          goToStateBtn.textContent = 'Explore All States Hub →';
+        }
+
+        const issuedModal = new bootstrap.Modal(document.getElementById('passportIssuedModal'));
+        issuedModal.show();
+      });
+    });
+  </script>
+
+</body>
+</html>

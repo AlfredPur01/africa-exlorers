@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lagos Explorers — Discover Nigeria. One State at a Time.</title>
+  <meta name="description" content="Discover Lagos State with The Africa Explorers. From vibrant nightlife, art galleries, and beach clubs to curated trips and a community of local explorers.">
+  <meta name="keywords" content="Lagos Explorers, The Africa Explorers, Lagos Tourism, Lekki Conservation Centre, Nike Art Gallery, Elegushi Beach, Lagos Events, Lagos Nightlife">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo-lagos.png">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Caveat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Bootstrap Icons 1.11 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom Core Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ======================================================================
+       NAVIGATION BAR
+       ====================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-custom" id="mainNavbar">
+    <div class="custom-container d-flex align-items-center justify-content-between">
+      
+      <!-- Brand Logo (Lagos Explorers Variant) -->
+      <a class="navbar-brand d-flex align-items-center" href="index.html" id="navBrandLink" title="Return to The Africa Explorers Home">
+        <img src="assets/logo-lagos.png" alt="The Lagos Explorers Logo" class="navbar-brand-logo">
+      </a>
+
+      <!-- Desktop Nav Links (Center Aligned) -->
+      <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex" id="navbarNav">
+        <ul class="navbar-nav align-items-center gap-1">
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="#overview">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="#contact-us">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="#campaign">The Explorers Campaign</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Action Items (Right) -->
+      <div class="nav-actions">
+        <!-- Dual Currency Switcher -->
+        <div class="currency-switcher me-2 d-none d-sm-inline-flex">
+          <button type="button" class="currency-btn active" data-curr="NGN" onclick="toggleCurrency('NGN')">₦ NGN</button>
+          <button type="button" class="currency-btn" data-curr="USD" onclick="toggleCurrency('USD')">$ USD</button>
+        </div>
+
+        <!-- Join CTA Button (Yellow / Orange Accent) -->
+        <a href="join.html?state=Lagos" class="btn btn-gold btn-mint-sm d-none d-sm-inline-flex" id="navJoinBtn">
+          Join the Explorers
+        </a>
+
+        <!-- Search Icon Button -->
+        <button type="button" class="nav-action-icon" data-bs-toggle="modal" data-bs-target="#searchModal" title="Search destinations & events" aria-label="Search">
+          <i class="bi bi-search"></i>
+        </button>
+
+        <!-- Cart Icon Button -->
+        <button type="button" class="nav-action-icon cart-floating-badge" onclick="openCartModal()" title="View Merch Bag" aria-label="Cart">
+          <i class="bi bi-bag"></i>
+          <span class="cart-counter" id="cartCounter" style="display: none;">0</span>
+        </button>
+
+        <!-- User Profile Icon Button -->
+        <a href="dashboard.html" class="nav-action-icon" title="Explorer Dashboard & Identity" aria-label="Dashboard">
+          <i class="bi bi-person"></i>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="navbar-toggler custom-toggler d-lg-none ms-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas" aria-controls="mobileMenuOffcanvas" aria-label="Toggle navigation">
+          <i class="bi bi-list fs-3"></i>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Mobile Offcanvas Drawer -->
+  <div class="offcanvas offcanvas-end offcanvas-custom" tabindex="-1" id="mobileMenuOffcanvas" aria-labelledby="mobileMenuOffcanvasLabel">
+    <div class="offcanvas-header border-bottom border-secondary border-opacity-25 pb-3">
+      <img src="assets/logo-lagos.png" alt="The Lagos Explorers" style="height: 42px;">
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column justify-content-between pt-4">
+      <ul class="nav flex-column gap-3 fs-5">
+        <li class="nav-item">
+          <a class="nav-link text-white fw-semibold" href="index.html">
+            <i class="bi bi-arrow-left text-mint me-2"></i> All States (Home)
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fw-semibold" href="#overview" data-bs-dismiss="offcanvas">
+            <i class="bi bi-info-circle text-mint me-2"></i> About Lagos
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fw-semibold" href="#events" data-bs-dismiss="offcanvas">
+            <i class="bi bi-calendar-event text-mint me-2"></i> Events Diary
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fw-semibold" href="#tours" data-bs-dismiss="offcanvas">
+            <i class="bi bi-compass text-mint me-2"></i> Tours & Visits
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fw-semibold" href="#explorers" data-bs-dismiss="offcanvas">
+            <i class="bi bi-people text-mint me-2"></i> Meet Explorers
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fw-semibold" href="#spots" data-bs-dismiss="offcanvas">
+            <i class="bi bi-geo-alt text-mint me-2"></i> Top Spots
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fw-semibold" href="#shop" data-bs-dismiss="offcanvas">
+            <i class="bi bi-bag text-mint me-2"></i> Explorers Shop
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fw-semibold" href="#gallery" data-bs-dismiss="offcanvas">
+            <i class="bi bi-images text-mint me-2"></i> Gallery & Stories
+          </a>
+        </li>
+      </ul>
+      <div class="pt-4 border-top border-secondary border-opacity-25">
+        <a href="join.html?state=Lagos" class="btn btn-gold w-100 py-3 fw-bold mb-3 d-inline-block text-center">
+          Join Lagos Explorers <i class="bi bi-arrow-right ms-2"></i>
+        </a>
+        <p class="small text-muted text-center mb-0">Same country. <span class="text-warning">Different stories.</span></p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ======================================================================
+       HERO SECTION WITH CONTINUOUS VIDEO BACKGROUND & QUICK STATS PANEL
+       ====================================================================== -->
+  <header class="hero-section" id="hero-section" style="min-height: 88vh; padding-top: 80px;">
+    <!-- Continuous Background Video Wrapper -->
+    <div class="hero-video-container">
+      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline poster="assets/images/lagos_bridge.jpg">
+        <source src="assets/video/hero-video.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+    </div>
+
+    <!-- Dark Overlays -->
+    <div class="hero-overlay"></div>
+    <div class="hero-bottom-fade"></div>
+
+    <div class="custom-container hero-content">
+      
+      <!-- Breadcrumb Trail: Home > Lagos Explorers -->
+      <nav class="breadcrumb-custom mb-3" aria-label="breadcrumb">
+        <a href="index.html"><i class="bi bi-house-door me-1"></i> Home</a>
+        <span class="separator">></span>
+        <span class="text-white fw-semibold">Lagos Explorers</span>
+      </nav>
+
+      <div class="row align-items-center g-5">
+        
+        <!-- Left Hero Content -->
+        <div class="col-lg-7 col-12 reveal-on-scroll">
+          
+          <!-- Logo Brand Heading -->
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <img src="assets/logo-lagos.png" alt="Lagos Explorers emblem" style="height: 52px; width: auto; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));">
+            <div>
+              <h1 class="hero-title mb-0" style="font-size: clamp(2.4rem, 4.5vw, 3.8rem); line-height: 1;">
+                LAGOS <span class="gradient-text">EXPLORERS</span>
+              </h1>
+            </div>
+          </div>
+
+          <!-- Subtitle -->
+          <h2 class="h5 fw-bold text-white mb-3" style="letter-spacing: 0.5px;">
+            Vibrant. Dynamic. Unforgettable.
+          </h2>
+
+          <!-- Description Paragraph -->
+          <p class="hero-lead mb-4">
+            Lagos, the heartbeat of Nigeria — a city of culture, creativity, opportunity and endless experiences. From its nightlife to its beaches, markets and art, Lagos never stops.
+          </p>
+
+          <!-- Dual CTAs -->
+          <div class="hero-cta-group mb-0">
+            <a href="join.html?state=Lagos" class="btn btn-gold">
+              Join Lagos Explorers <i class="bi bi-arrow-right"></i>
+            </a>
+            <a href="#events" class="btn btn-outline-pill">
+              Explore Events Diary
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Side: Translucent Quick Stats Card -->
+        <div class="col-lg-5 col-12 reveal-on-scroll delay-2">
+          <div class="state-info-card">
+            
+            <!-- Row 1: Location -->
+            <div class="info-row">
+              <div class="info-icon-box">
+                <i class="bi bi-geo-alt-fill"></i>
+              </div>
+              <div>
+                <div class="info-label">State / Region</div>
+                <div class="info-value">Lagos State, South West, Nigeria</div>
+              </div>
+            </div>
+
+            <!-- Row 2: Capital -->
+            <div class="info-row">
+              <div class="info-icon-box">
+                <i class="bi bi-building"></i>
+              </div>
+              <div>
+                <div class="info-label">Capital</div>
+                <div class="info-value">Ikeja</div>
+              </div>
+            </div>
+
+            <!-- Row 3: Population -->
+            <div class="info-row">
+              <div class="info-icon-box">
+                <i class="bi bi-people-fill"></i>
+              </div>
+              <div>
+                <div class="info-label">Population</div>
+                <div class="info-value">~15 million+ (Megacity)</div>
+              </div>
+            </div>
+
+            <!-- Row 4: Known For -->
+            <div class="info-row">
+              <div class="info-icon-box">
+                <i class="bi bi-stars"></i>
+              </div>
+              <div>
+                <div class="info-label">Known For</div>
+                <div class="info-value">Culture, Food, Nightlife, Business, Arts, Beaches</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ======================================================================
+       INTERNAL STICKY SUB-NAVIGATION BAR (PRD SECTION 13)
+       Overview | Events | Tours & Visits | Explorers | Spots | Shop | Gallery
+       ====================================================================== -->
+  <div class="sub-nav-wrapper">
+    <div class="custom-container">
+      <nav class="sub-nav-menu" aria-label="Section navigation">
+        <a href="#overview" class="sub-nav-item active">
+          <i class="bi bi-house-door"></i> Overview
+        </a>
+        <a href="#events" class="sub-nav-item">
+          <i class="bi bi-calendar-event"></i> Events Diary
+        </a>
+        <a href="#tours" class="sub-nav-item">
+          <i class="bi bi-compass"></i> Tours & Visits
+        </a>
+        <a href="#explorers" class="sub-nav-item">
+          <i class="bi bi-people"></i> Explorers
+        </a>
+        <a href="#spots" class="sub-nav-item">
+          <i class="bi bi-geo-alt"></i> Spots
+        </a>
+        <a href="#shop" class="sub-nav-item">
+          <i class="bi bi-bag"></i> Shop
+        </a>
+        <a href="#gallery" class="sub-nav-item">
+          <i class="bi bi-images"></i> Gallery
+        </a>
+      </nav>
+    </div>
+  </div>
+
+
+  <!-- ======================================================================
+       ABOUT LAGOS STATE SECTION (OVERVIEW & PHOTO MOSAIC)
+       ====================================================================== -->
+  <section class="py-5" id="overview">
+    <div class="custom-container">
+      
+      <div class="row g-4 align-items-stretch">
+        
+        <!-- Left: Overview Text & Quick Metric Badges -->
+        <div class="col-lg-4 col-12 reveal-on-scroll">
+          <div class="section-indicator"></div>
+          <h2 class="section-heading mb-3">About Lagos State</h2>
+          <p class="text-light small mb-4" style="line-height: 1.7;">
+            Lagos is Nigeria's commercial capital and a melting pot of cultures, ideas and people. It's a city that never sleeps — where tradition meets modernity, and opportunities are endless. From the Lekki-Ikoyi axis to the historic shores of Badagry, Lagos offers a unique blend of history, entertainment, food, art and innovation.
+          </p>
+
+          <!-- Quick Metric Badges -->
+          <div class="d-flex flex-column gap-2 mb-4">
+            <div class="d-flex align-items-center gap-3 p-2 rounded" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+              <i class="bi bi-bounding-box text-mint fs-5"></i>
+              <div>
+                <span class="d-block small text-muted">Land Area</span>
+                <span class="text-white fw-bold small">3,577 km²</span>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3 p-2 rounded" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+              <i class="bi bi-chat-quote text-mint fs-5"></i>
+              <div>
+                <span class="d-block small text-muted">Major Languages</span>
+                <span class="text-white fw-bold small">English, Yoruba, Pidgin</span>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3 p-2 rounded" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+              <i class="bi bi-sun text-warning fs-5"></i>
+              <div>
+                <span class="d-block small text-muted">Best Time to Visit</span>
+                <span class="text-white fw-bold small">Nov – Feb (Dry Season & Festivities)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Top Vibes Tags -->
+          <div>
+            <span class="d-block small text-muted fw-bold mb-2">TOP VIBES</span>
+            <div class="d-flex flex-wrap gap-1">
+              <span class="tag-pill">Food</span>
+              <span class="tag-pill">Nightlife</span>
+              <span class="tag-pill">Beaches</span>
+              <span class="tag-pill">Culture</span>
+              <span class="tag-pill">Art</span>
+              <span class="tag-pill">Business</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center: Photo Mosaic Collage -->
+        <div class="col-lg-4 col-12 reveal-on-scroll delay-1">
+          <div class="about-mosaic-grid">
+            <!-- Large landscape with script overlay -->
+            <div class="mosaic-main" id="gallery">
+              <img src="assets/images/lagos_bridge.jpg" alt="Lagos skyline and Lekki bridge at dusk">
+              <div class="mosaic-badge">Lagos Never Stops!</div>
+            </div>
+            <!-- Stacked 3 thumbs -->
+            <div class="mosaic-stack">
+              <div class="mosaic-thumb">
+                <img src="assets/images/tarkwa_bay.jpg" alt="Tarkwa bay beach Lagos">
+              </div>
+              <div class="mosaic-thumb">
+                <img src="assets/images/lagos_street.jpg" alt="Lagos street photography">
+              </div>
+              <div class="mosaic-thumb">
+                <img src="assets/images/lagos_nightlife.jpg" alt="Lagos rooftop nightlife">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Feature Callout Card -->
+        <div class="col-lg-4 col-12 reveal-on-scroll delay-2">
+          <div class="feature-callout-card">
+            <div>
+              <h3 class="feature-callout-title">How The Africa Explorers Enhances Your Lagos Experience</h3>
+              <p class="text-muted small mb-4">
+                We curate the best events, hidden gems, travel packages and local guides to give you an authentic and unforgettable Lagos experience. Whether you're here for the food, music, art or adventure — we've got you covered.
+              </p>
+
+              <div class="mb-4">
+                <div class="checklist-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>Verified & trusted event partners</span>
+                </div>
+                <div class="checklist-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>Exclusive travel deals & group trips</span>
+                </div>
+                <div class="checklist-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>Local guides & insider tips</span>
+                </div>
+                <div class="checklist-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>A community that explores together</span>
+                </div>
+              </div>
+            </div>
+
+            <a href="join.html?state=Lagos" class="btn btn-mint w-100 py-3 d-inline-block text-center">
+              Join Lagos Explorers <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       LAGOS EXPLORERS EVENTS DIARY
+       ====================================================================== -->
+  <section class="events-section" id="events">
+    <div class="custom-container">
+      
+      <!-- Section Header -->
+      <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-4 reveal-on-scroll">
+        <div>
+          <div class="section-indicator"></div>
+          <h2 class="section-heading">Lagos Explorers Events Diary</h2>
+          <p class="section-subtitle">Discover the best events happening in Lagos. From music festivals to food fairs, tech meetups to cultural shows.</p>
+        </div>
+        <div>
+          <a href="#events" class="view-all-link" onclick="openEventModal('foodFest')">
+            View All Events <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 4 Event Cards Grid -->
+      <div class="row g-4">
+        
+        <!-- Event 1: Lagos Food & Culture Festival -->
+        <div class="col-lg-3 col-md-6 col-12 reveal-on-scroll">
+          <div class="event-card">
+            <div class="event-image-wrap">
+              <img src="assets/images/lagos_food_fest.jpg" alt="Lagos Food & Culture Festival" class="event-img">
+              <div class="event-date-badge">
+                <span class="day-name">SAT</span>
+                <span class="day-number">12</span>
+                <span class="month-name">OCT</span>
+              </div>
+            </div>
+            <div class="event-body">
+              <h3 class="event-title">Lagos Food & Culture Festival</h3>
+              <div class="event-meta">
+                <div class="event-meta-item">
+                  <i class="bi bi-geo-alt"></i>
+                  <span>Lekki, Lagos</span>
+                </div>
+                <div class="event-meta-item">
+                  <i class="bi bi-clock"></i>
+                  <span>10:00 AM – 10:00 PM</span>
+                </div>
+              </div>
+              <div class="event-footer">
+                <div class="event-tags-wrap">
+                  <span class="tag-pill">Food</span>
+                  <span class="tag-pill">Culture</span>
+                  <span class="tag-pill">Music</span>
+                </div>
+                <button class="event-action-btn" onclick="openEventModal('foodFest')" aria-label="View event details">
+                  <i class="bi bi-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 2: Lagos Tech & Innovation Summit -->
+        <div class="col-lg-3 col-md-6 col-12 reveal-on-scroll delay-1">
+          <div class="event-card">
+            <div class="event-image-wrap">
+              <img src="assets/images/lagos_tech_summit.jpg" alt="Lagos Tech & Innovation Summit" class="event-img">
+              <div class="event-date-badge">
+                <span class="day-name">FRI</span>
+                <span class="day-number">18</span>
+                <span class="month-name">OCT</span>
+              </div>
+            </div>
+            <div class="event-body">
+              <h3 class="event-title">Lagos Tech & Innovation Summit</h3>
+              <div class="event-meta">
+                <div class="event-meta-item">
+                  <i class="bi bi-geo-alt"></i>
+                  <span>Victoria Island, Lagos</span>
+                </div>
+                <div class="event-meta-item">
+                  <i class="bi bi-clock"></i>
+                  <span>9:00 AM – 5:00 PM</span>
+                </div>
+              </div>
+              <div class="event-footer">
+                <div class="event-tags-wrap">
+                  <span class="tag-pill">Tech</span>
+                  <span class="tag-pill">Networking</span>
+                  <span class="tag-pill">Career</span>
+                </div>
+                <button class="event-action-btn" onclick="openEventModal('techSummit')" aria-label="View event details">
+                  <i class="bi bi-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 3: Beach Vibes: Elegushi Experience -->
+        <div class="col-lg-3 col-md-6 col-12 reveal-on-scroll delay-2">
+          <div class="event-card">
+            <div class="event-image-wrap">
+              <img src="assets/images/beach_elegushi.jpg" alt="Beach Vibes: Elegushi Experience" class="event-img">
+              <div class="event-date-badge">
+                <span class="day-name">SAT</span>
+                <span class="day-number">26</span>
+                <span class="month-name">OCT</span>
+              </div>
+            </div>
+            <div class="event-body">
+              <h3 class="event-title">Beach Vibes: Elegushi Experience</h3>
+              <div class="event-meta">
+                <div class="event-meta-item">
+                  <i class="bi bi-geo-alt"></i>
+                  <span>Elegushi Beach, Lagos</span>
+                </div>
+                <div class="event-meta-item">
+                  <i class="bi bi-clock"></i>
+                  <span>12:00 PM – 8:00 PM</span>
+                </div>
+              </div>
+              <div class="event-footer">
+                <div class="event-tags-wrap">
+                  <span class="tag-pill">Music</span>
+                  <span class="tag-pill">Food</span>
+                  <span class="tag-pill">Lifestyle</span>
+                </div>
+                <button class="event-action-btn" onclick="openEventModal('foodFest')" aria-label="View event details">
+                  <i class="bi bi-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 4: Lagos Art & Design Week -->
+        <div class="col-lg-3 col-md-6 col-12 reveal-on-scroll delay-3">
+          <div class="event-card">
+            <div class="event-image-wrap">
+              <img src="assets/images/nike_art.jpg" alt="Lagos Art & Design Week" class="event-img">
+              <div class="event-date-badge">
+                <span class="day-name">SUN</span>
+                <span class="day-number">03</span>
+                <span class="month-name">NOV</span>
+              </div>
+            </div>
+            <div class="event-body">
+              <h3 class="event-title">Lagos Art & Design Week</h3>
+              <div class="event-meta">
+                <div class="event-meta-item">
+                  <i class="bi bi-geo-alt"></i>
+                  <span>Victoria Island, Lagos</span>
+                </div>
+                <div class="event-meta-item">
+                  <i class="bi bi-clock"></i>
+                  <span>11:00 AM – 7:00 PM</span>
+                </div>
+              </div>
+              <div class="event-footer">
+                <div class="event-tags-wrap">
+                  <span class="tag-pill">Art</span>
+                  <span class="tag-pill">Culture</span>
+                  <span class="tag-pill">Exhibition</span>
+                </div>
+                <button class="event-action-btn" onclick="openEventModal('heritageFest')" aria-label="View event details">
+                  <i class="bi bi-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       LAGOS TOURS & VISITS (PRD SECTION 17, 18, 19 — SEPARATE FROM EVENTS)
+       Answers: "What can I go and experience in Lagos?"
+       ====================================================================== -->
+  <section class="py-5 position-relative" id="tours" style="background: linear-gradient(180deg, #071518 0%, #051417 100%);">
+    <div class="custom-container">
+      
+      <!-- Section Header -->
+      <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-4 reveal-on-scroll">
+        <div>
+          <div class="section-indicator"></div>
+          <span class="badge bg-mint text-dark fw-bold px-3 py-1 rounded-pill mb-2 text-uppercase" style="letter-spacing: 0.8px; font-size: 0.72rem;">Curated Experiences</span>
+          <h2 class="section-heading mb-1">Lagos Tours & Visits</h2>
+          <p class="section-subtitle">What can you go and experience? Guided historical tours, coastal boat cruises, and exclusive member discounts.</p>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <span class="small text-warning fw-bold"><i class="bi bi-shield-check me-1"></i>Member Pricing Active</span>
+        </div>
+      </div>
+
+      <!-- Tours Cards Grid -->
+      <div class="row g-4">
+        
+        <!-- Tour 1: Lagos Island Historic & Cultural Walk -->
+        <div class="col-lg-4 col-md-6 col-12 reveal-on-scroll">
+          <div class="tour-card">
+            <div class="tour-image-wrap">
+              <img src="assets/images/lagos_street.jpg" alt="Lagos Island Historic Walk" class="tour-img">
+              <div class="tour-duration-badge">7 Hours (Full Day)</div>
+              <div class="tour-member-badge">Member Perk</div>
+            </div>
+            <div class="tour-body">
+              <div>
+                <h3 class="tour-title">Lagos Island Cultural & Heritage Walk</h3>
+                <div class="tour-meta">
+                  <span><i class="bi bi-geo-alt text-mint me-1"></i>Broad Street & Marina</span>
+                  <span><i class="bi bi-person-badge text-warning me-1"></i>Historian Guide</span>
+                </div>
+                <p class="small text-muted mb-3">Immerse in Brazilian quarters architecture, National Museum relics, local food tastings, and historical trading post stories.</p>
+              </div>
+              <div>
+                <div class="tour-pricing-row">
+                  <div>
+                    <span class="d-block small text-muted">Member Price:</span>
+                    <span class="member-price-highlight" data-ngn-price="18000">₦18,000</span>
+                  </div>
+                  <div class="text-end">
+                    <span class="d-block small text-muted">Regular Price:</span>
+                    <span class="regular-price-del" data-ngn-price="25000">₦25,000</span>
+                  </div>
+                </div>
+                <div class="d-flex gap-2">
+                  <button class="btn btn-outline-light btn-sm flex-fill" onclick="openTourModal('lagosHeritage')">
+                    Details
+                  </button>
+                  <button class="btn btn-mint btn-sm flex-fill fw-bold" onclick="openTourBookingModal('lagosHeritage')">
+                    Book Tour <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour 2: Lekki Canopy Walk & Coastal Lagoon Cruise -->
+        <div class="col-lg-4 col-md-6 col-12 reveal-on-scroll delay-1">
+          <div class="tour-card">
+            <div class="tour-image-wrap">
+              <img src="assets/images/lekki_canopy.jpg" alt="Lekki Canopy Walkway" class="tour-img">
+              <div class="tour-duration-badge">6 Hours</div>
+              <div class="tour-member-badge">Member Perk</div>
+            </div>
+            <div class="tour-body">
+              <div>
+                <h3 class="tour-title">Lekki Canopy Walk & Lagoon Cruise</h3>
+                <div class="tour-meta">
+                  <span><i class="bi bi-geo-alt text-mint me-1"></i>Lekki Peninsula</span>
+                  <span><i class="bi bi-water text-cyan me-1"></i>Private Boat Charter</span>
+                </div>
+                <p class="small text-muted mb-3">Trek 401 meters suspended above tropical rainforest canopy, observe monkeys and giant tortoises, then cruise the Lekki lagoon waters.</p>
+              </div>
+              <div>
+                <div class="tour-pricing-row">
+                  <div>
+                    <span class="d-block small text-muted">Member Price:</span>
+                    <span class="member-price-highlight" data-ngn-price="26000">₦26,000</span>
+                  </div>
+                  <div class="text-end">
+                    <span class="d-block small text-muted">Regular Price:</span>
+                    <span class="regular-price-del" data-ngn-price="35000">₦35,000</span>
+                  </div>
+                </div>
+                <div class="d-flex gap-2">
+                  <button class="btn btn-outline-light btn-sm flex-fill" onclick="openTourModal('lekkiCanopyBoat')">
+                    Details
+                  </button>
+                  <button class="btn btn-mint btn-sm flex-fill fw-bold" onclick="openTourBookingModal('lekkiCanopyBoat')">
+                    Book Tour <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour 3: Tarkwa Bay & Coastal Waters Excursion -->
+        <div class="col-lg-4 col-md-6 col-12 reveal-on-scroll delay-2">
+          <div class="tour-card">
+            <div class="tour-image-wrap">
+              <img src="assets/images/tarkwa_bay.jpg" alt="Tarkwa Bay Beach" class="tour-img">
+              <div class="tour-duration-badge">Half Day (5 Hours)</div>
+              <div class="tour-member-badge">Member Perk</div>
+            </div>
+            <div class="tour-body">
+              <div>
+                <h3 class="tour-title">Tarkwa Bay Island & Harbour Cruise</h3>
+                <div class="tour-meta">
+                  <span><i class="bi bi-geo-alt text-mint me-1"></i>Lagos Harbour</span>
+                  <span><i class="bi bi-tsunami text-cyan me-1"></i>Beach & Surfing</span>
+                </div>
+                <p class="small text-muted mb-3">Speedboat crossing from Victoria Island, surfing lessons on sheltered Atlantic breakwaters, beach horse rides, and fresh grilled fish.</p>
+              </div>
+              <div>
+                <div class="tour-pricing-row">
+                  <div>
+                    <span class="d-block small text-muted">Member Price:</span>
+                    <span class="member-price-highlight" data-ngn-price="15000">₦15,000</span>
+                  </div>
+                  <div class="text-end">
+                    <span class="d-block small text-muted">Regular Price:</span>
+                    <span class="regular-price-del" data-ngn-price="22000">₦22,000</span>
+                  </div>
+                </div>
+                <div class="d-flex gap-2">
+                  <button class="btn btn-outline-light btn-sm flex-fill" onclick="showToast('Tarkwa Bay excursion includes speedboat return transit and beach pass.', 'Tour Details')">
+                    Details
+                  </button>
+                  <button class="btn btn-mint btn-sm flex-fill fw-bold" onclick="openTourBookingModal('lekkiCanopyBoat')">
+                    Book Tour <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       MEET LAGOS EXPLORERS (COMMUNITY PROFILES)
+       ====================================================================== -->
+  <section class="py-5" id="explorers">
+    <div class="custom-container">
+      
+      <!-- Section Header -->
+      <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-4 reveal-on-scroll">
+        <div>
+          <div class="section-indicator"></div>
+          <h2 class="section-heading">Meet Lagos Explorers</h2>
+          <p class="section-subtitle">Real people. Real stories. Meet fellow explorers from Lagos and be part of the community.</p>
+        </div>
+        <div>
+          <a href="join.html?state=Lagos" class="view-all-link">
+            View All Explorers <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 4 Explorer Profiles Row -->
+      <div class="row g-4">
+        
+        <!-- Profile 1: Tunde Adebayo -->
+        <div class="col-lg-3 col-md-6 col-12 reveal-on-scroll">
+          <div class="profile-card">
+            <div class="profile-avatar-wrap">
+              <img src="assets/images/avatar_tunde.jpg" alt="Tunde Adebayo">
+            </div>
+            <div class="profile-info">
+              <h4 class="profile-name">Tunde Adebayo</h4>
+              <p class="profile-bio">Food Lover | Tech Enthusiast</p>
+              <div class="profile-location">
+                <i class="bi bi-geo-alt"></i> Lekki, Lagos
+              </div>
+              <button class="btn btn-follow" onclick="toggleFollowMember(this, 'Tunde Adebayo')">
+                <i class="bi bi-person-plus me-1"></i> Follow
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile 2: Chioma Okafor -->
+        <div class="col-lg-3 col-md-6 col-12 reveal-on-scroll delay-1">
+          <div class="profile-card">
+            <div class="profile-avatar-wrap">
+              <img src="assets/images/avatar_chioma.jpg" alt="Chioma Okafor">
+            </div>
+            <div class="profile-info">
+              <h4 class="profile-name">Chioma Okafor</h4>
+              <p class="profile-bio">Creative | Traveler | Foodie</p>
+              <div class="profile-location">
+                <i class="bi bi-geo-alt"></i> Lagos
+              </div>
+              <button class="btn btn-follow" onclick="toggleFollowMember(this, 'Chioma Okafor')">
+                <i class="bi bi-person-plus me-1"></i> Follow
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile 3: Emeka Nwosu -->
+        <div class="col-lg-3 col-md-6 col-12 reveal-on-scroll delay-2">
+          <div class="profile-card">
+            <div class="profile-avatar-wrap">
+              <img src="assets/images/avatar_emeka.jpg" alt="Emeka Nwosu">
+            </div>
+            <div class="profile-info">
+              <h4 class="profile-name">Emeka Nwosu</h4>
+              <p class="profile-bio">Photographer | Adventurer</p>
+              <div class="profile-location">
+                <i class="bi bi-geo-alt"></i> Lagos
+              </div>
+              <button class="btn btn-follow" onclick="toggleFollowMember(this, 'Emeka Nwosu')">
+                <i class="bi bi-person-plus me-1"></i> Follow
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile 4: David Alade -->
+        <div class="col-lg-3 col-md-6 col-12 reveal-on-scroll delay-3">
+          <div class="profile-card">
+            <div class="profile-avatar-wrap">
+              <img src="assets/images/avatar_david.jpg" alt="David Alade">
+            </div>
+            <div class="profile-info">
+              <h4 class="profile-name">David Alade</h4>
+              <p class="profile-bio">Tech | Events | Networking</p>
+              <div class="profile-location">
+                <i class="bi bi-geo-alt"></i> Lagos
+              </div>
+              <button class="btn btn-follow" onclick="toggleFollowMember(this, 'David Alade')">
+                <i class="bi bi-person-plus me-1"></i> Follow
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       TOP LAGOS EXPLORERS SPOTS (PLACES TO VISIT)
+       ====================================================================== -->
+  <section class="py-5" id="spots">
+    <div class="custom-container">
+      
+      <!-- Section Header -->
+      <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-4 reveal-on-scroll">
+        <div>
+          <div class="section-indicator"></div>
+          <h2 class="section-heading">Top Lagos Explorers Spots</h2>
+          <p class="section-subtitle">Must-visit places, popular hangouts, and hidden gems in Lagos.</p>
+        </div>
+        <div>
+          <a href="#spots" class="view-all-link" onclick="openSpotModal('lekkiCanopy')">
+            View All Spots <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 5 Spots Row -->
+      <div class="spots-grid">
+        
+        <!-- Spot 1: Lekki Conservation Centre -->
+        <div class="spot-card reveal-on-scroll" onclick="openSpotModal('lekkiCanopy')" role="button" tabindex="0">
+          <img src="assets/images/lekki_canopy.jpg" alt="Lekki Conservation Centre Canopy Walkway">
+          <div class="spot-overlay">
+            <h3 class="spot-title">Lekki Conservation Centre</h3>
+            <div class="spot-tags-row">
+              <span class="tag-pill">Nature</span>
+              <span class="tag-pill">Adventure</span>
+            </div>
+            <div class="spot-meta-row">
+              <span class="spot-loc"><i class="bi bi-geo-alt-fill"></i> Lekki</span>
+              <span class="spot-rating"><i class="bi bi-star-fill"></i> 4.8</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spot 2: Nike Art Gallery -->
+        <div class="spot-card reveal-on-scroll delay-1" onclick="openSpotModal('nikeArt')" role="button" tabindex="0">
+          <img src="assets/images/nike_art.jpg" alt="Nike Art Gallery Lagos">
+          <div class="spot-overlay">
+            <h3 class="spot-title">Nike Art Gallery</h3>
+            <div class="spot-tags-row">
+              <span class="tag-pill">Art</span>
+              <span class="tag-pill">Culture</span>
+            </div>
+            <div class="spot-meta-row">
+              <span class="spot-loc"><i class="bi bi-geo-alt-fill"></i> Lekki</span>
+              <span class="spot-rating"><i class="bi bi-star-fill"></i> 4.9</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spot 3: Tarkwa Bay Beach -->
+        <div class="spot-card reveal-on-scroll delay-2" onclick="openSpotModal('tarkwaBay')" role="button" tabindex="0">
+          <img src="assets/images/tarkwa_bay.jpg" alt="Tarkwa Bay Beach Lagos">
+          <div class="spot-overlay">
+            <h3 class="spot-title">Tarkwa Bay Beach</h3>
+            <div class="spot-tags-row">
+              <span class="tag-pill">Beach</span>
+              <span class="tag-pill">Relaxation</span>
+            </div>
+            <div class="spot-meta-row">
+              <span class="spot-loc"><i class="bi bi-geo-alt-fill"></i> Lagos Island</span>
+              <span class="spot-rating"><i class="bi bi-star-fill"></i> 4.7</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spot 4: Freedom Park -->
+        <div class="spot-card reveal-on-scroll delay-3" onclick="openSpotModal('freedomPark')" role="button" tabindex="0">
+          <img src="assets/images/freedom_park.jpg" alt="Freedom Park Lagos Island">
+          <div class="spot-overlay">
+            <h3 class="spot-title">Freedom Park</h3>
+            <div class="spot-tags-row">
+              <span class="tag-pill">History</span>
+              <span class="tag-pill">Culture</span>
+            </div>
+            <div class="spot-meta-row">
+              <span class="spot-loc"><i class="bi bi-geo-alt-fill"></i> Lagos Island</span>
+              <span class="spot-rating"><i class="bi bi-star-fill"></i> 4.5</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spot 5: The Roof Top (VI) -->
+        <div class="spot-card reveal-on-scroll delay-4" onclick="openSpotModal('roofTopVI')" role="button" tabindex="0">
+          <img src="assets/images/lagos_nightlife.jpg" alt="The Roof Top Victoria Island">
+          <div class="spot-overlay">
+            <h3 class="spot-title">The Roof Top (VI)</h3>
+            <div class="spot-tags-row">
+              <span class="tag-pill">Nightlife</span>
+              <span class="tag-pill">Food</span>
+            </div>
+            <div class="spot-meta-row">
+              <span class="spot-loc"><i class="bi bi-geo-alt-fill"></i> Victoria Island</span>
+              <span class="spot-rating"><i class="bi bi-star-fill"></i> 4.4</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       LAGOS EXPLORERS SHOP (MERCHANDISE & GEAR)
+       ====================================================================== -->
+  <section class="py-5" id="shop">
+    <div class="custom-container">
+      
+      <!-- Section Header -->
+      <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-4 reveal-on-scroll">
+        <div>
+          <div class="section-indicator"></div>
+          <h2 class="section-heading">Lagos Explorers Shop</h2>
+          <p class="section-subtitle">Get exclusive merch, travel gear and local products.</p>
+        </div>
+        <div>
+          <a href="#shop" class="view-all-link" onclick="openCartModal()">
+            View All Products <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 6 Merch Product Cards Grid -->
+      <div class="shop-grid">
+        
+        <!-- Product 1: Cap -->
+        <div class="product-card reveal-on-scroll">
+          <div class="product-img-wrap">
+            <img src="assets/images/merch_cap.svg" alt="Lagos Explorers Cap" class="product-img">
+          </div>
+          <div class="product-body">
+            <h3 class="product-name">Lagos Explorers Cap</h3>
+            <div class="product-price">₦12,000</div>
+            <button class="btn-cart" onclick="addToCart('Lagos Explorers Cap', 12000, '₦12,000', 'assets/images/merch_cap.svg')">
+              <i class="bi bi-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 2: T-Shirt -->
+        <div class="product-card reveal-on-scroll delay-1">
+          <div class="product-img-wrap">
+            <img src="assets/images/merch_tshirt.svg" alt="Lagos Explorers T-Shirt" class="product-img">
+          </div>
+          <div class="product-body">
+            <h3 class="product-name">Lagos Explorers T-Shirt</h3>
+            <div class="product-price">₦15,000</div>
+            <button class="btn-cart" onclick="addToCart('Lagos Explorers T-Shirt', 15000, '₦15,000', 'assets/images/merch_tshirt.svg')">
+              <i class="bi bi-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 3: Backpack -->
+        <div class="product-card reveal-on-scroll delay-2">
+          <div class="product-img-wrap">
+            <img src="assets/images/merch_backpack.svg" alt="Explorer Backpack" class="product-img">
+          </div>
+          <div class="product-body">
+            <h3 class="product-name">Explorer Backpack</h3>
+            <div class="product-price">₦28,000</div>
+            <button class="btn-cart" onclick="addToCart('Explorer Backpack', 28000, '₦28,000', 'assets/images/merch_backpack.svg')">
+              <i class="bi bi-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 4: Tote Bag -->
+        <div class="product-card reveal-on-scroll delay-3">
+          <div class="product-img-wrap">
+            <img src="assets/images/merch_tote.svg" alt="Lagos Tote Bag" class="product-img">
+          </div>
+          <div class="product-body">
+            <h3 class="product-name">Lagos Tote Bag</h3>
+            <div class="product-price">₦10,000</div>
+            <button class="btn-cart" onclick="addToCart('Lagos Tote Bag', 10000, '₦10,000', 'assets/images/merch_tote.svg')">
+              <i class="bi bi-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 5: Tumbler -->
+        <div class="product-card reveal-on-scroll delay-4">
+          <div class="product-img-wrap">
+            <img src="assets/images/merch_tumbler.svg" alt="Explorer Tumbler" class="product-img">
+          </div>
+          <div class="product-body">
+            <h3 class="product-name">Explorer Tumbler</h3>
+            <div class="product-price">₦8,500</div>
+            <button class="btn-cart" onclick="addToCart('Explorer Tumbler', 8500, '₦8,500', 'assets/images/merch_tumbler.svg')">
+              <i class="bi bi-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 6: eBook -->
+        <div class="product-card reveal-on-scroll delay-5">
+          <div class="product-img-wrap">
+            <img src="assets/images/merch_ebook.svg" alt="Lagos Travel Guide eBook" class="product-img">
+          </div>
+          <div class="product-body">
+            <h3 class="product-name">Lagos Travel Guide (eBook)</h3>
+            <div class="product-price">₦2,500</div>
+            <button class="btn-cart" onclick="addToCart('Lagos Travel Guide eBook', 2500, '₦2,500', 'assets/images/merch_ebook.svg')">
+              <i class="bi bi-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       LAGOS GALLERY & STORIES (PRD SECTION 36)
+       ====================================================================== -->
+  <section class="py-5" id="gallery" style="background: #040c0e;">
+    <div class="custom-container reveal-on-scroll">
+      
+      <!-- Section Header -->
+      <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-4">
+        <div>
+          <div class="section-indicator"></div>
+          <span class="badge bg-mint text-dark fw-bold px-3 py-1 rounded-pill mb-2 text-uppercase" style="letter-spacing: 0.8px; font-size: 0.72rem;">Memories & Traveler Voices</span>
+          <h2 class="section-heading mb-1">Lagos Gallery & Explorer Stories</h2>
+          <p class="section-subtitle">Real experiences, sunsets, rooftop nights, and street memories captured by Lagos Explorers.</p>
+        </div>
+        <div>
+          <button type="button" class="btn btn-mint btn-sm fw-bold px-3 py-2" data-bs-toggle="modal" data-bs-target="#shareStoryModal">
+            <i class="bi bi-camera-fill me-1"></i> Share Your Exploration
+          </button>
+        </div>
+      </div>
+
+      <!-- Photo Collage Row -->
+      <div class="row g-3 mb-4">
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="rounded-4 overflow-hidden position-relative shadow" style="height: 220px;" onclick="openGalleryLightbox(1)" role="button">
+            <img src="assets/images/lagos_bridge.jpg" class="w-100 h-100 object-fit-cover" alt="Lekki Bridge">
+            <div class="position-absolute bottom-0 start-0 p-3 text-white w-100" style="background: linear-gradient(transparent, rgba(0,0,0,0.8));">
+              <span class="small fw-bold d-block">Lekki Link Suspension</span>
+              <span class="small text-muted" style="font-size: 0.75rem;">Photo by Babatunde A.</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="rounded-4 overflow-hidden position-relative shadow" style="height: 220px;" onclick="openGalleryLightbox(3)" role="button">
+            <img src="assets/images/lagos_nightlife.jpg" class="w-100 h-100 object-fit-cover" alt="Lagos Nightlife">
+            <div class="position-absolute bottom-0 start-0 p-3 text-white w-100" style="background: linear-gradient(transparent, rgba(0,0,0,0.8));">
+              <span class="small fw-bold d-block">Victoria Island Rooftops</span>
+              <span class="small text-muted" style="font-size: 0.75rem;">Photo by Chioma O.</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="rounded-4 overflow-hidden position-relative shadow" style="height: 220px;" onclick="openSpotModal('nikeArt')" role="button">
+            <img src="assets/images/nike_art.jpg" class="w-100 h-100 object-fit-cover" alt="Nike Art">
+            <div class="position-absolute bottom-0 start-0 p-3 text-white w-100" style="background: linear-gradient(transparent, rgba(0,0,0,0.8));">
+              <span class="small fw-bold d-block">Nike Art 5-Floor Vault</span>
+              <span class="small text-muted" style="font-size: 0.75rem;">Photo by David M.</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="rounded-4 overflow-hidden position-relative shadow" style="height: 220px;" onclick="openSpotModal('tarkwaBay')" role="button">
+            <img src="assets/images/tarkwa_bay.jpg" class="w-100 h-100 object-fit-cover" alt="Tarkwa Bay">
+            <div class="position-absolute bottom-0 start-0 p-3 text-white w-100" style="background: linear-gradient(transparent, rgba(0,0,0,0.8));">
+              <span class="small fw-bold d-block">Tarkwa Bay Breaker Waves</span>
+              <span class="small text-muted" style="font-size: 0.75rem;">Photo by Precious E.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       COMMUNITY CTA BANNER
+       ====================================================================== -->
+  <section class="community-banner-section" id="campaign">
+    <div class="custom-container reveal-on-scroll">
+      <div class="community-banner-card">
+        
+        <img src="assets/images/community_banner.jpg" alt="Scenic background" class="community-banner-bg">
+        <div class="community-banner-overlay"></div>
+
+        <div class="community-banner-content">
+          <!-- Left info -->
+          <div class="community-banner-left">
+            <div class="community-icon-circle">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <div>
+              <h3 class="community-banner-title">Join the Lagos Explorers Community</h3>
+              <p class="community-banner-desc">
+                Get exclusive access to events, trips, travel deals and a community of like-minded explorers across Lagos.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Action -->
+          <div>
+            <a href="join.html?state=Lagos" class="btn btn-gold">
+              Join the Explorers <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       FOOTER (WITH LAGOS EXPLORERS BRANDING)
+       ====================================================================== -->
+  <footer class="footer-custom" id="contact-us">
+    <div class="custom-container">
+      
+      <!-- Top Columns Row -->
+      <div class="row g-4">
+        
+        <!-- Column 1: Brand & Socials -->
+        <div class="col-lg-3 col-md-6 col-12">
+          <a href="index.html">
+            <img src="assets/logo-lagos.png" alt="The Lagos Explorers Logo" class="footer-brand-logo">
+          </a>
+          <div class="footer-tagline-text">
+            EXPLORE • EXPERIENCE • CONNECT
+          </div>
+          <div class="footer-social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Twitter X">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="YouTube">
+              <i class="bi bi-youtube"></i>
+            </a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="TikTok">
+              <i class="bi bi-tiktok"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="col-lg-3 col-md-6 col-6">
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item"><a href="index.html">Home</a></li>
+            <li class="footer-nav-item"><a href="#overview">About Us</a></li>
+            <li class="footer-nav-item"><a href="#contact-us">Contact Us</a></li>
+            <li class="footer-nav-item"><a href="#campaign">The Explorers Campaign</a></li>
+            <li class="footer-nav-item"><a href="join.html?state=Lagos">Join the Explorers</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Explore Lagos -->
+        <div class="col-lg-3 col-md-6 col-6">
+          <h4 class="footer-col-title">Explore Lagos</h4>
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item"><a href="#events">Events</a></li>
+            <li class="footer-nav-item"><a href="#spots">Spots</a></li>
+            <li class="footer-nav-item"><a href="#explorers">Explorers</a></li>
+            <li class="footer-nav-item"><a href="#shop">Shop</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Stay in the Loop (Newsletter) -->
+        <div class="col-lg-3 col-md-6 col-12">
+          <h4 class="footer-col-title">Stay in the Loop</h4>
+          <p class="footer-newsletter-text">
+            Get the latest events, trips and travel updates.
+          </p>
+          <form class="newsletter-form" id="footerNewsletterForm">
+            <input type="email" class="newsletter-input" placeholder="Enter your email address" required aria-label="Email Address">
+            <button type="submit" class="btn btn-mint newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <p class="footer-copy-text">
+          &copy; 2025 The Africa Explorers NG. All rights reserved.
+        </p>
+        <p class="footer-signature">
+          Same country. <span class="script-highlight">Different stories.</span>
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ======================================================================
+       INTERACTIVE MODALS & DRAWERS
+       ====================================================================== -->
+
+  <!-- 1. Spot Details Modal -->
+  <div class="modal fade" id="spotDetailsModal" tabindex="-1" aria-labelledby="spotModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <div>
+            <h5 class="modal-title fw-bold text-white mb-0" id="spotModalTitle">Spot Details</h5>
+            <span class="small text-muted" id="spotModalLocation"></span>
+          </div>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <div class="row g-4">
+            <div class="col-lg-6 col-12">
+              <div class="rounded-3 overflow-hidden position-relative mb-3" style="height: 220px;">
+                <img src="" id="spotModalImg" alt="Spot preview" class="w-100 h-100 object-fit-cover">
+                <span class="badge bg-dark text-warning position-absolute top-0 end-0 m-3 fw-bold border border-warning" id="spotModalRating"></span>
+              </div>
+              <div class="p-3 rounded-3" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+                <div class="small text-muted mb-1"><i class="bi bi-clock text-mint me-1"></i> Opening Hours: <span class="text-white" id="spotModalHours"></span></div>
+                <div class="small text-muted"><i class="bi bi-ticket text-mint me-1"></i> Entry Fee: <span class="text-white" id="spotModalFee"></span></div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-12 d-flex flex-column justify-content-between">
+              <div>
+                <div class="d-flex flex-wrap gap-1 mb-3" id="spotModalTags"></div>
+                <h6 class="text-mint fw-bold mb-2">Spot Description</h6>
+                <p class="small text-light mb-4" id="spotModalDesc"></p>
+              </div>
+              <button class="btn btn-mint w-100 py-2 fw-bold" onclick="bootstrap.Modal.getInstance(document.getElementById('spotDetailsModal')).hide(); showToast('Saved to your saved Lagos trip itinerary!', 'Saved Spot');">
+                <i class="bi bi-bookmark-plus me-1"></i> Add to My Lagos Bucket List
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 2. Shopping Bag / Cart Modal -->
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <h5 class="modal-title fw-bold text-white mb-0" id="cartModalLabel">
+            <i class="bi bi-bag text-mint me-2"></i> Explorer Merch Bag
+          </h5>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <div id="cartDrawerItems" class="mb-3" style="max-height: 260px; overflow-y: auto;">
+            <!-- Cart items populated via script.js -->
+          </div>
+          <div class="d-flex align-items-center justify-content-between pt-3 border-top border-secondary border-opacity-25 mb-4">
+            <span class="text-light fw-bold">Order Total:</span>
+            <span class="fs-4 fw-bold text-mint" id="cartTotal">₦0</span>
+          </div>
+          <button type="button" class="btn btn-gold w-100 py-3 fw-bold" onclick="checkoutCart()">
+            Proceed to Secure Checkout <i class="bi bi-arrow-right ms-1"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 3. Join The Explorers Modal -->
+  <div class="modal fade" id="joinExplorersModal" tabindex="-1" aria-labelledby="joinExplorersModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center gap-2">
+            <div class="community-icon-circle" style="width: 42px; height: 42px; font-size: 1.2rem;">
+              <i class="bi bi-compass"></i>
+            </div>
+            <div>
+              <h5 class="modal-title fw-bold text-white mb-0" id="joinExplorersModalLabel">Join Lagos Explorers</h5>
+              <span class="small text-mint">Become a verified Lagos explorer</span>
+            </div>
+          </div>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <p class="small text-muted mb-4">
+            Gain immediate access to curated travel packs, priority bookings for Lagos events, member-only discounts, and a vibrant community of fellow wanderers.
+          </p>
+          <form id="joinExplorersForm">
+            <div class="mb-3">
+              <label for="joinName" class="form-label small text-light fw-semibold">Full Name</label>
+              <input type="text" class="form-control form-control-custom" id="joinName" placeholder="e.g. Tunde Balogun" required>
+            </div>
+            <div class="mb-3">
+              <label for="joinEmail" class="form-label small text-light fw-semibold">Email Address</label>
+              <input type="email" class="form-control form-control-custom" id="joinEmail" placeholder="e.g. tunde@example.com" required>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-md-6 col-12">
+                <label for="joinArea" class="form-label small text-light fw-semibold">Preferred Area</label>
+                <select class="form-select form-select-custom" id="joinArea">
+                  <option value="Lekki">Lekki & Ikoyi</option>
+                  <option value="VI">Victoria Island</option>
+                  <option value="Mainland">Ikeja & Mainland</option>
+                  <option value="Badagry">Badagry Coastal</option>
+                </select>
+              </div>
+              <div class="col-md-6 col-12">
+                <label for="joinTravelStyle" class="form-label small text-light fw-semibold">Travel Style</label>
+                <select class="form-select form-select-custom" id="joinTravelStyle">
+                  <option value="Adventure">Adventure & Hiking</option>
+                  <option value="Culture">Cultural Festivals & Heritage</option>
+                  <option value="Luxury">Urban Luxury & Nightlife</option>
+                  <option value="Foodie">Gastronomy & Culinary Tours</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-gold w-100 py-3 fw-bold">
+              Join Lagos Explorers Club <i class="bi bi-arrow-right ms-1"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 4. Event Details & Ticket Reservation Modal -->
+  <div class="modal fade" id="eventDetailsModal" tabindex="-1" aria-labelledby="eventModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <h5 class="modal-title fw-bold text-white mb-0" id="eventModalTitle">Event Details</h5>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <div class="rounded-3 overflow-hidden mb-3" style="height: 180px;">
+            <img src="" id="eventModalImg" alt="Event preview" class="w-100 h-100 object-fit-cover">
+          </div>
+          <div class="small text-mint fw-semibold mb-1" id="eventModalDate"></div>
+          <div class="small text-muted mb-3" id="eventModalLoc"></div>
+          <p class="small text-light mb-4" id="eventModalDesc"></p>
+
+          <form id="eventTicketForm">
+            <div class="mb-3">
+              <label for="eventTicketType" class="form-label small text-light fw-semibold">Select Pass Tier</label>
+              <select class="form-select form-select-custom" id="eventTicketType">
+                <option value="standard">Standard Explorer Pass (Free Community Pass)</option>
+                <option value="vip">VIP Backstage & Tasting Experience (₦25,000)</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-gold w-100 py-2 fw-bold">
+              Claim Your Ticket Now <i class="bi bi-ticket-perforated ms-1"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 5. Global Search Modal -->
+  <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <h5 class="modal-title fw-bold text-white mb-0" id="searchModalLabel">
+            <i class="bi bi-search text-mint me-2"></i> Search Lagos Explorations
+          </h5>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <input type="text" class="form-control form-control-custom mb-3" id="globalSearchInput" placeholder="Type a spot, festival, or gear item...">
+          <div id="globalSearchResults" style="max-height: 280px; overflow-y: auto;">
+            <p class="text-muted small">Type a spot, event, explorer, or product to search...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 6. User Profile Modal -->
+  <div class="modal fade" id="userProfileModal" tabindex="-1" aria-labelledby="userProfileModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <h5 class="modal-title fw-bold text-white mb-0" id="userProfileModalLabel">
+            <i class="bi bi-person-circle text-mint me-2"></i> Explorer Profile
+          </h5>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="modal-body modal-body-custom text-center py-4">
+          <div class="community-icon-circle mx-auto mb-3" style="width: 80px; height: 80px; font-size: 2.5rem;">
+            <i class="bi bi-person-fill"></i>
+          </div>
+          <h5 class="text-white fw-bold mb-1">Explorer Passport</h5>
+          <p class="small text-muted mb-4">Track your explored Nigerian states, badges, and trip receipts.</p>
+          <div class="d-grid gap-2">
+            <button class="btn btn-gold fw-bold" data-bs-toggle="modal" data-bs-target="#joinExplorersModal">
+              Sign In / Create Explorer Account
+            </button>
+            <button class="btn btn-outline-light btn-sm" data-bs-dismiss="modal">
+              Browse Without Signing In
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Tour & Visit Details Modal (PRD Section 18) -->
+  <div class="modal fade" id="tourDetailsModal" tabindex="-1" aria-labelledby="tourModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <div>
+            <span class="badge bg-mint text-dark fw-bold px-2 py-0 rounded-pill small mb-1">Guided Tour Experience</span>
+            <h5 class="modal-title fw-bold text-white mb-0" id="tourModalTitle">Tour Details</h5>
+          </div>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <div class="row g-4">
+            <div class="col-lg-6 col-12">
+              <div class="rounded-3 overflow-hidden position-relative mb-3" style="height: 220px;">
+                <img src="" id="tourModalImg" class="w-100 h-100 object-fit-cover" alt="Tour preview">
+                <span class="badge bg-dark text-mint border border-mint position-absolute top-0 start-0 m-3" id="tourModalDuration"></span>
+              </div>
+              <div class="p-3 rounded-3 mb-3" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+                <div class="small text-muted mb-1">DESTINATION & MEETING POINT</div>
+                <div class="small text-white fw-bold mb-1" id="tourModalDest"></div>
+                <div class="small text-light" id="tourModalMeeting"></div>
+              </div>
+              <div class="p-3 rounded-3" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+                <div class="small text-muted mb-1">YOUR GUIDE</div>
+                <div class="small text-mint fw-bold"><i class="bi bi-person-badge me-1"></i> <span id="tourModalGuide"></span></div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-12 d-flex flex-column justify-content-between">
+              <div>
+                <h6 class="text-mint fw-bold mb-2">Tour Activities</h6>
+                <div id="tourModalActivities" class="mb-3"></div>
+
+                <h6 class="text-mint fw-bold mb-1">What's Included</h6>
+                <ul class="list-unstyled mb-3" id="tourModalIncluded"></ul>
+
+                <h6 class="text-secondary fw-bold mb-1 small">What's Excluded</h6>
+                <ul class="list-unstyled mb-3" id="tourModalExcluded"></ul>
+              </div>
+
+              <div class="pt-3 border-top border-secondary border-opacity-25">
+                <div class="tour-pricing-row mb-3">
+                  <div>
+                    <span class="d-block small text-muted">Member Price:</span>
+                    <span class="member-price-highlight fs-4" id="tourModalMemberPrice">₦18,000</span>
+                  </div>
+                  <div class="text-end">
+                    <span class="d-block small text-muted">Regular Price:</span>
+                    <span class="regular-price-del fs-6" id="tourModalRegularPrice">₦25,000</span>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-mint w-100 py-2 fw-bold" id="tourModalBookBtn">
+                  Book Tour Experience <i class="bi bi-arrow-right ms-1"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Tour Booking & Member Verification Modal (PRD Section 19) -->
+  <div class="modal fade" id="tourBookingModal" tabindex="-1" aria-labelledby="bookTourTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <div>
+            <span class="badge bg-mint text-dark fw-bold px-2 py-0 rounded-pill small mb-1">Tour Booking</span>
+            <h5 class="modal-title fw-bold text-white mb-0" id="bookTourTitle">Tour Reservation</h5>
+          </div>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <!-- Member status notification -->
+          <div class="mb-3" id="bookTourMemberBadge"></div>
+
+          <div class="p-3 rounded-3 mb-3" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+            <div class="small text-mint fw-semibold mb-1" id="bookTourDuration"><i class="bi bi-clock me-1"></i> Duration</div>
+            <div class="small text-muted" id="bookTourMeeting"><i class="bi bi-geo-alt me-1"></i> Meeting Point</div>
+          </div>
+
+          <form onsubmit="submitTourBooking(event)">
+            <div class="mb-3">
+              <label class="form-label small text-light fw-semibold">Lead Participant Name *</label>
+              <input type="text" class="form-control form-control-custom" id="tourLeadName" placeholder="e.g. Babatunde Adeleke" required>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-6">
+                <label class="form-label small text-light fw-semibold">Email *</label>
+                <input type="email" class="form-control form-control-custom" id="tourLeadEmail" placeholder="you@domain.com" required>
+              </div>
+              <div class="col-6">
+                <label class="form-label small text-light fw-semibold">Target Tour Date *</label>
+                <select class="form-select form-select-custom" id="tourDateSelect" required>
+                  <option value="Saturday, Oct 19">Saturday, Oct 19, 2025</option>
+                  <option value="Saturday, Oct 26">Saturday, Oct 26, 2025</option>
+                  <option value="Saturday, Nov 02">Saturday, Nov 02, 2025</option>
+                  <option value="Saturday, Nov 09">Saturday, Nov 09, 2025</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Participant Quantity Counter -->
+            <div class="mb-3 p-3 rounded-3" style="background: rgba(12, 32, 36, 0.8); border: 1px solid rgba(0, 210, 132, 0.2);">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div>
+                  <span class="small text-light fw-semibold d-block">Number of Participants</span>
+                  <span class="small text-muted">Price per person: <strong class="text-white" id="tourPricePerPerson">₦18,000</strong></span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <button type="button" class="btn btn-sm btn-outline-light px-2 py-0 fw-bold" onclick="adjustTourQty(-1)">-</button>
+                  <span class="fw-bold text-mint px-2 fs-6" id="tourQty">1</span>
+                  <button type="button" class="btn btn-sm btn-outline-light px-2 py-0 fw-bold" onclick="adjustTourQty(1)">+</button>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center border-top border-secondary border-opacity-25 pt-2">
+                <span class="small text-muted">Total Calculated:</span>
+                <span class="fs-5 fw-bold text-mint" id="tourTotalPrice">₦18,000</span>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-mint w-100 py-2 fw-bold">
+              Confirm & Generate Tour Entry Voucher <i class="bi bi-qr-code ms-1"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- "Share Your Exploration" Stories Modal (PRD Section 36) -->
+  <div class="modal fade" id="shareStoryModal" tabindex="-1" aria-labelledby="shareStoryTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <div>
+            <span class="badge bg-mint text-dark fw-bold px-2 py-0 rounded-pill small mb-1">Explorer Community</span>
+            <h5 class="modal-title fw-bold text-white mb-0" id="shareStoryTitle">Share Your Exploration Story</h5>
+          </div>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <p class="small text-muted mb-3">Submit your travel stories, festival memories, or secret hidden spot reviews. Stories are reviewed by our team and featured in the state gallery.</p>
+          <form onsubmit="submitExplorerStory(event)">
+            <div class="mb-3">
+              <label class="form-label small text-light fw-semibold">Story Title *</label>
+              <input type="text" class="form-control form-control-custom" id="storyTitle" placeholder="e.g. Sunset on the Lekki-Ikoyi Waters" required>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-6">
+                <label class="form-label small text-light fw-semibold">State Explored *</label>
+                <select class="form-select form-select-custom" id="storyState">
+                  <option value="Lagos" selected>Lagos State</option>
+                  <option value="Osun">Osun State</option>
+                  <option value="Other">Other State</option>
+                </select>
+              </div>
+              <div class="col-6">
+                <label class="form-label small text-light fw-semibold">Your Name / Handle *</label>
+                <input type="text" class="form-control form-control-custom" id="storyAuthor" placeholder="e.g. Tunde Explorer" required>
+              </div>
+            </div>
+            <div class="mb-4">
+              <label class="form-label small text-light fw-semibold">Your Travel Experience & Tips *</label>
+              <textarea class="form-control form-control-custom" id="storyText" rows="4" placeholder="Tell fellow travelers what you discovered in Lagos..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-mint w-100 py-2 fw-bold">
+              Submit Story for Review <i class="bi bi-send ms-1"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 7. Floating Action: Scroll to Top Button -->
+  <button class="back-to-top" id="backToTopBtn" title="Scroll to top" aria-label="Scroll to top">
+    <i class="bi bi-chevron-up"></i>
+  </button>
+
+
+  <!-- 8. Toast Notification Component -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1090;">
+    <div id="liveToast" class="toast align-items-center border-0 text-white" style="background: #092127; border: 1px solid rgba(0,210,132,0.4) !important; border-radius: var(--radius-md);" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header" style="background: rgba(0,210,132,0.1); border-bottom: 1px solid rgba(255,255,255,0.08); color: #fff;">
+        <i id="toastIcon" class="bi bi-check-circle-fill text-mint me-2"></i>
+        <strong class="me-auto" id="toastTitle">The Africa Explorers</strong>
+        <small class="text-muted">Just now</small>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body small" id="toastBody">
+        Action executed successfully.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- Custom Interactive Scripts -->
+  <script src="script.js"></script>
+
+</body>
+</html>

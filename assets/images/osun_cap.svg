@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" width="400" height="320">
+  <defs>
+    <linearGradient id="osunCapGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a3324"/>
+      <stop offset="60%" stop-color="#062117"/>
+      <stop offset="100%" stop-color="#03120c"/>
+    </linearGradient>
+  </defs>
+  <path d="M 100 190 C 95 100, 160 55, 240 55 C 310 55, 345 110, 335 190 Z" fill="url(#osunCapGrad)" stroke="#00d284" stroke-width="2" stroke-opacity="0.4"/>
+  <path d="M 230 55 Q 220 120 215 190" stroke="#0e4531" stroke-width="2" fill="none"/>
+  <path d="M 230 55 Q 260 120 270 190" stroke="#0e4531" stroke-width="2" fill="none"/>
+  <circle cx="230" cy="56" r="7" fill="#00d284"/>
+  <g transform="translate(180, 100) scale(0.65)">
+    <circle cx="60" cy="60" r="52" fill="#041710" stroke="#00d284" stroke-width="3"/>
+    <path d="M 40 45 A 20 20 0 0 1 80 45 Z" fill="#f5a623"/>
+    <path d="M 28 72 L 48 48 L 64 64 L 78 40 L 92 72 Z" fill="#00d284"/>
+    <text x="60" y="90" font-family="sans-serif" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="1">OSUN</text>
+  </g>
+  <path d="M 80 190 C 50 205, 30 220, 60 245 C 90 265, 230 265, 290 235 C 310 225, 335 195, 335 190 C 270 215, 150 215, 80 190 Z" fill="#062117" stroke="#00d284" stroke-width="2" stroke-opacity="0.3"/>
+  <path d="M 65 240 C 95 258, 225 258, 280 230" stroke="#00d284" stroke-width="1.5" stroke-dasharray="4,3" fill="none" opacity="0.7"/>
+</svg>

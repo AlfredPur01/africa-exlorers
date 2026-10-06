@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 360" width="400" height="360">
+  <defs>
+    <linearGradient id="artGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#78350f"/>
+      <stop offset="50%" stop-color="#b45309"/>
+      <stop offset="100%" stop-color="#065f46"/>
+    </linearGradient>
+  </defs>
+  <rect x="110" y="50" width="180" height="260" rx="8" fill="#1e293b" stroke="#f5a623" stroke-width="4"/>
+  <rect x="125" y="65" width="150" height="230" rx="4" fill="#ffffff"/>
+  <rect x="135" y="75" width="130" height="210" fill="url(#artGrad)"/>
+  <circle cx="200" cy="140" r="35" fill="#fef08a" opacity="0.85"/>
+  <path d="M 140 270 Q 200 180 260 270 Z" fill="#064e3b"/>
+  <text x="200" y="275" font-family="sans-serif" font-size="9" font-weight="bold" fill="#fef08a" text-anchor="middle">OSUN SACRED GROVE</text>
+</svg>

@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explorer Dashboard — The Africa Explorers</title>
+  <meta name="description" content="Manage your Explorer Passport, upcoming event tickets, visitor journey across Nigeria, and saved spots on The Africa Explorers.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo-white.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons 1.11 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Custom Core Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .qr-box {
+      background: #ffffff;
+      padding: 8px;
+      border-radius: 8px;
+      display: inline-flex;
+    }
+  </style>
+</head>
+<body style="background: #040c0e;">
+
+  <!-- ======================================================================
+       NAVBAR
+       ====================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-custom" id="mainNavbar">
+    <div class="custom-container d-flex align-items-center justify-content-between">
+      
+      <a class="navbar-brand d-flex align-items-center" href="index.html" title="The Africa Explorers">
+        <img src="assets/logo-white.png" alt="The Africa Explorers Logo" class="navbar-brand-logo">
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex">
+        <ul class="navbar-nav align-items-center gap-1">
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="index.html#states-section">States</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="index.html#events-section">Events</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="spots.html">Spots Discovery</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom text-warning" href="business.html">For Businesses</a></li>
+        </ul>
+      </div>
+
+      <!-- Action Items -->
+      <div class="nav-actions d-flex align-items-center gap-2">
+        <!-- Dual Currency Switcher -->
+        <div class="currency-switcher me-1" role="group" aria-label="Currency Switcher">
+          <button type="button" class="currency-btn active" id="currNGN" onclick="toggleCurrency('NGN')">₦ NGN</button>
+          <button type="button" class="currency-btn" id="currUSD" onclick="toggleCurrency('USD')">$ USD</button>
+        </div>
+        <a href="index.html" class="btn btn-outline-pill btn-sm d-none d-sm-inline-flex">
+          <i class="bi bi-compass me-1"></i> Explore Nigeria
+        </a>
+        <div class="d-flex align-items-center gap-2">
+          <img src="assets/images/avatar_tunde.jpg" id="dashNavAvatar" class="rounded-circle border border-mint" style="width: 38px; height: 38px; object-fit: cover;">
+          <span class="small text-white fw-bold d-none d-md-inline" id="dashNavName">Alfred Pur</span>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ======================================================================
+       DASHBOARD HEADER & IDENTITY SHOWCASE (EXPLORER VS VISITOR)
+       ====================================================================== -->
+  <header class="py-5 position-relative" style="background: linear-gradient(180deg, #071518 0%, #0c2024 100%); padding-top: 105px !important;">
+    <div class="custom-container">
+      
+      <!-- Explorer Header Card -->
+      <div class="p-4 rounded-4 mb-4" style="background: rgba(12, 32, 36, 0.85); border: 1.5px solid rgba(0, 210, 132, 0.35); box-shadow: 0 15px 40px rgba(0,0,0,0.5);">
+        <div class="row g-4 align-items-center">
+          
+          <div class="col-lg-8 col-12">
+            <div class="d-flex flex-wrap align-items-center gap-3">
+              <img src="assets/images/avatar_tunde.jpg" id="dashAvatarImg" class="rounded-4 border border-mint border-2 shadow" style="width: 86px; height: 86px; object-fit: cover;">
+              <div>
+                <div class="d-flex flex-wrap align-items-center gap-2 mb-1">
+                  <h1 class="h3 fw-bold text-white mb-0" id="dashHolderName">Alfred Pur</h1>
+                  <!-- Identity Badges: Explorer vs Visitor Concept -->
+                  <span class="identity-badge-explorer" id="dashHomeBadge">
+                    <i class="bi bi-shield-fill-check"></i> Explorer in Lagos (Home State)
+                  </span>
+                  <span class="identity-badge-visitor" id="dashVisitorBadge">
+                    <i class="bi bi-airplane-fill"></i> Visitor in Osun
+                  </span>
+                </div>
+                <p class="text-muted small mb-2" id="dashBio">
+                  "Traveller • Tech enthusiast • Culture lover • Exploring Nigeria one state at a time."
+                </p>
+                <div class="d-flex flex-wrap gap-1" id="dashInterestPills">
+                  <span class="tag-pill">Culture</span>
+                  <span class="tag-pill">Food</span>
+                  <span class="tag-pill">Adventure</span>
+                  <span class="tag-pill">History</span>
+                  <span class="tag-pill">Tech</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Stats Counter -->
+          <div class="col-lg-4 col-12">
+            <div class="row g-2">
+              <div class="col-4">
+                <div class="dashboard-stat-card">
+                  <div class="dashboard-stat-number" id="dashStatesCount">3</div>
+                  <div class="dashboard-stat-label">States</div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="dashboard-stat-card">
+                  <div class="dashboard-stat-number" id="dashEventsCount">5</div>
+                  <div class="dashboard-stat-label">Tours & Events</div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="dashboard-stat-card">
+                  <div class="dashboard-stat-number" id="dashSpotsCount">8</div>
+                  <div class="dashboard-stat-label">Saved Spots</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Annual Explorer Membership Status Banner (PRD Section 4: $25 / ₦30,000 per year) -->
+        <div class="mt-4 p-3 rounded-3" style="background: rgba(0, 210, 132, 0.08); border: 1px solid rgba(0, 210, 132, 0.25);">
+          <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+            <div class="d-flex align-items-center gap-2">
+              <span class="badge bg-warning text-dark fw-bold px-2 py-1"><i class="bi bi-star-fill me-1"></i> COMMUNITY PASS</span>
+              <span class="text-white fw-bold small" id="dashMembershipLabel">Annual Explorer Member ($25 / ₦30,000 / yr)</span>
+              <span class="badge bg-mint text-dark small fw-bold">ACTIVE</span>
+            </div>
+            <div class="d-flex flex-wrap align-items-center gap-3 small">
+              <span class="text-mint"><i class="bi bi-check-circle-fill me-1"></i> Member Tour Discounts Active</span>
+              <span class="text-light"><i class="bi bi-calendar-check me-1"></i> Renews: Oct 2026</span>
+              <button class="btn btn-outline-light btn-sm py-0 px-2" style="font-size: 0.72rem;" onclick="showToast('Your Annual Explorer Membership is active through October 2026. All tour bookings receive automatic discounts.', 'Membership Info')">Manage</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Universal Cross-State Identity Info Bar -->
+        <div class="mt-3 pt-3 border-top border-secondary border-opacity-25 d-flex flex-wrap align-items-center justify-content-between gap-2 small">
+          <div class="text-light">
+            <i class="bi bi-info-circle-fill text-mint me-1"></i>
+            <strong>One Explorer Identity:</strong> Your single digital passport travels with you across all 36 states. You are an <span class="text-mint fw-bold">Explorer</span> in your home state, and a <span class="text-warning fw-bold">Visitor</span> everywhere else.
+          </div>
+          <span class="font-monospace text-mint fw-bold" id="dashPassportBadge">PASSPORT ID: EXP-NG-84920</span>
+        </div>
+
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       MAIN DASHBOARD WORKSPACE
+       ====================================================================== -->
+  <main class="py-4">
+    <div class="custom-container">
+      <div class="row g-4">
+        
+        <!-- Sidebar Navigation -->
+        <div class="col-lg-3 col-12">
+          <div class="dashboard-sidebar sticky-top" style="top: 90px;">
+            <div class="small text-muted fw-bold mb-3 px-2 text-uppercase" style="letter-spacing: 1px;">My Journey</div>
+            <nav class="nav flex-column">
+              <a class="dashboard-nav-item active" onclick="switchDashTab('experiences', this)">
+                <i class="bi bi-ticket-perforated"></i> My Experiences
+              </a>
+              <a class="dashboard-nav-item" onclick="switchDashTab('exploration', this)">
+                <i class="bi bi-map"></i> My Exploration & Visits
+              </a>
+              <a class="dashboard-nav-item" onclick="switchDashTab('saved', this)">
+                <i class="bi bi-bookmark-heart"></i> Saved Spots & Trips
+              </a>
+              <a class="dashboard-nav-item" onclick="switchDashTab('passport', this)">
+                <i class="bi bi-person-badge"></i> Explorer Passport
+              </a>
+              <a class="dashboard-nav-item" onclick="switchDashTab('settings', this)">
+                <i class="bi bi-gear"></i> Profile Settings
+              </a>
+            </nav>
+
+            <div class="mt-4 pt-3 border-top border-secondary border-opacity-25">
+              <a href="spots.html" class="btn btn-mint w-100 py-2 small fw-bold mb-2">
+                <i class="bi bi-search me-1"></i> Discover New Spots
+              </a>
+              <a href="index.html" class="btn btn-outline-light w-100 py-2 small">
+                Back to Home Hub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="col-lg-9 col-12">
+          
+          <!-- TAB 1: MY EXPERIENCES (UPCOMING TOURS & EVENT TICKETS) -->
+          <div id="tabExperiences" class="dash-tab-pane">
+            
+            <div class="d-flex align-items-center justify-content-between mb-4">
+              <div>
+                <h2 class="h4 fw-bold text-white mb-0">My Experiences & Bookings</h2>
+                <p class="text-muted small mb-0">Access your confirmed tour vouchers and festival entry passes with QR codes.</p>
+              </div>
+              <div class="d-flex gap-2">
+                <a href="index.html#tours-section" class="btn btn-mint btn-sm fw-bold">Explore Tours</a>
+                <a href="index.html#events-section" class="btn btn-outline-pill btn-sm">Find Events</a>
+              </div>
+            </div>
+
+            <!-- 1. Booked Tours & Expeditions Section -->
+            <div class="mb-5">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <i class="bi bi-compass text-mint fs-5"></i>
+                <h3 class="h6 fw-bold text-white mb-0 text-uppercase" style="letter-spacing: 0.8px;">Guided Tours & Visits (Curated Experiences)</h3>
+              </div>
+              <div id="toursListContainer" class="d-flex flex-column gap-3">
+                
+                <!-- Sample Tour 1: Lekki Canopy Walk & Cruise -->
+                <div class="experience-ticket-card">
+                  <div class="ticket-header">
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="badge bg-mint text-dark fw-bold">CONFIRMED TOUR RESERVATION</span>
+                      <span class="badge bg-warning text-dark fw-bold" style="font-size: 0.7rem;">MEMBER RATE APPLIED</span>
+                      <span class="small font-monospace text-light">REF: EXP-TR-50281</span>
+                    </div>
+                    <span class="text-warning small fw-bold"><i class="bi bi-clock me-1"></i> Saturday, Oct 19 • 9:00 AM (6 Hours)</span>
+                  </div>
+                  <div class="ticket-body">
+                    <div class="row align-items-center g-3">
+                      <div class="col-md-8 col-12">
+                        <h3 class="h5 fw-bold text-white mb-1">Lekki Canopy Walkway & Coastal Lagoon Cruise</h3>
+                        <div class="small text-muted mb-2"><i class="bi bi-geo-alt-fill text-mint me-1"></i> Lekki Nature Reserve & Lekki-Ikoyi Link Bridge Lagoon</div>
+                        <div class="d-flex flex-wrap gap-2 small text-light">
+                          <span><strong>Lead Traveler:</strong> <span class="dash-user-name">Alfred Pur</span></span>
+                          <span>•</span>
+                          <span><strong>Participants:</strong> 2 Persons</span>
+                          <span>•</span>
+                          <span><strong>Guide:</strong> Chioma Okeke (Wildlife Ecologist)</span>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-12 text-md-end text-start">
+                        <div class="qr-box shadow-sm">
+                          <svg viewBox="0 0 24 24" width="70" height="70" fill="#040c0e">
+                            <path d="M2 2h8v8H2V2zm2 2v4h4V4H4zm10-2h8v8h-8V2zm2 2v4h4V4h-4zM2 14h8v8H2v-8zm2 2v4h4v-4H4zm14 0h4v4h-4v-4zm-4 4h4v2h-4v-2zm4-4h2v2h-2v-2zm-6-2h2v4h-2v-4zm4-2h4v2h-4v-2zm-2 2h2v2h-2v-2z"/>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- 2. Event Passes Section -->
+            <div class="mb-5">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <i class="bi bi-ticket-perforated text-warning fs-5"></i>
+                <h3 class="h6 fw-bold text-white mb-0 text-uppercase" style="letter-spacing: 0.8px;">Event & Festival Entry Passes</h3>
+              </div>
+              <div id="ticketsListContainer" class="d-flex flex-column gap-3">
+                
+                <!-- Ticket 1: Lagos Food & Culture Festival -->
+                <div class="experience-ticket-card">
+                  <div class="ticket-header">
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="badge bg-mint text-dark fw-bold">ACTIVE ENTRY PASS</span>
+                      <span class="small font-monospace text-light">REF: EXP-EV-94021</span>
+                    </div>
+                    <span class="text-warning small fw-bold"><i class="bi bi-clock me-1"></i> Saturday, Oct 12 • 10:00 AM</span>
+                  </div>
+                  <div class="ticket-body">
+                    <div class="row align-items-center g-3">
+                      <div class="col-md-8 col-12">
+                        <h3 class="h5 fw-bold text-white mb-1">Lagos Food & Culture Festival</h3>
+                        <div class="small text-muted mb-2"><i class="bi bi-geo-alt-fill text-mint me-1"></i> Muri Okunola Park, Victoria Island, Lagos</div>
+                        <div class="d-flex gap-2 small text-light">
+                          <span><strong>Attendee:</strong> <span class="dash-user-name">Alfred Pur</span></span>
+                          <span>•</span>
+                          <span><strong>Pass Type:</strong> General Access (VIP Tasting Included)</span>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-12 text-md-end text-start">
+                        <div class="qr-box shadow-sm">
+                          <svg viewBox="0 0 24 24" width="70" height="70" fill="#040c0e">
+                            <path d="M2 2h8v8H2V2zm2 2v4h4V4H4zm10-2h8v8h-8V2zm2 2v4h4V4h-4zM2 14h8v8H2v-8zm2 2v4h4v-4H4zm14 0h4v4h-4v-4zm-4 4h4v2h-4v-2zm4-4h2v2h-2v-2zm-6-2h2v4h-2v-4zm4-2h4v2h-4v-2zm-2 2h2v2h-2v-2z"/>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Ticket 2: Osun Heritage Festival / Waterfalls Hike -->
+                <div class="experience-ticket-card">
+                  <div class="ticket-header">
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="badge bg-warning text-dark fw-bold">VISITOR TRIP PASS</span>
+                      <span class="small font-monospace text-light">REF: EXP-EV-71822</span>
+                    </div>
+                    <span class="text-light small"><i class="bi bi-clock me-1"></i> Saturday, Oct 25 • 7:00 AM</span>
+                  </div>
+                  <div class="ticket-body">
+                    <div class="row align-items-center g-3">
+                      <div class="col-md-8 col-12">
+                        <h3 class="h5 fw-bold text-white mb-1">Erin Ijesha Waterfalls Guided Hike</h3>
+                        <div class="small text-muted mb-2"><i class="bi bi-geo-alt-fill text-mint me-1"></i> Oriade / Ilesa, Osun State</div>
+                        <div class="d-flex gap-2 small text-light">
+                          <span><strong>Attendee:</strong> <span class="dash-user-name">Alfred Pur</span> (Visitor)</span>
+                          <span>•</span>
+                          <span><strong>Status:</strong> Confirmed & Guide Assigned</span>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-12 text-md-end text-start">
+                        <div class="qr-box shadow-sm">
+                          <svg viewBox="0 0 24 24" width="70" height="70" fill="#040c0e">
+                            <path d="M2 2h8v8H2V2zm2 2v4h4V4H4zm10-2h8v8h-8V2zm2 2v4h4V4h-4zM2 14h8v8H2v-8zm2 2v4h4v-4H4zm14 0h4v4h-4v-4zm-4 4h4v2h-4v-2zm4-4h2v2h-2v-2zm-6-2h2v4h-2v-4zm4-2h4v2h-4v-2zm-2 2h2v2h-2v-2z"/>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Past Experiences -->
+            <h3 class="h6 fw-bold text-muted mb-3 text-uppercase" style="letter-spacing: 0.5px;">Past Completed Experiences</h3>
+            <div class="p-3 rounded-3 mb-4" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <div class="fw-bold text-white">Lekki Canopy Night Walk & Stargazing</div>
+                  <div class="small text-muted">Lekki Conservation Centre • Completed August 2026</div>
+                </div>
+                <span class="badge bg-secondary text-white">COMPLETED</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- TAB 2: MY EXPLORATION & VISITOR HISTORY (PRD SECTION 2, 7, 8) -->
+          <div id="tabExploration" class="dash-tab-pane" style="display: none;">
+            <h2 class="h4 fw-bold text-white mb-2">My Nigeria Exploration Log</h2>
+            <p class="text-muted small mb-4">Track every state where you lived as an Explorer, journeyed as a Visitor, or wish to explore next.</p>
+
+            <!-- 1. Visited States Timeline -->
+            <div class="p-4 rounded-4 mb-4" style="background: rgba(12, 32, 36, 0.6); border: 1px solid var(--border-subtle);">
+              <h3 class="h5 fw-bold text-white mb-3">States Journey Timeline</h3>
+              
+              <!-- Timeline Items -->
+              <div class="d-flex flex-column gap-3">
+                <div class="d-flex align-items-start gap-3 p-3 rounded-3" style="background: rgba(0, 210, 132, 0.08); border-left: 4px solid var(--mint-primary);">
+                  <div class="fs-4 text-mint"><i class="bi bi-house-door-fill"></i></div>
+                  <div class="flex-fill">
+                    <div class="d-flex justify-content-between">
+                      <strong class="text-white" id="dashTimelineHomeTitle">Lagos State — Home Base</strong>
+                      <span class="badge bg-mint text-dark fw-bold">EXPLORER IN LAGOS</span>
+                    </div>
+                    <div class="small text-muted">Primary Citizen Base • Registered Founding Explorer • 12 Spots Visited</div>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-start gap-3 p-3 rounded-3" style="background: rgba(245, 166, 35, 0.08); border-left: 4px solid var(--gold-accent);">
+                  <div class="fs-4 text-warning"><i class="bi bi-airplane-engines-fill"></i></div>
+                  <div class="flex-fill">
+                    <div class="d-flex justify-content-between">
+                      <strong class="text-white">Osun State — Travel Visitor</strong>
+                      <span class="badge bg-warning text-dark fw-bold">VISITOR IN OSUN</span>
+                    </div>
+                    <div class="small text-muted">October 2026 • Visited Erin Ijesha Waterfalls & Osun-Osogbo Sacred Grove</div>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-start gap-3 p-3 rounded-3" style="background: rgba(255, 255, 255, 0.02); border-left: 4px solid rgba(255,255,255,0.2);">
+                  <div class="fs-4 text-secondary"><i class="bi bi-calendar-event"></i></div>
+                  <div class="flex-fill">
+                    <div class="d-flex justify-content-between">
+                      <strong class="text-light">Kebbi State — Upcoming Trip</strong>
+                      <span class="badge bg-secondary">VISITOR IN KEBBI (DEC 2026)</span>
+                    </div>
+                    <div class="small text-muted">December 2026 • Argungu International Fishing Festival Experience</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. States Wishlist ("Wants to visit [WishlistState]") — PRD SECTION 7 & 8 -->
+            <div class="p-4 rounded-4 mb-4" style="background: rgba(12, 32, 36, 0.6); border: 1px solid var(--border-subtle);">
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                <div>
+                  <h3 class="h5 fw-bold text-white mb-1">States Wishlist ("Wants to Visit")</h3>
+                  <p class="small text-muted mb-0">Flag states on your Nigerian bucket list to receive expedition alerts and early access passes.</p>
+                </div>
+                <button type="button" class="btn btn-mint btn-sm fw-bold px-3 py-2" data-bs-toggle="modal" data-bs-target="#addWishlistModal">
+                  <i class="bi bi-plus-lg me-1"></i> Add State to Wishlist
+                </button>
+              </div>
+
+              <div class="row g-3" id="wishlistCardsContainer">
+                
+                <!-- Wishlist State 1: Cross River -->
+                <div class="col-md-6 col-12">
+                  <div class="p-3 rounded-3 position-relative" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(0, 210, 132, 0.2);">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                      <div>
+                        <h4 class="h6 fw-bold text-white mb-0">Cross River State</h4>
+                        <span class="small text-mint fw-semibold"><i class="bi bi-heart-fill me-1 text-danger"></i> Wants to visit</span>
+                      </div>
+                      <span class="badge bg-dark text-muted border border-secondary">Coming Soon</span>
+                    </div>
+                    <p class="small text-muted mb-2">Target: Obudu Mountain Resort cable car & Calabar Carnival carnival parade.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <span class="small text-light" style="font-size: 0.75rem;">Status: Waitlist Active (#420)</span>
+                      <button class="btn btn-sm btn-outline-danger py-0 px-2" style="font-size: 0.72rem;" onclick="this.closest('.col-md-6').remove(); showToast('Removed Cross River from wishlist.', 'Wishlist Updated');">Remove</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Wishlist State 2: Bauchi -->
+                <div class="col-md-6 col-12">
+                  <div class="p-3 rounded-3 position-relative" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(0, 210, 132, 0.2);">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                      <div>
+                        <h4 class="h6 fw-bold text-white mb-0">Bauchi State</h4>
+                        <span class="small text-mint fw-semibold"><i class="bi bi-heart-fill me-1 text-danger"></i> Wants to visit</span>
+                      </div>
+                      <span class="badge bg-dark text-muted border border-secondary">Coming Soon</span>
+                    </div>
+                    <p class="small text-muted mb-2">Target: Yankari National Park Safari & Wikki Warm Springs natural swimming.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <span class="small text-light" style="font-size: 0.75rem;">Status: Waitlist Active (#185)</span>
+                      <button class="btn btn-sm btn-outline-danger py-0 px-2" style="font-size: 0.72rem;" onclick="this.closest('.col-md-6').remove(); showToast('Removed Bauchi from wishlist.', 'Wishlist Updated');">Remove</button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- TAB 3: SAVED SPOTS & TRIPS -->
+          <div id="tabSaved" class="dash-tab-pane" style="display: none;">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <h2 class="h4 fw-bold text-white mb-0">Saved Places & Experiences</h2>
+              <a href="spots.html" class="btn btn-outline-pill btn-sm">Browse All Spots</a>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-md-6 col-12">
+                <div class="p-3 rounded-3" style="background: rgba(12, 32, 36, 0.7); border: 1px solid var(--border-subtle);">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h4 class="h6 fw-bold text-white mb-0">The Federal Palace Hotel</h4>
+                    <span class="badge bg-mint text-dark">Hotel</span>
+                  </div>
+                  <p class="small text-muted mb-3"><i class="bi bi-geo-alt-fill text-mint me-1"></i> Victoria Island, Lagos</p>
+                  <div class="d-flex gap-2">
+                    <a href="spots.html" class="btn btn-sm btn-outline-light flex-fill">View Spot</a>
+                    <button class="btn btn-sm btn-mint" onclick="showToast('Connecting via WhatsApp...', 'Contacting Spot')"><i class="bi bi-whatsapp"></i></button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-12">
+                <div class="p-3 rounded-3" style="background: rgba(12, 32, 36, 0.7); border: 1px solid var(--border-subtle);">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h4 class="h6 fw-bold text-white mb-0">Osun-Osogbo Sacred Grove</h4>
+                    <span class="badge bg-warning text-dark">Attraction</span>
+                  </div>
+                  <p class="small text-muted mb-3"><i class="bi bi-geo-alt-fill text-mint me-1"></i> Osogbo, Osun State</p>
+                  <div class="d-flex gap-2">
+                    <a href="osun.html#spots" class="btn btn-sm btn-outline-light flex-fill">View Spot</a>
+                    <button class="btn btn-sm btn-mint" onclick="showToast('Added to trip bucket list!', 'Saved')"><i class="bi bi-check2"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 4: PASSPORT PREVIEW -->
+          <div id="tabPassport" class="dash-tab-pane" style="display: none;">
+            <h2 class="h4 fw-bold text-white mb-4">Official Explorer Passport ID</h2>
+            
+            <div class="passport-card mx-auto" style="max-width: 480px; position: static;">
+              <div class="passport-header">
+                <div class="d-flex align-items-center gap-2">
+                  <img src="assets/logo-white.png" alt="Emblem" style="height: 32px;">
+                  <div>
+                    <div class="small fw-bold text-white text-uppercase" style="letter-spacing: 1px;">The Africa Explorers</div>
+                    <div style="font-size: 0.65rem; color: var(--mint-primary); text-transform: uppercase;">Official Citizen ID</div>
+                  </div>
+                </div>
+                <div class="passport-chip"></div>
+              </div>
+
+              <div class="d-flex align-items-center gap-3 mb-4">
+                <img src="assets/images/avatar_tunde.jpg" id="dashPassAvatar" class="passport-avatar" alt="Explorer">
+                <div>
+                  <div class="text-white h5 fw-bold mb-1" id="dashPassName">Alfred Pur</div>
+                  <div class="passport-state-badge mb-1" id="dashPassStateBadge">EXPLORER IN LAGOS</div>
+                  <div class="passport-number" id="dashPassNo">EXP-NG-84920</div>
+                </div>
+              </div>
+
+              <div class="p-3 rounded-3 mb-3" style="background: rgba(0, 0, 0, 0.35); border: 1px solid rgba(255, 255, 255, 0.06);">
+                <div class="row g-2 text-start">
+                  <div class="col-6">
+                    <span class="d-block text-muted" style="font-size: 0.68rem;">CREDENTIAL STATUS</span>
+                    <span class="text-mint fw-bold small"><i class="bi bi-patch-check-fill me-1"></i> VERIFIED</span>
+                  </div>
+                  <div class="col-6">
+                    <span class="d-block text-muted" style="font-size: 0.68rem;">MEMBERSHIP TIER</span>
+                    <span class="text-warning fw-bold small" id="dashPassTier">Annual Member ($25/₦30k)</span>
+                  </div>
+                  <div class="col-12 mt-2 pt-2 border-top border-secondary border-opacity-25">
+                    <span class="d-block text-muted" style="font-size: 0.68rem;">EXPLORER MOTTO</span>
+                    <span class="text-light fst-italic small" id="dashPassBio">"Adventure is not just a hobby but a lifestyle."</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-center justify-content-between pt-2">
+                <div class="small text-muted font-monospace" style="font-size: 0.7rem;">
+                  SEC-ID: NGA-2026-AE<br>
+                  AUTH: FEDERATION OF NIGERIA
+                </div>
+                <div class="bg-white p-1 rounded" style="width: 48px; height: 48px;">
+                  <svg viewBox="0 0 24 24" width="40" height="40" fill="#051417">
+                    <path d="M2 2h8v8H2V2zm2 2v4h4V4H4zm10-2h8v8h-8V2zm2 2v4h4V4h-4zM2 14h8v8H2v-8zm2 2v4h4v-4H4zm14 0h4v4h-4v-4zm-4 4h4v2h-4v-2zm4-4h2v2h-2v-2zm-6-2h2v4h-2v-4zm4-2h4v2h-4v-2zm-2 2h2v2h-2v-2z"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 5: PROFILE SETTINGS -->
+          <div id="tabSettings" class="dash-tab-pane" style="display: none;">
+            <h2 class="h4 fw-bold text-white mb-4">Explorer Profile Settings</h2>
+            
+            <div class="p-4 rounded-4" style="background: rgba(12, 32, 36, 0.7); border: 1px solid var(--border-subtle); max-width: 600px;">
+              <form id="dashSettingsForm" onsubmit="event.preventDefault(); showToast('Profile settings saved successfully!', 'Profile Updated');">
+                <div class="mb-3">
+                  <label class="form-label small text-light fw-semibold">Full Name</label>
+                  <input type="text" class="form-control form-control-custom" value="Alfred Pur">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label small text-light fw-semibold">Home State (Fixed Explorer Base)</label>
+                  <input type="text" class="form-control form-control-custom" value="Lagos State" readonly style="opacity: 0.8;">
+                  <span class="small text-muted">Your home state defines where you are an Explorer vs a Visitor.</span>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label small text-light fw-semibold">Bio / Traveler Motto</label>
+                  <textarea class="form-control form-control-custom" rows="3">Traveller • Tech enthusiast • Culture lover • Exploring Nigeria one state at a time.</textarea>
+                </div>
+                <button type="submit" class="btn btn-mint fw-bold px-4 py-2">Save Changes</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Add State to Wishlist Modal (PRD Section 7 & 8) -->
+  <div class="modal fade" id="addWishlistModal" tabindex="-1" aria-labelledby="addWishlistModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <div>
+            <span class="badge bg-mint text-dark fw-bold px-2 py-0 rounded-pill small mb-1">Explorer Bucket List</span>
+            <h5 class="modal-title fw-bold text-white mb-0" id="addWishlistModalTitle">Add State to Wishlist</h5>
+          </div>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <p class="small text-muted mb-3">Mark any Nigerian state as "Wants to Visit" to bookmark its upcoming tours, receive early notifications, and track your progress toward exploring all 36 states.</p>
+          <form id="addWishlistForm" onsubmit="submitAddWishlist(event)">
+            <div class="mb-3">
+              <label class="form-label small text-light fw-semibold">Target State *</label>
+              <select class="form-select form-select-custom" id="wishlistStateSelect" required>
+                <option value="" disabled selected>-- Choose a State to Visit --</option>
+                <option value="Cross River">Cross River State (Obudu, Calabar)</option>
+                <option value="Bauchi">Bauchi State (Yankari, Wikki Springs)</option>
+                <option value="Plateau">Plateau State (Shere Hills, Assop Falls)</option>
+                <option value="Kano">Kano State (Ancient Dye Pits, Dala Hill)</option>
+                <option value="Akwa Ibom">Akwa Ibom State (Ibom Golf, Marina)</option>
+                <option value="Enugu">Enugu State (Ngwo Caves, Pine Forest)</option>
+                <option value="Ogun">Ogun State (Olumo Rock, Adire Market)</option>
+                <option value="Ondo">Ondo State (Idanre Hills UNESCO)</option>
+                <option value="Kaduna">Kaduna State (Kajuru Castle, Matsirga)</option>
+                <option value="Kebbi">Kebbi State (Argungu Fishing Festival)</option>
+                <option value="Niger">Niger State (Gurara Falls, Zuma Rock)</option>
+                <option value="FCT Abuja">Federal Capital Territory (Aso Rock, Jabi)</option>
+              </select>
+            </div>
+            <div class="mb-4">
+              <label class="form-label small text-light fw-semibold">What do you want to experience here? *</label>
+              <input type="text" class="form-control form-control-custom" id="wishlistTargetExp" placeholder="e.g. Hike the hills, try local dishes, visit festivals" required>
+            </div>
+            <button type="submit" class="btn btn-mint w-100 py-2 fw-bold">
+              Save to My Nigeria Wishlist <i class="bi bi-heart-fill ms-1 text-danger"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1090;">
+    <div id="liveToast" class="toast align-items-center border-0 text-white" style="background: #092127; border: 1px solid rgba(0,210,132,0.4) !important;">
+      <div class="toast-header" style="background: rgba(0,210,132,0.1); color: #fff;">
+        <i id="toastIcon" class="bi bi-check-circle-fill text-mint me-2"></i>
+        <strong class="me-auto" id="toastTitle">The Africa Explorers</strong>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+      </div>
+      <div class="toast-body small" id="toastBody"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    function switchDashTab(tabKey, navLink) {
+      document.querySelectorAll('.dash-tab-pane').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('.dashboard-nav-item').forEach(el => el.classList.remove('active'));
+      
+      if (navLink) navLink.classList.add('active');
+
+      if (tabKey === 'experiences') document.getElementById('tabExperiences').style.display = 'block';
+      if (tabKey === 'exploration') document.getElementById('tabExploration').style.display = 'block';
+      if (tabKey === 'saved') document.getElementById('tabSaved').style.display = 'block';
+      if (tabKey === 'passport') document.getElementById('tabPassport').style.display = 'block';
+      if (tabKey === 'settings') document.getElementById('tabSettings').style.display = 'block';
+    }
+
+    // Wishlist submission handler
+    window.submitAddWishlist = function(e) {
+      e.preventDefault();
+      const stateName = document.getElementById('wishlistStateSelect').value;
+      const targetExp = document.getElementById('wishlistTargetExp').value.trim();
+      if (!stateName) return;
+
+      const card = document.createElement('div');
+      card.className = 'col-md-6 col-12';
+      card.innerHTML = `
+        <div class="p-3 rounded-3 position-relative" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(0, 210, 132, 0.2);">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <div>
+              <h4 class="h6 fw-bold text-white mb-0">${stateName} State</h4>
+              <span class="small text-mint fw-semibold"><i class="bi bi-heart-fill me-1 text-danger"></i> Wants to visit</span>
+            </div>
+            <span class="badge bg-dark text-muted border border-secondary">Wishlist Active</span>
+          </div>
+          <p class="small text-muted mb-2">Target: ${targetExp}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="small text-light" style="font-size: 0.75rem;">Status: Alerts Subscribed</span>
+            <button class="btn btn-sm btn-outline-danger py-0 px-2" style="font-size: 0.72rem;" onclick="this.closest('.col-md-6').remove(); showToast('Removed from wishlist.', 'Wishlist Updated');">Remove</button>
+          </div>
+        </div>
+      `;
+      document.getElementById('wishlistCardsContainer').prepend(card);
+
+      const modalEl = document.getElementById('addWishlistModal');
+      bootstrap.Modal.getInstance(modalEl).hide();
+      e.target.reset();
+      showToast(`${stateName} State added to your "Wants to Visit" bucket list!`, 'Wishlist Saved');
+    };
+
+    // Hydrate user profile, tickets, and tours from localStorage
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Hydrate User Profile if set
+      try {
+        const storedProfile = JSON.parse(localStorage.getItem('ae_user_profile') || 'null');
+        if (storedProfile) {
+          const userName = storedProfile.name || 'Alfred Pur';
+          const homeState = storedProfile.homeState || 'Lagos';
+          const userAvatar = storedProfile.avatar || 'assets/images/avatar_tunde.jpg';
+          const userBio = storedProfile.bio || 'Adventure is not just a hobby but a lifestyle.';
+          const passNo = storedProfile.passportNo || 'EXP-NG-84920';
+
+          document.getElementById('dashHolderName').textContent = userName;
+          document.querySelectorAll('.dash-user-name').forEach(el => el.textContent = userName);
+          document.getElementById('dashNavName').textContent = userName;
+          document.getElementById('dashBio').textContent = `"${userBio}"`;
+          document.getElementById('dashAvatarImg').src = userAvatar;
+          document.getElementById('dashNavAvatar').src = userAvatar;
+          document.getElementById('dashPassportBadge').textContent = `PASSPORT ID: ${passNo}`;
+
+          // Home State dynamic concept
+          const homeBadge = document.getElementById('dashHomeBadge');
+          if (homeBadge) {
+            homeBadge.innerHTML = `<i class="bi bi-shield-fill-check"></i> Explorer in ${homeState} (Home State)`;
+          }
+          const timelineHome = document.getElementById('dashTimelineHomeTitle');
+          if (timelineHome) {
+            timelineHome.textContent = `${homeState} State — Home Base`;
+          }
+
+          // Visitor Badge (opposite state)
+          const visitorBadge = document.getElementById('dashVisitorBadge');
+          if (visitorBadge) {
+            const visitorState = homeState.toLowerCase() === 'lagos' ? 'Osun' : 'Lagos';
+            visitorBadge.innerHTML = `<i class="bi bi-airplane-fill"></i> Visitor in ${visitorState}`;
+          }
+
+          // Membership tier status
+          const isMember = localStorage.getItem('ae_user_is_member') === 'true';
+          const memberLabel = document.getElementById('dashMembershipLabel');
+          if (memberLabel) {
+            if (isMember) {
+              memberLabel.textContent = 'Annual Explorer Pass ($25 / ₦30,000 / yr)';
+            } else {
+              memberLabel.textContent = 'Standard Explorer (Free Tier)';
+            }
+          }
+
+          // Hydrate Passport Preview Card tab
+          if (document.getElementById('dashPassName')) document.getElementById('dashPassName').textContent = userName;
+          if (document.getElementById('dashPassAvatar')) document.getElementById('dashPassAvatar').src = userAvatar;
+          if (document.getElementById('dashPassStateBadge')) document.getElementById('dashPassStateBadge').textContent = `EXPLORER IN ${homeState.toUpperCase()}`;
+          if (document.getElementById('dashPassNo')) document.getElementById('dashPassNo').textContent = passNo;
+          if (document.getElementById('dashPassTier')) document.getElementById('dashPassTier').textContent = isMember ? 'Annual Member ($25/₦30k)' : 'Standard Explorer';
+          if (document.getElementById('dashPassBio')) document.getElementById('dashPassBio').textContent = `"${userBio}"`;
+        }
+      } catch (e) {}
+
+      // 2. Hydrate Tour Bookings from localStorage
+      try {
+        const tours = JSON.parse(localStorage.getItem('ae_user_tours') || '[]');
+        if (tours.length > 0) {
+          const toursContainer = document.getElementById('toursListContainer');
+          tours.forEach(t => {
+            const card = document.createElement('div');
+            card.className = 'experience-ticket-card';
+            card.innerHTML = `
+              <div class="ticket-header">
+                <div class="d-flex align-items-center gap-2">
+                  <span class="badge bg-mint text-dark fw-bold">CONFIRMED TOUR RESERVATION</span>
+                  <span class="badge bg-warning text-dark fw-bold" style="font-size: 0.7rem;">${t.isMember ? 'MEMBER RATE' : 'REGULAR RATE'}</span>
+                  <span class="small font-monospace text-light">REF: ${t.id}</span>
+                </div>
+                <span class="text-warning small fw-bold"><i class="bi bi-clock me-1"></i> ${t.date} (${t.duration})</span>
+              </div>
+              <div class="ticket-body">
+                <div class="row align-items-center g-3">
+                  <div class="col-md-8 col-12">
+                    <h3 class="h5 fw-bold text-white mb-1">${t.title}</h3>
+                    <div class="small text-muted mb-2"><i class="bi bi-geo-alt-fill text-mint me-1"></i> ${t.meetingPoint}</div>
+                    <div class="d-flex flex-wrap gap-2 small text-light">
+                      <span><strong>Lead Traveler:</strong> ${t.leadName}</span>
+                      <span>•</span>
+                      <span><strong>Participants:</strong> ${t.qty} Person(s)</span>
+                      <span>•</span>
+                      <span><strong>Guide:</strong> ${t.guide}</span>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-12 text-md-end text-start">
+                    <div class="qr-box shadow-sm">
+                      <svg viewBox="0 0 24 24" width="70" height="70" fill="#040c0e">
+                        <path d="M2 2h8v8H2V2zm2 2v4h4V4H4zm10-2h8v8h-8V2zm2 2v4h4V4h-4zM2 14h8v8H2v-8zm2 2v4h4v-4H4zm14 0h4v4h-4v-4zm-4 4h4v2h-4v-2zm4-4h2v2h-2v-2zm-6-2h2v4h-2v-4zm4-2h4v2h-4v-2zm-2 2h2v2h-2v-2z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+            toursContainer.prepend(card);
+          });
+        }
+      } catch (e) {}
+
+      // 3. Hydrate Event Bookings from localStorage
+      try {
+        const bookings = JSON.parse(localStorage.getItem('ae_user_bookings') || '[]');
+        if (bookings.length > 0) {
+          const container = document.getElementById('ticketsListContainer');
+          bookings.forEach(b => {
+            const card = document.createElement('div');
+            card.className = 'experience-ticket-card';
+            card.innerHTML = `
+              <div class="ticket-header">
+                <div class="d-flex align-items-center gap-2">
+                  <span class="badge bg-mint text-dark fw-bold">ACTIVE ENTRY PASS</span>
+                  <span class="small font-monospace text-light">REF: ${b.id}</span>
+                </div>
+                <span class="text-warning small fw-bold"><i class="bi bi-clock me-1"></i> ${b.date}</span>
+              </div>
+              <div class="ticket-body">
+                <div class="row align-items-center g-3">
+                  <div class="col-md-8 col-12">
+                    <h3 class="h5 fw-bold text-white mb-1">${b.eventName}</h3>
+                    <div class="small text-muted mb-2"><i class="bi bi-geo-alt-fill text-mint me-1"></i> ${b.location}</div>
+                    <div class="d-flex gap-2 small text-light">
+                      <span><strong>Attendee:</strong> ${b.attendee}</span>
+                      <span>•</span>
+                      <span><strong>Tickets:</strong> ${b.qty} Adult Pass(es)</span>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-12 text-md-end text-start">
+                    <div class="qr-box shadow-sm">
+                      <svg viewBox="0 0 24 24" width="70" height="70" fill="#040c0e">
+                        <path d="M2 2h8v8H2V2zm2 2v4h4V4H4zm10-2h8v8h-8V2zm2 2v4h4V4h-4zM2 14h8v8H2v-8zm2 2v4h4v-4H4zm14 0h4v4h-4v-4zm-4 4h4v2h-4v-2zm4-4h2v2h-2v-2zm-6-2h2v4h-2v-4zm4-2h4v2h-4v-2zm-2 2h2v2h-2v-2z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+            container.prepend(card);
+          });
+        }
+      } catch (e) {}
+    });
+  </script>
+</body>
+</html>

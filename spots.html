@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spots Discovery — Discover Places to Stay, Eat, Drink & Explore | The Africa Explorers</title>
+  <meta name="description" content="Discover hotels, restaurants, bars, shortlets, waterfalls, and attractions across Nigeria. Location-based discovery for explorers and visitors.">
+  <meta name="keywords" content="Nigeria Travel Spots, Lagos Hotels, Osun Waterfalls, Shortlets Lagos, Restaurants Nigeria, Tourism Nigeria">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo-white.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons 1.11 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Custom Core Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ======================================================================
+       NAVBAR
+       ====================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-custom" id="mainNavbar">
+    <div class="custom-container d-flex align-items-center justify-content-between">
+      
+      <a class="navbar-brand d-flex align-items-center" href="index.html" title="The Africa Explorers">
+        <img src="assets/logo-white.png" alt="The Africa Explorers Logo" class="navbar-brand-logo">
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex">
+        <ul class="navbar-nav align-items-center gap-1">
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="index.html#states-section">States</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="index.html#events-section">Events</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="index.html#packages-section">Trips</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom active text-mint" href="spots.html">Spots</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom text-warning" href="business.html">For Businesses</a></li>
+        </ul>
+      </div>
+
+      <!-- Action Items -->
+      <div class="nav-actions d-flex align-items-center gap-2">
+        <!-- Dual Currency Switcher -->
+        <div class="currency-switcher me-1" role="group" aria-label="Currency Switcher">
+          <button type="button" class="currency-btn active" id="currNGN" onclick="toggleCurrency('NGN')">₦ NGN</button>
+          <button type="button" class="currency-btn" id="currUSD" onclick="toggleCurrency('USD')">$ USD</button>
+        </div>
+        <a href="join.html" class="btn btn-mint btn-mint-sm d-none d-sm-inline-flex">Join the Explorers</a>
+        <a href="dashboard.html" class="nav-action-icon" title="My Explorer Dashboard"><i class="bi bi-person"></i></a>
+        <button class="navbar-toggler custom-toggler d-lg-none ms-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas">
+          <i class="bi bi-list fs-3"></i>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="offcanvas offcanvas-end offcanvas-custom" tabindex="-1" id="mobileMenuOffcanvas">
+    <div class="offcanvas-header border-bottom border-secondary border-opacity-25 pb-3">
+      <img src="assets/logo-white.png" alt="Logo" style="height: 40px;">
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column justify-content-between pt-4">
+      <ul class="nav flex-column gap-3 fs-5">
+        <li class="nav-item"><a class="nav-link text-white fw-semibold" href="index.html"><i class="bi bi-house-door text-mint me-2"></i> Home</a></li>
+        <li class="nav-item"><a class="nav-link text-white fw-semibold" href="index.html#states-section"><i class="bi bi-grid text-mint me-2"></i> Explore States</a></li>
+        <li class="nav-item"><a class="nav-link text-white fw-semibold" href="spots.html"><i class="bi bi-geo-alt-fill text-mint me-2"></i> Spots Discovery</a></li>
+        <li class="nav-item"><a class="nav-link text-white fw-semibold" href="business.html"><i class="bi bi-shop text-warning me-2"></i> List Your Business</a></li>
+        <li class="nav-item"><a class="nav-link text-white fw-semibold" href="dashboard.html"><i class="bi bi-person-badge text-mint me-2"></i> Explorer Dashboard</a></li>
+      </ul>
+      <div class="pt-4 border-top border-secondary border-opacity-25">
+        <a href="join.html" class="btn btn-mint w-100 py-3 fw-bold mb-3 d-inline-block text-center">Join The Explorers <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       HERO / DISCOVERY ENGINE
+       ====================================================================== -->
+  <header class="py-5 position-relative" style="background: linear-gradient(180deg, #071518 0%, #0c2024 100%); padding-top: 110px !important;">
+    <div class="custom-container pt-4">
+      <div class="text-center max-w-700 mx-auto mb-4 reveal-on-scroll">
+        <span class="badge bg-mint text-dark fw-bold px-3 py-1 rounded-pill mb-2 text-uppercase" style="letter-spacing: 1px;">Ecosystem Discovery Engine</span>
+        <h1 class="hero-title mb-2">Discover Nigeria's <span class="gradient-text">Top Spots</span></h1>
+        <p class="hero-lead mb-4">Any place you want to discover, stay, eat, drink, relax, experience or use while exploring Nigeria.</p>
+        
+        <!-- Search and State Filter Bar -->
+        <div class="p-2 rounded-pill mx-auto mb-3" style="background: rgba(12, 32, 36, 0.8); border: 1px solid rgba(0,210,132,0.4); max-width: 640px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+          <div class="row g-2 align-items-center">
+            <div class="col-md-5 col-12 ps-3">
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-search text-mint"></i>
+                <input type="text" id="spotsSearchInput" class="bg-transparent border-0 text-white w-100" style="outline: none; font-size: 0.95rem;" placeholder="Search spots, food, hotels...">
+              </div>
+            </div>
+            <div class="col-md-4 col-12 border-start border-secondary border-opacity-25 px-3">
+              <select class="form-select bg-transparent border-0 text-white p-0" id="spotsStateSelect" style="outline: none; font-size: 0.9rem; cursor: pointer;">
+                <option value="all" class="bg-dark text-white">All Nigeria</option>
+                <option value="Lagos" class="bg-dark text-white" selected>Lagos State</option>
+                <option value="Osun" class="bg-dark text-white">Osun State</option>
+                <option value="Ogun" class="bg-dark text-white">Ogun State (Coming Soon)</option>
+              </select>
+            </div>
+            <div class="col-md-3 col-12">
+              <button class="btn btn-mint w-100 rounded-pill py-2 fw-bold" onclick="filterSpots()">Filter Spots</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8 PRD Discovery Category Filter Pills (PRD Section 23) -->
+        <div class="spot-cat-scroll justify-content-lg-center">
+          <button class="spot-cat-btn active" onclick="filterByCat('all', this)"><i class="bi bi-grid-fill text-mint"></i> All Spots</button>
+          <button class="spot-cat-btn" onclick="filterByCat('Attraction', this)"><i class="bi bi-tree"></i> Attractions & Culture</button>
+          <button class="spot-cat-btn" onclick="filterByCat('Hotel', this)"><i class="bi bi-building"></i> Accommodation & Stays</button>
+          <button class="spot-cat-btn" onclick="filterByCat('Restaurant', this)"><i class="bi bi-egg-fried"></i> Food & Dining</button>
+          <button class="spot-cat-btn" onclick="filterByCat('Bar', this)"><i class="bi bi-cup-straw"></i> Nightlife & Social</button>
+          <button class="spot-cat-btn" onclick="filterByCat('Entertainment', this)"><i class="bi bi-film"></i> Entertainment & Recreation</button>
+          <button class="spot-cat-btn" onclick="filterByCat('Wellness', this)"><i class="bi bi-flower1"></i> Lifestyle & Wellness</button>
+          <button class="spot-cat-btn" onclick="filterByCat('Shopping', this)"><i class="bi bi-bag"></i> Shopping & Retail</button>
+          <button class="spot-cat-btn" onclick="filterByCat('Work', this)"><i class="bi bi-laptop"></i> Work & Productivity</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       LOCATION-BASED DISCOVERY: "I'M GOING HERE. SHOW ME WHAT I NEED AROUND HERE." (PRD SECTION 20-22)
+       ====================================================================== -->
+  <section class="py-4">
+    <div class="custom-container">
+      
+      <div class="around-attraction-box reveal-on-scroll">
+        <!-- Interactive Location Anchor Selector Pills -->
+        <div class="d-flex flex-wrap align-items-center gap-2 mb-3 pb-3 border-bottom border-secondary border-opacity-25">
+          <span class="small text-muted fw-bold text-uppercase me-2" style="letter-spacing: 0.8px;">Choose Anchor Spot:</span>
+          <button type="button" class="location-anchor-btn active" onclick="switchLocationAnchor('erinIjesha', this)">
+            <i class="bi bi-water me-1 text-info"></i> Erin Ijesha Waterfalls (Osun)
+          </button>
+          <button type="button" class="location-anchor-btn" onclick="switchLocationAnchor('lekkiCanopy', this)">
+            <i class="bi bi-tree me-1 text-mint"></i> Lekki Conservation Centre (Lagos)
+          </button>
+          <button type="button" class="location-anchor-btn" onclick="switchLocationAnchor('osunGrove', this)">
+            <i class="bi bi-award me-1 text-warning"></i> Osun-Osogbo Sacred Grove (Osun)
+          </button>
+          <button type="button" class="location-anchor-btn" onclick="switchLocationAnchor('nikeArt', this)">
+            <i class="bi bi-palette me-1 text-danger"></i> Nike Art Gallery (Lagos)
+          </button>
+        </div>
+
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+          <div>
+            <span class="badge bg-warning text-dark fw-bold px-2 py-1 rounded-pill mb-1">Location-Based Discovery Engine</span>
+            <h2 class="h3 fw-bold text-white mb-1"><i class="bi bi-pin-map-fill text-mint me-2"></i>Exploring <span id="locationAnchorTitle">Erin Ijesha Waterfalls</span>?</h2>
+            <p class="text-muted small mb-0" id="locationAnchorDesc">"I'm going to Erin Ijesha — what do I need around there?" Find verified stay, food, guides, and essentials.</p>
+          </div>
+          <a href="osun.html" class="btn btn-outline-pill btn-sm">View State Hub <i class="bi bi-arrow-right ms-1"></i></a>
+        </div>
+
+        <div class="row g-3">
+          <!-- 1. Places to Stay -->
+          <div class="col-lg-3 col-md-6 col-12">
+            <div class="p-3 rounded-3 h-100" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <i class="bi bi-building text-mint fs-5"></i>
+                <h4 class="h6 fw-bold text-white mb-0">Places to Stay</h4>
+              </div>
+              <ul class="list-unstyled small text-light mb-0" id="anchorStayList">
+                <li class="py-1 border-bottom border-secondary border-opacity-25 d-flex justify-content-between">
+                  <span>Zenith Grand Hotel & Suites</span>
+                  <span class="text-mint fw-bold">15 mins away</span>
+                </li>
+                <li class="py-1 border-bottom border-secondary border-opacity-25 d-flex justify-content-between">
+                  <span>Olumirin Eco-Lodge Resthouse</span>
+                  <span class="text-mint fw-bold">3 mins away</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 2. Local Food & Dining -->
+          <div class="col-lg-3 col-md-6 col-12">
+            <div class="p-3 rounded-3 h-100" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <i class="bi bi-cup-hot text-mint fs-5"></i>
+                <h4 class="h6 fw-bold text-white mb-0">Local Food & Drinks</h4>
+              </div>
+              <ul class="list-unstyled small text-light mb-0" id="anchorEatList">
+                <li class="py-1 border-bottom border-secondary border-opacity-25 d-flex justify-content-between">
+                  <span>Amala Heritage Kitchen & Bar</span>
+                  <span class="text-mint fw-bold">Station Rd</span>
+                </li>
+                <li class="py-1 border-bottom border-secondary border-opacity-25 d-flex justify-content-between">
+                  <span>Erin Valley Palm Wine Shed</span>
+                  <span class="text-mint fw-bold">Entrance</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 3. Local Guides & Experiences -->
+          <div class="col-lg-3 col-md-6 col-12">
+            <div class="p-3 rounded-3 h-100" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <i class="bi bi-compass text-mint fs-5"></i>
+                <h4 class="h6 fw-bold text-white mb-0">Guides & Experiences</h4>
+              </div>
+              <ul class="list-unstyled small text-light mb-0" id="anchorExpList">
+                <li class="py-1 border-bottom border-secondary border-opacity-25 d-flex justify-content-between">
+                  <span>Oriade Highland Hiking Guides</span>
+                  <span class="text-warning fw-bold">Guide</span>
+                </li>
+                <li class="py-1 border-bottom border-secondary border-opacity-25 d-flex justify-content-between">
+                  <span>Abake Mountain Cultural Trail</span>
+                  <span class="text-warning fw-bold">Excursion</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 4. Area Essentials -->
+          <div class="col-lg-3 col-md-6 col-12">
+            <div class="p-3 rounded-3 h-100" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <i class="bi bi-shield-check text-mint fs-5"></i>
+                <h4 class="h6 fw-bold text-white mb-0">Area Essentials</h4>
+              </div>
+              <ul class="list-unstyled small text-muted mb-0" id="anchorEssentialsList">
+                <li class="py-1 border-bottom border-secondary border-opacity-25 d-flex justify-content-between">
+                  <span class="text-light">Oriade Community Pharmacy</span>
+                  <span class="text-light font-monospace">Meds</span>
+                </li>
+                <li class="py-1 border-bottom border-secondary border-opacity-25 d-flex justify-content-between">
+                  <span class="text-light">GTBank ATM (Ilesa Expressway)</span>
+                  <span class="text-light font-monospace">Cash</span>
+                </li>
+                <li class="py-1 d-flex justify-content-between">
+                  <span class="text-light">TotalEnergies Fuel Station</span>
+                  <span class="text-light font-monospace">Fuel & Mart</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       ALL SPOTS GRID
+       ====================================================================== -->
+  <section class="py-5" id="spotsGridSection">
+    <div class="custom-container">
+      
+      <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-4">
+        <div>
+          <div class="section-indicator"></div>
+          <h2 class="section-heading mb-1">Curated Spots Directory</h2>
+          <p class="section-subtitle">Verified by The Africa Explorers community.</p>
+        </div>
+        <div>
+          <a href="business.html" class="btn btn-outline-warning btn-sm">
+            <i class="bi bi-plus-circle me-1"></i> Are you a business owner? List your spot
+          </a>
+        </div>
+      </div>
+
+      <div class="row g-4" id="spotsCardsContainer">
+        
+        <!-- Spot 1: Federal Palace Hotel -->
+        <div class="col-lg-4 col-md-6 col-12 spot-item" data-cat="Hotel" data-state="Lagos">
+          <div class="spot-discovery-card">
+            <div class="spot-card-img-wrap">
+              <img src="assets/images/lagos_nightlife.jpg" alt="Federal Palace" class="spot-card-img">
+              <span class="spot-cat-badge"><i class="bi bi-building me-1"></i> Hotel</span>
+              <span class="spot-verified-badge"><i class="bi bi-patch-check-fill"></i> VERIFIED</span>
+            </div>
+            <div class="spot-card-body">
+              <h3 class="spot-card-name">The Federal Palace Hotel</h3>
+              <div class="spot-card-loc"><i class="bi bi-geo-alt-fill text-mint"></i> Victoria Island, Lagos</div>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="amenity-chip"><i class="bi bi-wifi text-mint me-1"></i>WiFi</span>
+                <span class="amenity-chip"><i class="bi bi-water text-mint me-1"></i>Pool</span>
+                <span class="amenity-chip"><i class="bi bi-lightning text-mint me-1"></i>24/7 Power</span>
+                <span class="amenity-chip"><i class="bi bi-p-square text-mint me-1"></i>Parking</span>
+              </div>
+              <div class="spot-action-row">
+                <button class="btn btn-sm btn-mint flex-fill" onclick="openSpotDetailModal('federalPalace')">View Details</button>
+                <button class="btn btn-sm btn-outline-light" onclick="openSpotContact('The Federal Palace Hotel', 'whatsapp', '+2348012345678')"><i class="bi bi-whatsapp"></i></button>
+                <button class="btn btn-sm btn-outline-light" onclick="openSpotContact('The Federal Palace Hotel', 'phone', '+23412779000')"><i class="bi bi-telephone"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spot 2: Terra Kulture -->
+        <div class="col-lg-4 col-md-6 col-12 spot-item" data-cat="Restaurant" data-state="Lagos">
+          <div class="spot-discovery-card">
+            <div class="spot-card-img-wrap">
+              <img src="assets/images/lagos_food_fest.jpg" alt="Terra Kulture" class="spot-card-img">
+              <span class="spot-cat-badge"><i class="bi bi-egg-fried me-1"></i> Restaurant</span>
+              <span class="spot-verified-badge"><i class="bi bi-patch-check-fill"></i> VERIFIED</span>
+            </div>
+            <div class="spot-card-body">
+              <h3 class="spot-card-name">Terra Kulture Arts & Food</h3>
+              <div class="spot-card-loc"><i class="bi bi-geo-alt-fill text-mint"></i> Victoria Island, Lagos</div>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="amenity-chip"><i class="bi bi-check2 text-mint me-1"></i>Authentic Nigerian</span>
+                <span class="amenity-chip"><i class="bi bi-palette text-mint me-1"></i>Art Gallery</span>
+                <span class="amenity-chip"><i class="bi bi-book text-mint me-1"></i>Bookstore</span>
+              </div>
+              <div class="spot-action-row">
+                <button class="btn btn-sm btn-mint flex-fill" onclick="openSpotDetailModal('terraKulture')">View Details</button>
+                <button class="btn btn-sm btn-outline-light" onclick="openSpotContact('Terra Kulture', 'whatsapp', '+2348099991100')"><i class="bi bi-whatsapp"></i></button>
+                <button class="btn btn-sm btn-outline-light" onclick="openSpotContact('Terra Kulture', 'directions', 'Victoria Island, Lagos')"><i class="bi bi-map"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spot 3: Lekki Conservation Centre -->
+        <div class="col-lg-4 col-md-6 col-12 spot-item" data-cat="Attraction" data-state="Lagos">
+          <div class="spot-discovery-card">
+            <div class="spot-card-img-wrap">
+              <img src="assets/images/lekki_canopy.jpg" alt="Lekki Canopy" class="spot-card-img">
+              <span class="spot-cat-badge"><i class="bi bi-tree me-1"></i> Attraction</span>
+              <span class="spot-verified-badge"><i class="bi bi-patch-check-fill"></i> VERIFIED</span>
+            </div>
+            <div class="spot-card-body">
+              <h3 class="spot-card-name">Lekki Conservation Centre</h3>
+              <div class="spot-card-loc"><i class="bi bi-geo-alt-fill text-mint"></i> Lekki Peninsula, Lagos</div>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="amenity-chip"><i class="bi bi-check2 text-mint me-1"></i>Canopy Walk</span>
+                <span class="amenity-chip"><i class="bi bi-flower1 text-mint me-1"></i>Wildlife Park</span>
+                <span class="amenity-chip"><i class="bi bi-camera text-mint me-1"></i>Photo Spot</span>
+              </div>
+              <div class="spot-action-row">
+                <button class="btn btn-sm btn-mint flex-fill" onclick="openSpotDetailModal('lekkiCanopySpot')">View Details</button>
+                <button class="btn btn-sm btn-outline-light" onclick="openSpotContact('Lekki Conservation Centre', 'directions', 'Lekki Peninsula, Lagos')"><i class="bi bi-map"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spot 4: Erin Ijesha Waterfalls -->
+        <div class="col-lg-4 col-md-6 col-12 spot-item" data-cat="Attraction" data-state="Osun">
+          <div class="spot-discovery-card">
+            <div class="spot-card-img-wrap">
+              <img src="assets/images/osun_waterfalls.jpg" alt="Erin Ijesha Waterfalls" class="spot-card-img">
+              <span class="spot-cat-badge"><i class="bi bi-tree me-1"></i> Attraction</span>
+              <span class="spot-verified-badge"><i class="bi bi-patch-check-fill"></i> VERIFIED</span>
+            </div>
+            <div class="spot-card-body">
+              <h3 class="spot-card-name">Erin Ijesha Waterfalls</h3>
+              <div class="spot-card-loc"><i class="bi bi-geo-alt-fill text-mint"></i> Oriade / Ilesa, Osun State</div>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="amenity-chip"><i class="bi bi-check2 text-mint me-1"></i>7 Tier Waterfalls</span>
+                <span class="amenity-chip"><i class="bi bi-compass text-mint me-1"></i>Hiking Trail</span>
+                <span class="amenity-chip"><i class="bi bi-droplet text-mint me-1"></i>Natural Springs</span>
+              </div>
+              <div class="spot-action-row">
+                <button class="btn btn-sm btn-mint flex-fill" onclick="openSpotDetailModal('erinWaterfallsSpot')">View Details</button>
+                <button class="btn btn-sm btn-outline-light" onclick="openSpotContact('Erin Ijesha Waterfalls', 'whatsapp', '+2348023334455')"><i class="bi bi-whatsapp"></i></button>
+                <button class="btn btn-sm btn-outline-light" onclick="openSpotContact('Erin Ijesha Waterfalls', 'directions', 'Erin Ijesha, Osun')"><i class="bi bi-map"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spot 5: The Haven Shortlet -->
+        <div class="col-lg-4 col-md-6 col-12 spot-item" data-cat="Shortlet" data-state="Lagos">
+          <div class="spot-discovery-card">
+            <div class="spot-card-img-wrap">
+              <img src="assets/images/lagos_bridge.jpg" alt="The Haven Shortlet" class="spot-card-img">
+              <span class="spot-cat-badge"><i class="bi bi-house-door me-1"></i> Shortlet</span>
+              <span class="spot-verified-badge"><i class="bi bi-patch-check-fill"></i> VERIFIED</span>
+            </div>
+            <div class="spot-card-body">
+              <h3 class="spot-card-name">The Haven Luxury Penthouse</h3>
+              <div class="spot-card-loc"><i class="bi bi-geo-alt-fill text-mint"></i> Old Ikoyi, Lagos</div>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="amenity-chip"><i class="bi bi-check2 text-mint me-1"></i>3 King Suites</span>
+                <span class="amenity-chip"><i class="bi bi-hot-tub text-mint me-1"></i>Rooftop Jacuzzi</span>
+                <span class="amenity-chip"><i class="bi bi-shield-lock text-mint me-1"></i>24/7 Security</span>
+              </div>
+              <div class="spot-action-row">
+                <button class="btn btn-sm btn-mint flex-fill" onclick="openSpotDetailModal('ikoyiShortlet')">View Details</button>
+                <button class="btn btn-sm btn-outline-light" onclick="openSpotContact('The Haven Luxury Penthouse', 'whatsapp', '+2348145556677')"><i class="bi bi-whatsapp"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spot 6: Amala Heritage Kitchen -->
+        <div class="col-lg-4 col-md-6 col-12 spot-item" data-cat="Restaurant" data-state="Osun">
+          <div class="spot-discovery-card">
+            <div class="spot-card-img-wrap">
+              <img src="assets/images/lagos_food_fest.jpg" alt="Amala Kitchen" class="spot-card-img">
+              <span class="spot-cat-badge"><i class="bi bi-egg-fried me-1"></i> Restaurant</span>
+              <span class="spot-verified-badge"><i class="bi bi-patch-check-fill"></i> VERIFIED</span>
+            </div>
+            <div class="spot-card-body">
+              <h3 class="spot-card-name">Amala Heritage Kitchen & Bar</h3>
+              <div class="spot-card-loc"><i class="bi bi-geo-alt-fill text-mint"></i> Station Road, Osogbo</div>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="amenity-chip"><i class="bi bi-check2 text-mint me-1"></i>Hot Amala</span>
+                <span class="amenity-chip"><i class="bi bi-cup-straw text-mint me-1"></i>Fresh Palm Wine</span>
+                <span class="amenity-chip"><i class="bi bi-clock text-mint me-1"></i>Daily 8am-10pm</span>
+              </div>
+              <div class="spot-action-row">
+                <button class="btn btn-sm btn-mint flex-fill" onclick="openSpotDetailModal('amalaSkyOsogbo')">View Details</button>
+                <button class="btn btn-sm btn-outline-light" onclick="openSpotContact('Amala Heritage Kitchen', 'whatsapp', '+2348039990011')"><i class="bi bi-whatsapp"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       BUSINESS CALLOUT BANNER
+       ====================================================================== -->
+  <section class="py-5" style="background: rgba(12, 32, 36, 0.4);">
+    <div class="custom-container">
+      <div class="community-banner-card reveal-on-scroll">
+        <img src="assets/images/community_banner.jpg" class="community-banner-bg" alt="Nigeria background">
+        <div class="community-banner-overlay"></div>
+        <div class="community-banner-content">
+          <div class="community-banner-left">
+            <div class="community-icon-circle" style="background: rgba(245, 166, 35, 0.2);"><i class="bi bi-shop text-warning"></i></div>
+            <div>
+              <h3 class="community-banner-title">Own a Hotel, Shortlet, Restaurant or Experience?</h3>
+              <p class="community-banner-desc">Get discovered by thousands of active travelers visiting your state. Get direct bookings and WhatsApp leads with zero commission fees.</p>
+            </div>
+          </div>
+          <div>
+            <a href="business.html" class="btn btn-gold fw-bold">List Your Business Now <i class="bi bi-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       SPOT DETAILS MODAL
+       ====================================================================== -->
+  <div class="modal fade" id="spotDiscoveryModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <div>
+            <h5 class="modal-title fw-bold text-white mb-0" id="discoverySpotTitle">Spot Details</h5>
+            <span class="small text-muted" id="discoverySpotLoc"></span>
+          </div>
+          <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <div class="row g-4">
+            <div class="col-lg-6 col-12">
+              <div class="rounded-3 overflow-hidden position-relative mb-3" style="height: 230px;">
+                <img src="" id="discoverySpotImg" class="w-100 h-100 object-fit-cover" alt="Spot">
+                <span class="badge bg-dark text-warning position-absolute top-0 end-0 m-3 fw-bold border border-warning" id="discoverySpotRating"></span>
+              </div>
+              <div class="p-3 rounded-3" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+                <div class="small text-muted fw-bold mb-2">AMENITIES & SERVICES</div>
+                <div class="d-flex flex-wrap gap-1" id="discoverySpotAmenities"></div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-12 d-flex flex-column justify-content-between">
+              <div>
+                <h6 class="text-mint fw-bold mb-2">About This Spot</h6>
+                <p class="small text-light mb-4" id="discoverySpotDesc" style="line-height: 1.7;"></p>
+              </div>
+              <div>
+                <div class="small text-muted fw-bold mb-2">DIRECT CONTACT ACTIONS</div>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-mint fw-bold py-2" id="discoverySpotWaBtn"><i class="bi bi-whatsapp me-2"></i> Chat with Concierge on WhatsApp</button>
+                  <button class="btn btn-outline-light py-2" id="discoverySpotCallBtn"><i class="bi bi-telephone me-2"></i> Direct Phone Call</button>
+                  <button class="btn btn-outline-light py-2" id="discoverySpotDirBtn"><i class="bi bi-geo-alt me-2"></i> Get GPS Directions</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1090;">
+    <div id="liveToast" class="toast align-items-center border-0 text-white" style="background: #092127; border: 1px solid rgba(0,210,132,0.4) !important;">
+      <div class="toast-header" style="background: rgba(0,210,132,0.1); color: #fff;">
+        <i id="toastIcon" class="bi bi-check-circle-fill text-mint me-2"></i>
+        <strong class="me-auto" id="toastTitle">The Africa Explorers</strong>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+      </div>
+      <div class="toast-body small" id="toastBody"></div>
+    </div>
+  </div>
+
+  <footer class="footer-custom">
+    <div class="custom-container text-center py-4 border-top border-secondary border-opacity-25">
+      <p class="small text-muted mb-0">© 2025 The Africa Explorers NG. Ecosystem Destination Engine. Same country. <span class="text-mint">Different stories.</span></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    let activeCat = 'all';
+
+    function filterByCat(cat, btn) {
+      activeCat = cat;
+      document.querySelectorAll('.spot-cat-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      filterSpots();
+    }
+
+    function filterSpots() {
+      const q = document.getElementById('spotsSearchInput').value.toLowerCase().trim();
+      const state = document.getElementById('spotsStateSelect').value;
+      const items = document.querySelectorAll('.spot-item');
+
+      items.forEach(item => {
+        const itemCat = item.getAttribute('data-cat');
+        const itemState = item.getAttribute('data-state');
+        const itemText = item.textContent.toLowerCase();
+
+        const matchesCat = activeCat === 'all' || 
+                           itemCat === activeCat || 
+                           (activeCat === 'Hotel' && (itemCat === 'Hotel' || itemCat === 'Shortlet'));
+        const matchesState = state === 'all' || itemState.toLowerCase() === state.toLowerCase();
+        const matchesQuery = !q || itemText.includes(q);
+
+        if (matchesCat && matchesState && matchesQuery) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    document.getElementById('spotsSearchInput').addEventListener('input', filterSpots);
+    document.getElementById('spotsStateSelect').addEventListener('change', filterSpots);
+  </script>
+</body>
+</html>
